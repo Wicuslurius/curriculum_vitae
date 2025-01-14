@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+  
+body {
+  font-family: "Poppins", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  padding: 4px;
+}
+  
