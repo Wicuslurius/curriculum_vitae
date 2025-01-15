@@ -8,11 +8,51 @@
 html {
   scroll-behavior: smooth;
 }
-  
+ 
 body {
   font-family: "Poppins", serif;
   font-weight: 300;
   font-style: normal;
+  background-color: #F1FAEE;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+    background-color: #7F7F7F;
+    padding: 20px;
+}
+
+section {
+    background-color: #EAEAEA;
+    padding: 20px;
+    margin: 0 20px;
+}
+
+footer {
+    background-color: #4682B4;
+    text-align: center;
+    padding: 10px;
+    color: #FFF;
+}
+
+button {
+    background-color: #B5E48C; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #F6BD60; /* Color al pasar el cursor */
 }
 
 .logo {
