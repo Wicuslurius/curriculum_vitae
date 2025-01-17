@@ -1,4 +1,23 @@
+/*const hora = new Date().getHours();
+let mensaje;
+let nombreEstilo;
 
+if (hora < 13) {
+  mensaje = 'buenos dias';
+  nombreEstilo = 'maniana';
+}else if (hora < 21){
+  mensaje = 'buenas tardes';
+  nombreEstilo = 'tarde';
+}else if (hora < 23){
+  mensaje = 'buenas noches';
+  nombreEstilo = 'noche';
+}else{
+  mensaje = 'hola';
+  nombreEstilo = 'madrugada'
+}
+
+document.getElementById('output').innerHTML = mensaje;
+document.body.className = nombreEstilo;*/
 
 //--------------------------------------------------------------------->
 // ejercicio dos
