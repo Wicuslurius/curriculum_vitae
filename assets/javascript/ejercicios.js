@@ -1,3 +1,4 @@
+alert('hola mundo');
 /*const hora = new Date().getHours();
 let mensaje;
 let nombreEstilo;
