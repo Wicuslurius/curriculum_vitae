@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Vitae</title>
-    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="./assets/styles/index_css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -13,120 +13,124 @@
   </head>
   <body>
     <header>
-      <img src="./assets/img/logo_cv.png" alt="logo_cv" class="logo"/>
-      <nav style="display: flex; flex-direction: row; align-items: center; padding: 8px; color: white;">
-        <h1 style="margin-right: 80px; ">Curriculum V</h1>
-        <ul id="navbarList" style="display: flex; flex-direction: row; align-items: center; list-style-type: none;">
-          <li style="margin-right: 30px; font-size: 30px; font-weight: bold;"><a href="#">Inicio</a></li>
+      <img src="./assets/img/logo_cv.png" alt="logo_cv" class="nav-logo"/>
+      <nav class="nav-bar">
+        <h1 class="nav-title">Curriculum V</h1>
+        <ul class="nav-list">
+          <li class="nav-li"><a href="#">Inicio</a></li>
         </ul>
       </nav> 
     </header>
-    <main>
-      <section class="container">
-       <img src="./assets/img/photo_profile.jpeg" alt="photo_profile" style="width: 300px; height: 400px;"/>
-       <h2>Desarrollador Web Full Stack</h2>
-       <h3>Luis Miguel Aranguren Ardila</h3>
-       <div>
-         <i class="fa-brands fa-linkedin" style="font-size: 50px;"></i>
-         <i class="fa-solid fa-phone" style="font-size: 50px;"></i>
-         <i class="fa-solid fa-envelope" style="font-size: 50px;"></i>
-         <i class="fas fa-map-marker-alt" style="font-size: 50px;"></i>
-        </div>
+    <main class="principal-container">
+      <div class="left">
+        <section>
+        <img src="./assets/img/photo_profile.jpeg" alt="photo_profile" style="width: 300px; height: 400px;"/>
+        <h2>Desarrollador Web Full Stack</h2>
+        <h3>Luis Miguel Aranguren Ardila</h3>
         <div>
-          <p>Perfil</p>
-          <p>Desarrollador web full stack con manejo en leguague Ruby
-            framework Ruby on Rails ,desarrollo por pruebas TDD con
-            metodologías ágiles Scrum y Kamban , manejo de base de datos,
-            desarrollo de nuevas funcionalidades para el sitio web , manejo de
-            equipo It como scrum Manager .
-            Me caracterizo por ser honesto ,responsable y puntual con aptitudes
-            para trabajar en equipo o individualmente; Siempre dispuesto a
-            aprender y adquirir nuevos conocimientos y experiencias que
-            contribuyan al desarrollo conjunto laboral, profesional y personal.
-            Sentido de compromiso y pertenencia a los procesos asignados , con
-            el fin de lograr objetivos personales y laborales.</p>
-        </div>
-      </section>
-      <aside>
-        <h3>Estudios</h3>
-        <p>tecnologo animación 3d - 2013-2015 | Sena</p>
-        <p>Cursos y Certificación Platzi
-          html - css , Git y Github, talwind
-          2022-2023 | Platzi</p>
-        <p>Curso y Certificación Egg
-          Programacion desde cero
-          2022-2023 | Egg</p>
-        <h3>Habilidades</h3>
-        <p>Jira - Canvan</p>
-        <p>Html -haml</p>
-        <p>Css - tailwind</p>
-        <p>Javascript - Stimulus</p>
-        <p>Ruby -Ruby on Rails</p>
-        <p>Git - Github</p>
-        <p>SQLite - Postgress</p>
-        <p>Metodología ágil -
-          Scrum & Kamban</p>
-        <p>Desarrollo - TDD</p>
-        <h3>Idiomas</h3>
-        <p>ingles - A2</p>
-      </aside>
-      <section class="container">
-        <div>
-          <h3>Experiencia</h3>
+          <i class="fa-brands fa-linkedin" style="font-size: 50px;"></i>
+          <i class="fa-solid fa-phone" style="font-size: 50px;"></i>
+          <i class="fa-solid fa-envelope" style="font-size: 50px;"></i>
+          <i class="fas fa-map-marker-alt" style="font-size: 50px;"></i>
+          </div>
+          <div>
+            <p>Perfil</p>
+            <p>Desarrollador web full stack con manejo en leguague Ruby
+              framework Ruby on Rails ,desarrollo por pruebas TDD con
+              metodologías ágiles Scrum y Kamban , manejo de base de datos,
+              desarrollo de nuevas funcionalidades para el sitio web , manejo de
+              equipo It como scrum Manager .
+              Me caracterizo por ser honesto ,responsable y puntual con aptitudes
+              para trabajar en equipo o individualmente; Siempre dispuesto a
+              aprender y adquirir nuevos conocimientos y experiencias que
+              contribuyan al desarrollo conjunto laboral, profesional y personal.
+              Sentido de compromiso y pertenencia a los procesos asignados , con
+              el fin de lograr objetivos personales y laborales.</p>
+          </div>
+        </section>
+        <section>
+          <div>
+            <h3>Experiencia</h3>
+            <br>
+            <p>2022/01/24-2023/08/18</p>
+            <p>bogota</p>
+            <span>HoyTrabajas.com</span>
+            <p>
+              Trabajo en equipo para el desarrollo de nuevas
+              funcionalidades y optimización de la página web , manejo
+              de metodologías ágiles para la entrega temprana y
+              continua de software con valor
+              Desarrollo guiado por pruebas , manejo de sistema
+              control de versiones
+              Entrenamiento de desarrolladores junior en el manejo del
+              proyecto y herramienta utilizadas para la mejora de su
+              productividad .
+              Manejo del equipo de IT en la compañía como scrum
+              Manager
+              Creacion de consultas por sql y Ruby para el manejo y
+              administración de la información en base de datos
+              Consumo de la Api de facebook administracio y captación
+              de leads y creación de usuarios en la plataforma web
+              Refactorizacion de código
+              cumplimientos de requerimientos ,tanto front end cómo
+              back end ,creación de migraciones , creación de pruebas
+              TDD .
+            </p>
+          </div>
           <br>
-          <p>2022/01/24-2023/08/18</p>
-          <p>bogota</p>
-          <span>HoyTrabajas.com</span>
-          <p>
-            Trabajo en equipo para el desarrollo de nuevas
-            funcionalidades y optimización de la página web , manejo
-            de metodologías ágiles para la entrega temprana y
-            continua de software con valor
-            Desarrollo guiado por pruebas , manejo de sistema
-            control de versiones
-            Entrenamiento de desarrolladores junior en el manejo del
-            proyecto y herramienta utilizadas para la mejora de su
-            productividad .
-            Manejo del equipo de IT en la compañía como scrum
-            Manager
-            Creacion de consultas por sql y Ruby para el manejo y
-            administración de la información en base de datos
-            Consumo de la Api de facebook administracio y captación
-            de leads y creación de usuarios en la plataforma web
-            Refactorizacion de código
-            cumplimientos de requerimientos ,tanto front end cómo
-            back end ,creación de migraciones , creación de pruebas
-            TDD .
-          </p>
-        </div>
-        <br>
-        <div>
-          <p>2024/10/15 - Actual</p>
-          <p>bogota</p>
-          <span>Finiapp.com</span>
-          <p>
-            Trabajo en equipo para el desarrollo de nuevas
-            funcionalidades y optimización de la página web , manejo
-            de metodologías ágiles para la entrega temprana y
-            continua de software con valor
-            Desarrollo guiado por pruebas , manejo de sistema
-            control de versiones
-            Entrenamiento de desarrolladores junior en el manejo del
-            proyecto y herramienta utilizadas para la mejora de su
-            productividad .
-            Manejo del equipo de IT en la compañía como scrum
-            Manager
-            Creacion de consultas por sql y Ruby para el manejo y
-            administración de la información en base de datos
-            Consumo de la Api de facebook administracio y captación
-            de leads y creación de usuarios en la plataforma web
-            Refactorizacion de código
-            cumplimientos de requerimientos ,tanto front end cómo
-            back end ,creación de migraciones , creación de pruebas
-            TDD .
-          </p>
-        </div>
-      </section>
+          <div>
+            <p>2024/10/15 - Actual</p>
+            <p>bogota</p>
+            <span>Finiapp.com</span>
+            <p>
+              Trabajo en equipo para el desarrollo de nuevas
+              funcionalidades y optimización de la página web , manejo
+              de metodologías ágiles para la entrega temprana y
+              continua de software con valor
+              Desarrollo guiado por pruebas , manejo de sistema
+              control de versiones
+              Entrenamiento de desarrolladores junior en el manejo del
+              proyecto y herramienta utilizadas para la mejora de su
+              productividad .
+              Manejo del equipo de IT en la compañía como scrum
+              Manager
+              Creacion de consultas por sql y Ruby para el manejo y
+              administración de la información en base de datos
+              Consumo de la Api de facebook administracio y captación
+              de leads y creación de usuarios en la plataforma web
+              Refactorizacion de código
+              cumplimientos de requerimientos ,tanto front end cómo
+              back end ,creación de migraciones , creación de pruebas
+              TDD .
+            </p>
+          </div>
+        </section>
+      </div>
+      <div class="right">
+        <aside>
+          <h3>Estudios</h3>
+          <p>tecnologo animación 3d - 2013-2015 | Sena</p>
+          <p>Cursos y Certificación Platzi
+            html - css , Git y Github, talwind
+            2022-2023 | Platzi</p>
+          <p>Curso y Certificación Egg
+            Programacion desde cero
+            2022-2023 | Egg</p>
+          <h3>Habilidades</h3>
+          <p>Jira - Canvan</p>
+          <p>Html -haml</p>
+          <p>Css - tailwind</p>
+          <p>Javascript - Stimulus</p>
+          <p>Ruby -Ruby on Rails</p>
+          <p>Git - Github</p>
+          <p>SQLite - Postgress</p>
+          <p>Metodología ágil -
+            Scrum & Kamban</p>
+          <p>Desarrollo - TDD</p>
+          <h3>Idiomas</h3>
+          <p>ingles - A2</p>
+        </aside>
+      </div>
       <section class="container">
         <h3>Referencias</h3>
         <div>

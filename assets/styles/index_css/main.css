@@ -1,0 +1,44 @@
+.principal-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.left {
+  flex: 7;
+  padding: 1rem;
+  background-color: #e8f5e9;
+}
+  
+.left section {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #c8e6c9;
+  border: 1px solid #a5d6a7;
+}
+  
+
+.right {
+  flex: 2; 
+  padding: 1rem;
+  background-color: #fbe9e7;
+}
+  
+.right aside {
+  padding: 0.5rem;
+  background-color: #ffccbc;
+  border: 1px solid #ffab91;
+}
+  
+  
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  .left, .right {
+    flex: 1;
+  }
+}
