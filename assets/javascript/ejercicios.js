@@ -1,5 +1,19 @@
-alert('hola mundo');
-/*const hora = new Date().getHours();
+//alert('hola mundo');
+
+const dia = new Date().getDay();
+let mensaje;
+if (dia === 0 || dia === 6)mensaje = "Buen fin de semana";
+else mensaje = `Faltan ${6 - dia} dias para el fin de semana`;
+//mensaje = `Faltan <strong>${6 - dia}</strong> dias para el fin de semana`
+//const valorSrc = "./../assets/img/img_exercise/Carita" + dia + ".png";
+const valorSrc = `./../assets/img/img_exercise/Carita${dia}.png`;
+document.getElementById("carita").src = valorSrc;
+document.getElementById("output").innerHTML = mensaje;
+
+//----------------------------------------------------------------->
+//ejercicio tres
+
+/*const hora = new Date().getHour}s();
 let mensaje;
 let nombreEstilo;
 
