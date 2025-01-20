@@ -5,11 +5,12 @@
   background-color: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
 }
   
 .left {
   flex: 7;
-  padding: 1rem;
+  padding: 1rem; 
   background-color: #e8f5e9;
 }
   
@@ -41,4 +42,55 @@
   .left, .right {
     flex: 1;
   }
+}
+
+/*------section one-----------*/
+.section_one{
+  display: flex; 
+  flex-direction: column;
+}
+
+.img_profile {
+  width: 20%; 
+  height: 230px;
+  border-radius: 10%;
+  object-fit: cover;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.presentation_card{
+  display: flex; 
+  align-items: center; 
+  padding: 20px; 
+  background-color: 
+  grey; gap: 10%
+}
+
+.presentation_card .principal_info{
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  width: 70%;
+}
+
+.presentation_card .principal_info .container_pri_inf{
+  text-align: center; 
+  padding: 10px;
+}
+
+.presentation_card .principal_info .container_pri_inf h2{font-size: 40px;}
+
+.presentation_card .principal_info .container_pri_inf h3{font-size: 20px;margin:10px 0;}
+
+
+.presentation_card .secondary_info{
+  display: flex; 
+  justify-content: space-between; 
+  width: 100%; 
+  padding: 0 15%;
+}
+
+.presentation_card .secondary_info i{
+  font-size: 50px;
 }
