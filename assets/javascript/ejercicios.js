@@ -1,6 +1,16 @@
-//alert('hola mundo');
+alert('hola mundo desde el js de ejercicios');
 
-const dia = new Date().getDay();
+const listaI = document.querySelectorAll('#numeros li')
+
+const mensaje = `hay ${listaI.length} elementos en la lista ul "numeros"`;
+document.getElementById('output').innerHTML = mensaje;
+
+for (let i=0; i < listaI.length; i+=1) {
+  listaI.item(i).value = i+1;
+}
+//--------------------------------------------------------------->
+
+/*const dia = new Date().getDay();
 let mensaje;
 if (dia === 0 || dia === 6)mensaje = "Buen fin de semana";
 else mensaje = `Faltan ${6 - dia} dias para el fin de semana`;
@@ -8,7 +18,7 @@ else mensaje = `Faltan ${6 - dia} dias para el fin de semana`;
 //const valorSrc = "./../assets/img/img_exercise/Carita" + dia + ".png";
 const valorSrc = `./../assets/img/img_exercise/Carita${dia}.png`;
 document.getElementById("carita").src = valorSrc;
-document.getElementById("output").innerHTML = mensaje;
+document.getElementById("output").innerHTML = mensaje;*/
 
 //----------------------------------------------------------------->
 //ejercicio tres
