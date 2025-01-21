@@ -1,4 +1,18 @@
-alert('hola mundo desde el js de ejercicios');
+function esFinDeSemana() {
+  const dia = new Date().getDate();
+  if(dia === 0 || dia === 6)return true;
+  else return false;
+}
+let valorSrc;
+if (esFinDeSemana() === true) valorSrc = './../assets/img/img_exercise/CaritaFeliz.png';
+else valorSrc = './../assets/img/img_exercise/CaritaTriste.png';
+
+document.getElementById('carita').src = valorSrc;
+
+//--------------------------------------------------------------->
+//ejercicio cinco
+
+/*alert('hola mundo desde el js de ejercicios');
 
 const listaI = document.querySelectorAll('#numeros li')
 
@@ -7,8 +21,9 @@ document.getElementById('output').innerHTML = mensaje;
 
 for (let i=0; i < listaI.length; i+=1) {
   listaI.item(i).value = i+1;
-}
+}*/
 //--------------------------------------------------------------->
+//ejercicio cuatro
 
 /*const dia = new Date().getDay();
 let mensaje;
