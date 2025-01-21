@@ -61,9 +61,14 @@
 .presentation_card{
   display: flex; 
   align-items: center; 
-  padding: 20px; 
-  background-color: 
-  grey; gap: 10%
+  padding: 50px 20px;  
+  gap: 5%;
+  justify-content: center;
+  background-image: url('./../../img/presentation_card.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
 }
 
 .presentation_card .principal_info{
@@ -93,4 +98,32 @@
 
 .presentation_card .secondary_info i{
   font-size: 50px;
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.presentation_card .secondary_info .linkedin:hover {
+  transform: scale(1.5);
+  color: #0077B5;
+}
+
+.presentation_card .secondary_info .phone:hover {
+  transform: scale(1.5);
+  color: #25D366;
+}
+
+.presentation_card .secondary_info .email:hover {
+  transform: scale(1.5);
+  color: #EA4335;
+}
+
+.presentation_card .secondary_info .map:hover {
+  transform: scale(1.5);
+  color: #34A853;
+}
+
+.presentation_card .experience{
+  padding: 5px; 
+  margin-top: 5px;
+  text-align: center;
 }
