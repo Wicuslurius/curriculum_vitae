@@ -10,15 +10,12 @@
   
 .left {
   flex: 7;
-  padding: 1rem; 
-  background-color: #e8f5e9;
+  padding: 1rem;
 }
   
 .left section {
   margin-bottom: 1rem;
   padding: 0.5rem;
-  background-color: #c8e6c9;
-  border: 1px solid #a5d6a7;
 }
   
 

@@ -1,3 +1,5 @@
+alert('hola mundo desde el js de ejercicios');
+
 function esFinDeSemana() {
   const dia = new Date().getDate();
   if(dia === 0 || dia === 6)return true;
@@ -12,9 +14,7 @@ document.getElementById('carita').src = valorSrc;
 //--------------------------------------------------------------->
 //ejercicio cinco
 
-/*alert('hola mundo desde el js de ejercicios');
-
-const listaI = document.querySelectorAll('#numeros li')
+/*const listaI = document.querySelectorAll('#numeros li')
 
 const mensaje = `hay ${listaI.length} elementos en la lista ul "numeros"`;
 document.getElementById('output').innerHTML = mensaje;
