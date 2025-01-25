@@ -183,12 +183,19 @@
   font-size: 20px;
 }
 
+.card_time_main{
+  display: flex;
+  flex-direction: column;
+}
+
 .card_time{
   background-color: #c8e6c9; 
   border: 1px solid #a5d6a7; 
   padding: 5px; 
   border-radius: 5px; 
   font-weight: 500;
+  margin-top: 2px;
+  text-align: center;
 }
 
 .card_paragraph{
