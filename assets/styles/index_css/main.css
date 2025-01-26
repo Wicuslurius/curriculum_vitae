@@ -47,14 +47,6 @@
   flex-direction: column;
 }
 
-.img_profile {
-  width: 20%; 
-  height: 230px;
-  border-radius: 10%;
-  object-fit: cover;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-}
-
 .presentation_card{
   display: flex; 
   align-items: center; 
@@ -67,6 +59,14 @@
   background-repeat: no-repeat;
   border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.img_profile {
+  width: 20%; 
+  height: 230px;
+  border-radius: 10%;
+  object-fit: cover;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .presentation_card .principal_info{
@@ -146,6 +146,60 @@
   letter-spacing: 1px;
 }
 
+@media (max-width: 810px) {
+  .principal-container {
+    width: 95%;
+  }
+
+  .presentation_card{
+    display: flex;
+    flex-direction: column;
+    padding: 15px 5px;  
+  }
+
+  .img_profile {
+    width: 30%; 
+    height: 180px;
+  }
+
+  .presentation_card .principal_info .container_pri_inf h2{font-size: 35px;}
+
+  .presentation_card .principal_info .container_pri_inf h3{font-size: 15px;margin:10px 0;}
+
+  .presentation_card .secondary_info i{
+    font-size: 40px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+}
+
+@media (max-width: 412px) {
+  .principal-container {
+    width: 98%;
+  }
+
+  .presentation_card{
+    padding: 8px 3px;  
+  }
+
+  .img_profile {
+    width: 30%; 
+    height: 140px;
+  }
+
+  .presentation_card .principal_info .container_pri_inf h2{font-size: 35px;}
+
+  .presentation_card .principal_info .container_pri_inf h3{font-size: 15px;margin:10px 0;}
+
+  .presentation_card .secondary_info i{
+    font-size: 40px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+}
+
+
+
 /*------section two-----------*/
 .container_sec_inf{
   padding: 7px; 
@@ -201,4 +255,120 @@
 .card_paragraph{
   letter-spacing: 1px; 
   margin-top: 10px;
+}
+
+.line_separation{
+  background-color: black;
+  height: 2px; 
+  margin: 30px 0;
+}
+
+@media (max-width: 412px) {
+  .card_title_box{ 
+    flex-direction: column; 
+    margin: 10px 0; 
+  }
+}
+
+
+/*-------------------aside right-----------------*/
+
+.aside_container{
+  text-align: center;
+}
+
+.title_aside{
+  color: white; 
+  font-weight: bold; 
+  font-size: 30px;
+}
+
+.big_line_separate{
+  background-color: black;
+  height: 2px; 
+  margin: 15px 0;
+}
+
+.small_line_separate{
+  background-color: black;
+  height: 2px; 
+  margin: 10px auto; 
+  width: 50px;
+}
+
+.card_aside{
+  background-color: white; 
+  padding: 5px; 
+  border-radius: 10px;
+}
+
+.document_icon{
+  font-size: 30px;
+}
+
+.sena_logo{
+  width: 80px;
+  height: 80px;
+}
+
+.platzi_logo{
+  width: 140px; 
+  height: 50px; 
+  border-radius: 5px;
+}
+
+.skill_cards{
+  margin-top: 18px;
+  display: flex; 
+  flex-direction: column;
+}
+
+.skill_card_sub_title{
+  color: white;
+}
+
+.skill_card_icon{
+  width: 50px; 
+  height: 50px;
+}
+
+.skill_card_icon_white{
+  width: 50px; 
+  height: 50px; 
+  background-color: white; 
+  border-radius: 8px;
+}
+
+.tw_css{
+  background-color: white;
+  border-radius: 8px;
+  padding: 5px;
+  height: 40px; 
+  width: 120px;
+}
+
+@media (max-width: 412px) {
+  .skill_cards{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 35px;
+  }
+
+  .space_text{
+    margin-left: 40px;
+  }
+
+}
+
+/*-------------------section references-----------------*/
+
+.section_references{
+  padding: 20px;
+  margin: 20px;
+  background-color: white; 
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: space-between;
 }

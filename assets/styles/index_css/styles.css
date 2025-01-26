@@ -1,5 +1,6 @@
 @import url('nav.css');
 @import url('main.css');
+@import url('footer.css');
 
 * {
   margin: 0;
@@ -29,13 +30,6 @@ header {
     flex-direction: row; 
     align-items: center; 
     width: 100%;
-}
-
-footer {
-    background-color: #4682B4;
-    text-align: center;
-    padding: 10px;
-    color: #FFF;
 }
 
 .container {
