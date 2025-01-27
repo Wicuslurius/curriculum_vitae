@@ -234,6 +234,7 @@
   justify-content: space-between; 
   margin: 10px 0; 
   align-items: center;
+  position: relative;
 }
 
 .card_company{
@@ -259,6 +260,52 @@
 .card_paragraph{
   text-align: justify;
   margin-top: 10px;
+  display: none;
+}
+
+.card_experience_company.active .card_paragraph{
+  display: block;
+}
+
+/*.card_exp_icon {
+  font-size: 1.25rem;
+}*/
+
+.exp-toggle{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  height: 30px;
+  width: 30px;
+  top: 30px;
+  right: 30px;
+  background-color: rgb(150, 60, 247);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.exp-toggle:hover{
+  transform: scale(1.05);
+}
+
+.exp-toggle .fa-x {
+  display: none;
+}
+
+.card_experience_company.active .card_title_box .exp-toggle .fa-x{
+  display: block;
+}
+
+.card_experience_company.active .card_title_box .exp-toggle .fa-arrow-down-long{
+  display: none;
+}
+
+.card_experience_company.active .card_title_box .exp-toggle{
+  background-color: #ff0000;
 }
 
 .line_separation{
@@ -379,6 +426,10 @@
   flex-direction: row; 
   align-items: center; 
   justify-content: space-between;
+}
+
+.name_references{
+  font-weight: bold;
 }
 
 @media (max-width: 412px) {
