@@ -23,15 +23,6 @@ body {
   background-color: #EAEAEA;
 }
 
-header {
-    background-color: #7F7F7F;
-    padding: 20px;
-    display: flex; 
-    flex-direction: row; 
-    align-items: center; 
-    width: 100%;
-}
-
 .container {
   background-color: #EAEAEA;
   padding: 20px;

@@ -13,11 +13,19 @@
   </head>
   <body>
     <header>
-      <img src="./assets/img/logo_cv.png" alt="logo_cv" class="nav-logo"/>
-      <nav class="nav-bar">
-        <h1 class="nav-title">Curriculum V</h1>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <img src="./assets/img/logo_cv.png" alt="logo_cv" class="nav-logo"/>
+        <p class="nav-title">Curriculum V</p>
+      </div>
+      <button class="open-menu" id="open"><i class="fa-solid fa-bars"></i></button>
+      <nav class="nav-bar" id="nav">
+        
+        <button id="close" class="close-menu"><i class="fa-solid fa-x" style="color: white;"></i></button>
         <ul class="nav-list">
-          <li class="nav-li"><a href="#">Inicio</a></li>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Documentacion</a></li>
+          <li><a href="#">Certificaciones</a></li>
+          <li><a href="#">Contacto</a></li>
         </ul>
       </nav>
     </header>
@@ -262,6 +270,6 @@
     <footer class="footer_container">
       <p style="margin: 30px 0;">© 2025 - Todos los derechos reservados</p>
     </footer>
-    <script type="text/javascript" src="./assets/javascript/hello.js"></script>
+    <script type="text/javascript" src="./assets/javascript/main.js"></script>
   </body>
 </html>
