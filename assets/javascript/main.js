@@ -12,7 +12,7 @@ close.addEventListener("click", () => {
 
 /*------------------------------> expand card <------------------*/
 
-const toggles = document.querySelectorAll(".card_title_box");
+const toggles = document.querySelectorAll(".exp-toggle");
 
 toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {

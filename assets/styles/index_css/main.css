@@ -226,6 +226,7 @@
   padding: 20px;  
   border: 1px solid #ccc; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .card_title_box{
@@ -234,7 +235,6 @@
   justify-content: space-between; 
   margin: 10px 0; 
   align-items: center;
-  position: relative;
 }
 
 .card_company{
@@ -279,7 +279,7 @@
   font-size: 18px;
   height: 30px;
   width: 30px;
-  top: 30px;
+  bottom: 15px;
   right: 30px;
   background-color: rgb(150, 60, 247);
   color: white;
@@ -296,15 +296,15 @@
   display: none;
 }
 
-.card_experience_company.active .card_title_box .exp-toggle .fa-x{
+.card_experience_company.active .exp-toggle .fa-x{
   display: block;
 }
 
-.card_experience_company.active .card_title_box .exp-toggle .fa-arrow-down-long{
+.card_experience_company.active .exp-toggle .fa-arrow-down-long{
   display: none;
 }
 
-.card_experience_company.active .card_title_box .exp-toggle{
+.card_experience_company.active .exp-toggle{
   background-color: #ff0000;
 }
 
