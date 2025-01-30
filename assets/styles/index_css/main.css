@@ -97,7 +97,7 @@
 }
 
 .presentation_card .secondary_info i{
-  font-size: 50px;
+  font-size: 45px;
   color: white;
   transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -120,6 +120,11 @@
 .presentation_card .secondary_info .map:hover {
   transform: scale(1.5);
   color: #34A853;
+}
+
+.presentation_card .secondary_info .github:hover {
+  transform: scale(1.5);
+  color: #00008B;
 }
 
 .presentation_card .experience{
@@ -165,7 +170,7 @@
   }
 
   .presentation_card .secondary_info{
-    padding: 0 0;
+    padding: 10px;
   }
 
   .presentation_card .principal_info .container_pri_inf h2{font-size: 35px;}
@@ -377,8 +382,22 @@
   border-radius: 10px;
 }
 
+.document_icon_button{
+  background-color: #4B4B4BCC;
+  width: 80%;
+  border-radius: 10px;
+  margin: auto;
+  padding: 2px;
+}
+
+.document_icon_button:hover{
+  background-color: white;
+  border: 2px solid #195770;
+}
+
 .document_icon{
   font-size: 30px;
+  color: black;
 }
 
 .sena_logo{

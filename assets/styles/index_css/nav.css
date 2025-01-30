@@ -1,6 +1,6 @@
 header {
-  background-color: #7F7F7F;
-  padding: 2rem;
+  background-color: #052a39;
+  padding: 1.25rem;
   display: flex; 
   flex-direction: row; 
   align-items: center; 
@@ -8,10 +8,22 @@ header {
   justify-content: space-between; 
 }
 
+.nav-logo-container{
+  display: flex; 
+  flex-direction: row; 
+  align-items: center;
+}
+
 .nav-logo {
   width: 80px;
   height: 80px;
   padding: 4px;
+}
+
+.nav-title{
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
 }
 
 .nav-bar {
@@ -29,7 +41,7 @@ header {
   font-size: 20px; 
   font-weight: bold;
   text-decoration: none;
-  color: #1c1c1c;
+  color: white;
   margin-right: 35px;
 }
 
