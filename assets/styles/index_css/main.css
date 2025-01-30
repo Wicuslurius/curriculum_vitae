@@ -92,11 +92,13 @@
   justify-content: space-between; 
   width: 100%; 
   padding: 0 15%;
+  background-color: #4B4B4BCC;
+  border-radius: 10px;
 }
 
 .presentation_card .secondary_info i{
   font-size: 50px;
-  color: #333;
+  color: white;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -223,7 +225,7 @@
 .card_experience_company{
   background-color: white; 
   border-radius: 5px; 
-  padding: 20px;  
+  padding: 10px 20px;  
   border: 1px solid #ccc; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -255,6 +257,24 @@
   font-weight: 500;
   margin-top: 2px;
   text-align: center;
+}
+
+.functions_performed{
+  background-color: #80808080; 
+  text-align: center; 
+  padding: 7px; 
+  font-weight: 500; 
+  border-radius: 5px;
+}
+
+.funtions_presentation_card{
+  padding: 20px 30px; 
+  border: 1px solid #80808080; 
+  border-radius: 10px;
+}
+
+.sub_title_functions{
+  font-weight: bold;
 }
 
 .card_paragraph{
