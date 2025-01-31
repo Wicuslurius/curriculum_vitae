@@ -1,0 +1,39 @@
+.bg-img{
+  background-image: url('./../../img/contact_us_first_section_image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    color: white;
+}
+
+.principal-section{
+  padding: 20px; 
+  margin: 40px auto; 
+  display: flex; 
+  flex-direction: column; 
+  width: 500px;
+}
+
+.contact_title{
+  width: 100%; 
+  text-align: center; 
+  font-size: 50px;
+}
+
+.form-layout{
+  display:flex; 
+  flex-direction: column; 
+  gap:10px;
+}
