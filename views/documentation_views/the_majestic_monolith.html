@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El majestuoso monolito</title>
+    <link rel="stylesheet" href="./../../assets/styles/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="nav-logo-container">
+        <img src="./../../assets/img/logo_cv.png" alt="logo_cv" class="nav-logo"/>
+        <p class="nav-title">Documentacion</p>
+      </div>
+      <button class="open-menu" id="open"><i class="fa-solid fa-bars"></i></button>
+      <nav class="nav-bar" id="nav">    
+        <button id="close" class="close-menu"><i class="fa-solid fa-x" style="color: white;"></i></button>
+        <ul class="nav-list">
+          <li><a href="./../../index.html">Inicio</a></li>
+          <li><a href="./../documentation.html">Documentación</a></li>
+          <li><a href="./../certification.html">Certificaciones</a></li>
+          <li><a href="./../contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="principal-container">
+      <section>
+        <p>La piramide de prueba practica</p>
+        <p>algunos patrones son solo sobre el codigo . si su codigo se ve asi y lo necesita para hacer eso , esto es lo que debe hacer. haria bien en estudiar dichos patrones , ya que le brindan un amplio repertorio
+          de soluciones listas para aplicar y mejorar su codigo cada vez que accede a su contexto. 
+          
+          luego , hay otros patrones que tienen menos que ver con el codigo y mas con como se escribe el codigo , quien lo escribe y dentro de que organizacion.El monolito majestuoso es uno de esos patrones.pero 
+          antes de sumergirnos en todo su esplendor , primero examinemos su patron opuesto : arquitectura orientada a micro/servicios.
+          
+          M/SOA es una receta para dividir una aplicacion en muchas partes mas pequeñas, ejecutar cada una de estas partes como su propia aplicacion y luego dejar que la constelacion resuelva el gran problema
+          que realmente le importa.
+          
+          Este es un gran patron. no realmente . no siendo sarcastico aqui. si eres amazon o google o cualquier otra organizacion de software con miles de desarrolladores , es una forma maravillosa de paralelizar 
+          oportunidades de mejora.Cada servicio puede ser su propio equipo con su propio cronograma , personal y objetivos . puede evolucionar independientemente, al menos un poco, de cualquier otra cosa que 
+          este haciendo el resto de la constelacion.
+          
+          cuando alcanzas una cierta escala, simplemente no hay otra forma razonable de hacer que suceda la coordinacion del esfuerzo . De lo contrario, todos se pisaran los pies y tendras que lidiar con
+          interminables conflictos de fusion.(Bueno, al menos en teoria , escuche que facebook se sta divistiendo mucho con un monolito , ya sea majestuoso o no , es una discusion diferente).
+          
+          en otras palabras, m/SoA se ajusta a la forma organizacional de corporaciones muy grandes .Hasta ahora, todo bien!
+          
+          Donde las cosas se desvian es cuando la gente mira ,digamos , amazon o google o cualquier otra persona que pueda estar al mando de una flota de servicios, y piensa, oye , funciona para los mas 
+          exitosos, estoy seguro de que tambien funcionara para mi.bzzzzzzzzzzz!! EQUIVOCADO!
+          
+          los patrones que tienen sentido para organizaciones de ordenes de magnitud mas grandes que la suya , a menudo son exactamente los opuestos que tendran sentido para usted. Es la esencia del cunto al 
+          cargo. Si bailo como estos gigantes , seguramente yo tambien me convertire en uno. Lo siento , pero no es asi como funciona el tango.
+          
+          Esto es cierto no solo para los patrones tecnicos , sino tambien para los enfoques organizacionales generales . Sin empargo,que no debe administrar recursos humanos como una empresa de 50,000 persnas
+          cuando tiene 50 parece obvio para la mayoria (con algunas excepciones).
+          
+          El problema de convertir prematuramente su aplicacion en una variedad de servicios es principalmente que viola la regla numero 1 de la computacion distribuida: No distribuya su computacion ! Al menos 
+          si puedes evitarlo de alguna manera.
+          
+          cada vez que extrae una colaboracion entre objetos a una colaboracion entre sistemas ,ascepta un mundo de dolor con una miriada de responsabilidades y estados de falla. Que hacer cuando los servicios
+          estan inactivos , como migrar en conjunto y todoel dolor de ejecutar muchos servicios en primer lugar.
+          
+          Como dije, dodo ese dolor vale la pena cuando no tienes otra opicion. pero la mayoria de las personas tienen una opcion y tienen una alternativa .Asi que permitanme presentarles solo una de esas opciones : 
+          eEl majestuoso monolito
+          
+          tener su sistema descrito como "monolitico" suele ser un punto de burla. Son parabras de pelea entre muchos programadores ! Digo que no solo pondas la otra mejilla , sino que abraces el monolito con orgullo
+          y un saludo ! No convierta su sistema accidentalmente en un diseño monolitico, hagalo con intencio y con la cabeza en alto.cualquier moolito que valga la pena erigir vale la pena hacerlo majestuoso!
+          
+          Entonces que es exactamente un monolito majestuoso? Es un sistema integrado que colapsa tantos modelos conceptuales innecesarios como seaposible. Elimina a tanta abstraccion innecesaria como 
+          puedas golpear con un martillo . Es un gran no a la distribucion de su sistema para que realmente le impida hacer lo que realmente debe hacerse.
+          
+          Uno de los beneficios del majestuoso monolito es que basicamente supone que las personas que trabajan en el tambien lo entienden. Es mucho mas facil aislar el conocimiento y las responsabilidades con una
+          proliferacion de sistemas mas pequeñosUno de los beneficios del majestuoso monolito es que basicamente supone que las personas que trabajan en el tambien lo entienden. Es mucho mas facil aislar el conocimiento y las responsabilidades con una.
+          Esto ,a su vez , ejerce una gran presion para hacer que la aplicacion sea comprensible y modificable por individuos , no por equipos, lo que a su vez de obliga a tomarte el tiempo de convertir una 
+          carta larga en una carta corta . si sus estandares estan decayendo , no solo esta meando en su propio rincon , esta meando en todo ese majestuoso monolito que todos tenemos que pulir todos los dias .No
+          hagas eso 
+          
+          En muchos sentidos ,esto va directo a la esencia de la percepcion que tiene Ruby y Rails de los programadores , que dados los incentivos y empujones correctos, la mayoria estara a la altura de las 
+          circunstancias y escribira un codigo hermoso. Que nuestros sistemas deberian ser una invitacion de alfombra roja para convertirse en un programador mejor y mas productivo . 
+          
+          the majestic monolith no pretende proporcionar un camino arquitectonico a prueba de fallas hacia la gloria . Esa es una tonteria. muchos programadores que sufren bajo muchas influencias opresivas 
+          convertiran cualquier arquitectura heca con cualquier herramienta en un gran monton de barro . Asi que preocuparse demasiado por como salvar a aquellos que probablemente esten fuera de su 
+          alcance no es un uso productivo de la energia. y lleva a todos los que se preocupan por el camino equivocado. </p>
+      </section>
+    </main>
+    <footer class="footer_container">
+      <p style="margin: 30px 0;">© 2025 - Todos los derechos reservados</p>
+    </footer>
+    <script type="text/javascript" src="./../../assets/javascript/main.js"></script>
+  </body>
+</html>

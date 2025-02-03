@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Doce factores</title>
+    <link rel="stylesheet" href="./../../assets/styles/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="nav-logo-container">
+        <img src="./../../assets/img/logo_cv.png" alt="logo_cv" class="nav-logo"/>
+        <p class="nav-title">Documentacion</p>
+      </div>
+      <button class="open-menu" id="open"><i class="fa-solid fa-bars"></i></button>
+      <nav class="nav-bar" id="nav">    
+        <button id="close" class="close-menu"><i class="fa-solid fa-x" style="color: white;"></i></button>
+        <ul class="nav-list">
+          <li><a href="./../../index.html">Inicio</a></li>
+          <li><a href="./../documentation.html">Documentación</a></li>
+          <li><a href="./../certification.html">Certificaciones</a></li>
+          <li><a href="./../contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="principal-container">
+      <section>
+        <p>La aplicacion de doce factores</p>
+        <p>
+          En la era moderna, el software se entrega comunmente como un servicio: llamado aplicaciones web o software como servicio. la aplicacion de doce factores 
+  es una metodologia para crear aplicaciones de software como servicio que:
+
+  Use formatos declarativos para la automatizacion de la configuracion, a fin de minimizar el tiempo y el costo para los nuevos desarrolladores que se unen al proyecto;
+  tener un contrato limpio con el sistema operativo subyacente, ofreciendo la maxima portabilidad entre entornos de ejecucion;
+  son aptos para el despliegue en modernas plataformas en la nube, obviando la necesidad de servidores y administracion de sistemas;
+  minimice la divergencia entre el desarrollo y la producion, lo que permite una implementacion continua para lograr la maxima agilidad;
+  y puede escalar sin cambios significativos en las herramientas, la arquitectura o las practicas de desarrollo.
+
+  la metodologia de los doce factores se puede aplicar a aplicaciones escritas en cualquier lenguaje de programacion y que utilicen cualquier combinacion de servicios de respaldo
+  (base de datos, cola, cache de memoria, etc.)
+
+  LOS DOCE FACTORES -------------------------
+
+  -> Base de codigo
+    un codigo base rastreado en el control de revision, muchas implementaciones 
+    {
+      una aplicacion de doce factores siempre se rastrea en un sistema de control de versiones como git
+      una copia de la base de datos de seguimiento de revision se conoce como repositorio de codigo, a menudo abreviado como repositorio de codigo o simplemente repositorio
+      una base de codigo es cualquier repositorio unico(en un sistema de control de revision centralizado como subversion), o cualquier conjunto de repositorios que comparten
+      una confirmacion raiz(en un sistema de control de revision descentralizado como git)
+
+      siempre hay una correlacion uno a uno entre el codigo base y la aplicacion:
+
+      si hay varias bases de codigo , no es una aplicacion, es un sistema distribuido, cada componente en un sistema distribuido es una aplicacion y cada uno puede cumplir individualmente 
+      con doce factores.
+      multiples aplicaciones que comparten en mismo codigo es una violacion del factor doce , la solucion aqui es factorizar el codigo compartido en las bibliotecas que se pueden incluir 
+      a traves del administrador de dependencias.
+
+      Solo hay una base de codigo por aplicacion, pero habra muchas implementaciones de la aplicacion. Una implementacion es una instancia en ejecucion de la aplicacion. suele ser un sitio de
+      produccion y uno o mas sitios de preparacion. Ademas, cada desarrollador tiene una copia de la aplicacion que se ejecuta en su entorno de desarrollo local, cada uno de los cuales tambien
+      califica como una implementacion.
+
+      el codigo base es el mismo en todas las implementaciones, aunque pueden estar activas diferentes versiones en cada implementacion. Por ejemplo, un desarrollador tiene aldunas confirmaciones
+      que aun no se implementaron en la etapa de pruebas ; staging tiene algunas confirmaciones aun no implementadas en produccion. pero todos comparten la misma base de codigo, 
+      lo que los hace identificables como diferentes implementaciones de la misma aplicacion.
+    }
+   
+  -> Dependencias 
+    declarar y aislar explicitamente las dependencias
+    {
+      la mayoria de los lenguajes de programacion ofrecen un sistema de empaquetado para distridbuir bibliotecas de soporte, como CPAN para perl o Rubygems para Ruby. las bibliotecas instaladas a traves
+      de un sistema de empaquetado se pueden instalar de todo el sistema(lo que se conoce como "paquetes del sitio") o en el ambito de directorio que contiene la aplicacion(lo que se conoce como "venta"
+      o "empaquetado")
+
+      Una aplicacion de doce factores nunca se basa en la existencia implicita de paquetes para todo el sistema. Declara todas las dependencias ,completa y exactamente, a traves de un manifiesto de 
+      declaracion de dependencia. Ademas , utiliza una herramienta de aislamiento de dependencias durante la ejecucion para garantizar que no se "filtren" dependencias implicitas del sistema circundante.
+      la especificacion de dependencia completa y explicita se aplica de manera uniforme tanto a la produccion como al desarrollo.
+
+      por ejemplo bundler for ruby ofrece el Gemfile formato de manifiesto para la declaracion de dependencias y bundle exec para el aislamiento de dependencias.
+
+      una ventaja de la declaracion de dependencia explicita es que simplifica la configuracion para los desarrolladores nuevos en la aplicacion. el nuevo desarrollador puede verificcar el 
+      codigo base de la aplicacion en su maquina de desarrollo , lo que requiere que solo esten instalados el tiempo de ejecucion del lenguaje y el administrador de dependencias como requisitos previos.
+    }
+
+  -> Configuracion
+    Almacenar configuracion en el entorno
+    {
+      la configuracion de una aplicacion es todo lo que probablemente varie entre las implementaciones (escenario, produccion, entornos de desarrollo, etc) Esto incluye:
+      identificadores de recursos para la base de datos, mencached y otros servicios de respaldo
+      credenciales a servicios externos como amazon S2 o twitter
+      valores por implementacion como el nombre de host canonico para la implementacion
+
+      las aplicaciones a veces almacenan la configuracion como constantes en el codigo,. esta es una violacion del factor doce, que requiere una separacion estricta de la configuracion del codigo.
+      la configuracion varia sustancialmente entre implementaciones , el codigo no.
+
+      una prueba de fuego para saber si una aplicacion tiene toda la configuracion correctamente eliminada del codigo es si la base de codigo podria convertirse en codigo abierto en cualquier momento,
+      sin comprometer ninguna credencial.
+      tenga en cuenta que esta definicion de "config"  no incluye la configuracion de la aplicacion interna, como config/routes.rb en rails, o como se conectan los modulos de codigo de spring .
+      este tipo de configuracion no varia entre inplementaciones , por lo que es mejor hacerlo en el codigo.
+
+      Otro enfoque de la configuracion es el uso de archivos de configuracion que no estan registrados en el control de revision, como config/database.yml en rails. Esta es una gran mejora con respecto
+      al uso de constantes que se verifican en el repositorio de codigo, pero aun tiene debilidades : es facil verificar por error un archivo de configuracion en el repositorio; existe una tendencia a que
+      los archivo de configuracion esten dispersos en diferentes lugares y en diferentes formatos , lo que dificulta ver y administrar toda la configuracion en un solo lugar. Ademas , estos formatos 
+      tienden a ser especificos del lenguaje o del marco.
+
+      la aplicacion de doce factores almacenan la configuracion en variables de entorno(a menudo abreviadas como env vars o env). Env vars son faciles de cambiar entre implementaciones sin cambiar ningun
+      codigo; a diferencia de los archivos de configuracion, hay pocas posibilidades de que se registren en el repositorio de codigo accidentalmente; y , a diferencia de los archivos de configuracion
+      personalizados u otros mecanismos de configuracion, como las propiedades del sistema java, son un estandar independiente del idioma y del sistema operativo.
+
+      otro aspecto de la gestion de la configuracion es la agrupacion . A veces , las aplicaciones configuran por lotes en grupos con nombre( a menudo llamados "entornos") con el nombre de implementaciones
+      especificas, como los entornos development, test y production en Rails. Este metodo no escala limpiamente: a medida que se crean  mas implementaciones de la aplicacion, se necesitan nuevos nombres de 
+      entorno, como staging o qa. A medida que el proyecto crece, los desarrolladores pueden agregar sus propios entornos especiales como joes-stagin, lo que resulta en una explosion combinatoria de 
+      configuracion que hace que la administracion de implementaciones de la aplicacion sea muy fragil.
+
+      En una aplicacion de doce factores, las variables de entorno son controles granulares, cada uno completamente ortogonal a otras variables de entorno , nunca se agrupan como "entornos", sino que se 
+      administran de forma independiente para cada implementacion. Este es un modelo que se amplia sim problemas a medida que la aplicacion se expande daturalmente en mas implementaciones durante su vida util.
+    }
+
+  -> Servicios de respaldo
+    tratar los servicios de respaldo como recursos adjuntos
+    {
+      un servicio de respaldo es cualquier servicio que la aplicacion consume a traves de la red como parte de su funcionamiento normal. los ejemplos incluyen almacenes de datos(como mysql o couch db),
+      sistemas de colas / mensajeria(como rabbitmq o beanstalkd), servicios smtp para correo electronico saliente (como postfix) y sistemas de almacenamiento en cache(como memcached).
+
+      los servicios de respaldo como la base de datos son administrados tradicionalmente por los mismos administradores de sistemas que implementan el tiempo de ejecucion de la aplicacion. Ademas de estos 
+      servicios administrados localmente, la aplicacion tambien puede tener servicios proporcionados y administrados por terceros. los ejemplos incluyen servicios SMTP(como postmark), servicios de 
+      recopiloacion de metricas (como new relic o loggly), servicios de activos vinarios (como Amazon S3) e incluso servicios de consumo accesibles mediante API(como twitter, google maps o last.fm).
+
+      el codigo de una aplicacion de dgoce factores no distingue entre servivios locales y de terceros . A la aplicacion, ambos son recursos adjuntos, a los que se accede a traves de una URL u otro
+      localizador/ credenciales almacenados en la confidguracion. Una implementacion de la aplicacion de doce factores deveria poder intercambiar una base de datos MYSQL local con una dministrada por un 
+      tercero (como matasellos) sin cambios de codigo. En ambos casos, solo se debe cambiar el identificador de recursos en la configuracion
+      
+      Cada servicio de respaldo distinto es un recurso. Por ejemplo , una base de datos MySQL es un recurso; dos bases de datos MySQL (usadas para fragmentar en la capa de aplicacion) califican como
+      recursos distintos. la aplicacion de doce factores trata estas bases de datos como recursos adjuntos , lo que indica su debil acoplamiento con la implementacion a la que estan adjuntos 
+
+      los recursos se pueden adjuntar y separar de los despliegues a voluntad . por ejemplo , si la base de datos de la aplicacion se comporta mal debido a un problema de hardware, el administrador de la
+      aplicacion puede activar un nuevo servidhor de base de datos restaurado a partir de una copia de seguridad reciente. la base de datos de produccion actual podria separarse adjuntarse la nueva base
+      de datos, todo sin cambios en el codigo
+
+    }
+
+  -> Construir, lanzar, ejecutar
+    etapas de construccion y ejecucion estricamente separadas
+    {
+      una base de codigo  se transfoma en una implementacion (que no es de desrarrollo ) a traves de tres etapas :
+      la etapa de compilacion es una transformacion que convierte un repositorio de codigo en un paquete ejecutable conocido como compilacion. Usando una version del codigo en una confirmacion
+      especificada por el proceso de implementacion, la etapa de compilacion obtiene las dependencias de los proveedores y compila archivos binarios y activos .
+      la etapa de lanzamiento toma la compilacion producida por la etapa de compilacion y la combina con la configuracion actual de implementacion la version resultante contiene tanto la compilacion como 
+      la configuracion y esta lista para su ejecucion inmediata en el entorno de ejecucion
+      la etapa de ejecucion (tambien conocida como "tiempo de ejecucion") ejecuta la aplicacion en el entorno de ejecucion iniciando un conjunto de procesos de la aplicacion contra una version seleccionada
+ 
+      la aplicacion de doce factores utiliza una separacion estricta entre las etapas de compilacion, lanzamiento y ejecucion. por ejemplo , es imposible realizar cambios en el codigo en tiempo de ejecucion, 
+      ya que nohay forma de propagar eses cambios a la etapa de compilacion.
+
+      las herramientas de implementacion suelen ofrecer herramientas de gestion de versiones , sobre todo la capacidad de revertir una version atnterior. por ejemplo , la herramienta de implemntacion de 
+      capistrano almacena versiones en un subdirectorio llamado releases, donde la version actual es un enlace simbolico al directorio de versiones actual. su rollback comando facilita volver rapidamente
+      a una version anterior. 
+
+      tcada lanzamiento siempre debe tener uuna id de lanzamiento unica como una marca de tiempo del lanzamiento (como 2011-02-06-20:32:17) o un numero de incremental (como v100). los lanzamientos son un
+      libro mayor de solo anexar y un lanzamiento no se puede modificar una vez que se crea. Cualquier cambio debe crear una nueva version.
+
+      los desarrolladores de la aplicacion inician las compilaciones cada vez que se implementa un codigo nuevo. la ejecucion en tiempo de ejecucion, por el contrario, puede ocurrir automaticamente en 
+      casos como un reinicio del servidor o un proceso bloqueado que el administrador de procesos reinicia. por lo tanto , la etapa de ejecucion debe limitarse a la menor cantidad
+       posible de partes moviles, ya que los problemas que impiden que una aplicacion se ejecute pueden hacer que se rompa en medio de la noche cuando no hay desarrolladores disponibles. la etapa de 
+       compilacion puede ser mas compleja, ya qu los errores siempre estan en primer plano para un desarrollador que dirige la implementacion.
+
+    }
+
+  -> Procesos 
+    Ejecutar la aplicacion como uno omas procesos sin estado
+    {
+      la aplicacion se ejecuta en el entorno de ejecucion como uno o mas procesos.
+      En el caso mas simple, el codigo es un script independiente, el entorno de ejecucion es la computadora portatil local de un desarrollador ocn un tiempo de ejecucion de idioma instalado y el proceso
+      se inicia a traves de la linea de comandos (por ejemplo) python my_script.py . en el entorno extremo del espectro, una implementacion de produccion de una aplicacion sofisticada puede usar muchos 
+      tipos de procesos , instanciados en cero o mas procesos en ejecucion. 
+      los procesos de doce factores no tienen estado y no comparten nada . cualquier dato que deba persistir debe almacenarse en un servicio de respaldo con estado, generalmente una base de datos.
+
+      el espacio de memorioa o el sistema de archivos del proceso se puede utilizar como una memoria cache breve de una sola transaccion. por elemplo, descargar un archivo grande, operar en el 
+      y almacenar los resultados de la operacion en la base de datos . la aplicacion de doce factores nunca asum que cualquier cosa almacenada en cache en la memoria o en el disco estara disponible en 
+      una solicitud o trabajo futuro; con muchos procesos de cada tipo en ejecucion , hay muchas posibilidades de que una solicitud futura sea atendida por un proceso diferente. Incluso cuando se ejecuta 
+      solo un proceso un reinicio(actibado por la implementacion del codigo, el cambio de configuracion o el entorno de ejecucion que reubica el proceso en una ubicacion fisica diferente) generalmente 
+      eliminara todo el estado local(por ejemplo, memoria y sistema de archivos).
+
+      los empaquetadores de activos como django-assetpackager usan el sitema de archivos como un cache para los activos compilados. una aplicacion de doce factores prefiere hacer esta compilacion durante 
+      la etapa de construccion. los empaquetadores de activos , como jammit y Rails , puede configurarse para empaquetar activos durante la etapa de construccion.
+
+      Algunos sistemas web se basan en "sesiones persistentes ", es decir, almacenan en cache los datos de la sesion del usuario en la memoria del proceso de la aplicacion y esperan que las solicitudes 
+      del mismo visitante se dirijan al mismo proceso. las sesiones pegajosas son una violacion del factor doce y nunca deben usarse ni confiarse en ellas . los datos de estado de sesion son un buen
+      candidato para un almacen de datos que ofrece caducidad de tiempo, como memchad o redis.
+    }
+ 
+  -> Enlace de Puerto
+    Exportar servicios a traves de la vinculacion de puertos
+    {
+      las aplicaciones web a veces se ejecutan dentro de un contenedor de servidor web. por ejemplo las aplicaciones php pueden ejecutarse como un modulo dentro de apache HTTPD, o las aplicaciones java
+      pueden ejecutarse dentro de tomcat.
+
+      la aplicacion de doce factores es completamente independiente y no se basa en la inyeccion en tiempo de ejecucion de un servido web en el entorno de ejecucion para crear un servicio orientado a la 
+      web. la aplicacion web exporta HTTP como un servicio al vincularse a un puerto y escuchar las solicitudes que ingresan en ese puerto. 
+
+      En un entorno de desarrollo local, el desarrollador visita una URL de servicio como http://localhost:5000 para acceder al servicio exportado por su aplicacion. en la implementacion, una capa de 
+      enrutamiento maneja las solicitudes de enrutamiento de un  nombre de hos publico a los procesos web binculados al puerto.
+
+      esto generalmente se implementa mediante una declaracion de dependencia para agregar una biblioteca de servidor web a la aplicacion, como tornado para python, thin para ruby o jetty para java y otros
+      lenguajes basados en jvm. esto sucede completamente en el espacio del usuario, es decir , dentro del codigo de la aplicacion . el contrato cn el entorno de ejecucion vincula a un puerto para 
+      atender loas solicitudes .
+
+      HTTP no es el unico servicio que se puede exportar mediante la vinculacion de puertos. Caci cualquier tipo de software de servidor se puede ejecutar a traves de un proceso que se vincula a un puerto
+      y espera las solicitudes entrantes. los ejemplos incluyen ejabberd(hablando XMPP) y Redis (hablando el protocolo Redis)
+
+      tenga en cuenta tambien que el enfoque de vinculacion de puerto significa que una aplicacion puede convertirse en el servicio de respaldo para otra aplicacion, al proporcionar la URL a la aplicacion
+      de respaldo como un identificador de recursos en la configuracion de la aplicacion consumidora.
+    }
+
+  -> Concurrencia
+    Escalar horizontalmente a traves del modelo de proceso
+    {
+      cualquier programa de computadora , una vez ejecutado , esta reperentado por uno o mas procesos . las aplicaciones web han tomado una variedad de formas de ejecucion de procesos. por ejemplo , 
+      los procesos de php se ejecutan como procesos secundarios de apache, iniciados bajo demanda segun sea necesario segun el volument de solicitudes. los procesos de java adoptan el enfoque opuesto, 
+      con la jvm proporcionando un superproceso masivo que reserva un gran bloque de recursos del sistema (CPU y memoria) al inicio, con la concurrencia administrada internamente a traves de subprocesos .
+      En ambos casos , los procesos en ejecucion son minimamente visibles para los desarrolladores de la aplicacion.
+
+      En la aplicacion de doce factores , los procesos son un ciudadano de primera clase . los procesos en la aplicacion de doce factores toman fuertes señales del modelo de procesos de Unix para ejecutar 
+      demonios de servicio. con este modelo , el desarrollador puede diseñar su aplicacion para manejar diversas cargas de trabajo asignado cada tipo de trabajo a un tipo de proceso. por ejemplo , las 
+      solicitudes HTTP pueden ser manejadas por un proceso web y las tareas en segundo plano de ejecucion prolongada pueden ser manejadas por un proceso de trabajo.
+      
+      Esto no excluye que los procesos individuales manejen su propia mutiplexacion interna, a traves de subprocesos dentro de la maquina virtual en tiempo de ejecucion, o el model asicrono/ con eventos
+      que se encuentra en herramientas como EventMachine, Twisted o Node.je.pero VM individual solo puede crecer tanto (escala vertical), por lo que la aplicacion tambien debe poder abarcar multiples
+      procesos que se ejecutan en multiples maquinas fisicas.
+
+      El modelo de proceso realmente brilla cuando llega el momento de escalar . la naturaleza paticionable horizontalmente de los procesos de aplicaciones de doce factores significa que agregar mas 
+      simultaneidad es una operacion simple y confiable. la matriz de tipos de procesos y el numero de procesos de cada tipo se conoce como formacion de procesos.
+
+      los procesos de aplicaciones de doce factores nunca deben demonizar ni escribir archivos PID. en su lgar , confie en el administrador de procesos del sistema operativo (como systemd, un administrador
+      de procesos distribuidos en una plataforma en la nube o una herramienta como foreman en desarrollo) para administrar los flujos de salida, responder a los procesos bloqueados y manejar los reinicios
+      y apagados iniciados por el usuario.
+    }
+
+  -> Desechabilidad
+    Maximice la solidez con un inicio rapido y un apagado ordenado
+    {
+      los procesos de la aplicacion de doce factores son desechables, lo que significa que se pueden iniciar o detener en cualquier momento . esto facilita el escalado elastico rapido, la implementacion 
+      rapida de cambios de codigo o configuracion y la solidez de las implementaciones de produccion.
+
+      los procesos deben esforzarse por minimizar el tiempo de inicio. Idealmente , un proceso tarda unos segundos desde el momento en que se ejecuta el comando de lanzamiento hasta que el proceso esta 
+      activo y listo para recibir solicitudes o trabajos. el corto tiempo de inicio proporciona mas agilidad para el proceso de lanzamiento y ampliacion; y a yuda a la solidez, por que el administrador de 
+      procesos puede mover procesos mas facilmente a nuevas maquinas fisicas cuando se justifica.
+
+      los procesos se cierran correctamente cuando reciben una señal SIGTERM del administrador de procesos. Para un proceso web, el cierre correcto se logra al dejar de escuchar en el puersto de servicio(
+      por lo tanto , rechaza cualquier solicitud nueva), permitir que finalicen las solicitudes actuales y luego salir. En este modelo esta implicito que las solicitudes HTTP son breves ( no mas de unos 
+      de unos segundos )o, en el caso de un sondeo prolongado, el cliente debe intentar volver a conectarse sin problemas cuando se pierde la conexion.
+
+      para un proceso de trabajo, el cierre correcto se logra devolviendo el trabajo actual a la cola de trabajo, por ejemplo en RabbitMQ el trabajador puede enviar un NACK; en Beanstalkd, el trabajo se 
+      devuelve a la cola automaticamente cada vez que un trabajador se desconecta. los sistemas basados en bloqueos , como trabajo retrasado, deben asegurarse de liberar su bloqueo en el registro del 
+      trabajo . en este modelo esta implicito que todos los trabajos son reentrantes, lo que generalmente se logra envolviendo los resultados en una transaccion o haciendo que la operacion sea idempotente.
+
+      los procesos tambien deben ser robustos contra la muerte subita, en el caso de una falla en el hardware subyacente. si bien esto es una ocurrencia mucho menos comun que un apagado correcto SIGTERM, aun 
+      puede suceder. un enfoque recomendado esel uso de un back-en de cola solido, como Beanstalkd, que devuelve los trabajos a la cola cuando los clientes se desconectan o se agota el tiempo de espera.
+      De cualquier manera, una aplicacion de doce factores esta diseñada para manejar terminaciones inesperadas y no elegantes. el diseño crash only lleva eset concepto a su conclusion logica.
+      }
+
+   -> Paridad desarrollo/produccion
+     Mantenga el desarrollo, la puesta en escena y la produccion lo mas similares posible
+     {
+       historicamente, ha habido brechas sustanciales entre el desarrollo (un desarrollador que realiza ediciones en vivo en una implementacion local de la aplicacion) y la produccion(una implementacion
+       en ejecucion de la aplicacion a la que acceden los usuarios finales). estas brechas se manifiertan en tres areas :
+
+       *En intervalo de tiempo: un desarrollador puede trabajar en un codigo que tarda dias, semanar o incluso meses en entrar en produccion.
+       *La brecha de personal: los desarrolladores escriben codigo, los ingenieros de operaciones lo implementan
+       *la brecha de herramientas: los desarrolladores pueden estar usando una pila como Nginx, SQLite y OS X, mientras que la implementacion de produccion usa Apache, MySQL y linux.
+
+       la aplicacion de doce factores esta diseñada para una implementacion continua al mantener pequeña la brecha entre el desarrollo y ala produccion . En cuanto a las tres brechas descritas anteriormente:
+
+       Haga que la brecha de tiempo sea pequeña : un desarrollador puede escribir codigo y desplegarlo hoarar o incluso minutos mas tarde.
+       
+       Reduzca la brecha de personal: los desarrolladores que escribieron el codigo estan muy involucrados en implementarlo y observar su comportamiento en produccion
+
+       Reduzca la brecha de herramientas : mantenga el desarrollo y la produccion lo mas similares posible 
+
+       los servicios de respaldo, como la base de datos de la aplicacion, el sistema de colas o el cache, es un area donde la paridad entre desarrollo y produccion es importante. muchos idiomas ofrecen
+       bibliotecas que simplificel acceso al servicio de respaldo , incluidos adaptadores para diferentes tipos de servicios. Algunos ejemplos se encuentran en la siguiente tabla. 
+
+       los desarrolladores a veces encuentran un gran atractivo en el uso de un servicio de respaldo ligero en sus entornos locales, mientras que en produccion se utilizara un servicio de respaldo mas
+       serio y solido. por ejemplo , usar SQLite localmente y PostgreSql en produccion; o memoria de proceso local para almacenamiento en cache en desarrollo y Memcached en produccion
+
+       El desarrollador de doce factores resiste la tentacion de utilizar diferentes servicios de respaldo entre el desarrollo y la produccion . incluso cuando los adaptadores teoricamente eliminan 
+       cualquier diferencia en los servicios de respaldo. las diferencias entre los servicios de respaldo significan que surgen pequeñas incompatibilidades , loqu ehace que el codigo que funciono y paso
+       las pruebas en desarrollo o prueba fallen en produccion. estos tipos de errores crean friccion que desincentiva el despliegue continuo. El costo de esta friccion y la subsiguiente amortiguacion del
+       despliegue continuo es extremadamente alto cuando se considera en conjunto durante la vida util de una aplicacion.
+
+       los servicios locales ligeros son menos atractivos que antes. los servicios de respaldo modernos, como Memcached., postgresql y rabbitmq no son dificiles de instalar y ejecutar gracias a los 
+       modernos sistemas de empaquetado, como hombreq y apt-get . alternativamente, las herramientas de aprovisionamiento declarativo como chef y puppet combinadas con entornos virtuales livianos como
+       docker y vagrant permiten a los desarrolladores ejecutar entornos locales que se aprociman mucho a los entornos de produccion. el costo de instalar y usar estos sistemas es bajo en comparacion con
+       el beneficio de la paridad de desarrollo/produccion y la implementacion continua.
+
+       los adaptadores a diferentes servicios de respaldo siguen siendo utiles , por que hacen que la migracion a nuevos servicios de respaldo sea relativamente sencilla. perot todas las implementaciones 
+       de la aplicacion(entornos de desarrollo, ensayo, produccion)deben usar el mismo tipo y version de cada uno de los servicios de respaldo.
+     }
+
+   -> Registros 
+     tratar los registros como flujos de eventos 
+     {
+       los registros brindan visibilidad sobre el comportamiento de una aplicacion en ejecucion. En entornos basados en servidor, normalmente se escriben en un archivo en el disco(un "archivo de registro");
+       pero esto es solo un formato de salida.
+
+       los registros son el flujo de eventos agregados ordenados por tiempo recopilados de los flujos de salida de todos los procesos en ejecucion y servicios de respaldo. los registros en su forma sin
+       procesar suelen tener un pormato de texto con un evento por linea (aunque los rastreos de las excepciones pueden abarcar varias lineas). los registros no tienen un principio ni un final
+       fijos , sino que fluyen continuamente mientras la aplicacion esta en funcionamiento .
+
+       Una aplicacion de doce factores nunca se preocuppa por el enrutamiento o el almacenamiento de su flujo de salida. No debe intentar escribir o administrar archivos de registro. En su lugar,
+       cada proceso en ejecucion escribe su flujo de eventos, sin bufer, en stdout. Durante el desarrollo local, el desarrollador vera esta transmision en primer plano de su terminal para observar el 
+       comportamiento de la aplicacion.
+
+       En implementaciones de ensayo o produccion, el flujo de cada proceso sera capturado por el entorno de ejecucion, recopilado junto con todos los demas flujos de la aplicacion y enrutado a uno o mas
+       destinos finales para su visualizacion y archivo a largo plazo. estos destinos de archivo no son visibles ni configurables por la aplicacion y en su lugar , el entorno de ejecucion los administra
+       por completo. los enruutadores de registro de codigo abierto (como logplex y fluentd) estan disponibles para eset proposito.
+
+       el flujo de eventos de una aplicacion se puede enrutar a un archivo o se puede ver a traves de la cola en tiempo real en una terminal. lo que es mas importante, la transmision se puede enviar 
+       a un sistema de analisis e indexacion de registros como splunk o a un sistema de almacenamiento de datos de proposito general como hadoog/hive. estos sistemas permiten una gran potencia y flexibilidad
+       para la introspeccion del comportamiento de una aplicacion a lo largo del tiempo, que incluyen:
+
+       Encontrar eventos especificos en el pasado. 
+       Graficos a gran escala de tendencias (como solicitudes por minuto)
+       alertas activas segun heuristica definidas por el usuario (como una alerta cuando la cantidad de errores por minuto supera un cierto umbral).
+     }
+
+   -> Procesos de administracion
+     Ejecute tareas de administracion/gestion como procesos unicos
+     {
+       la formacion del proceso es la matriz de procesos que se utilizan para realixar las actividades habituales de la aplicacion (como el manejo de solicitudes web) mientras se ejecuta. por separado,
+       los desarrolladores a menudo querran realizar tareas administrativas o de mantenimiento unicas para la aplicacion, como:
+
+       Ejecucion de migraciones de base de datos(por ejemplo , manage.py migrate en django, rake db:migrate en rails)
+       Ejecutar una consola (tambien conocida como shell REPL) para ejecutar codigo arbitrario o inspeccionar los modelos de la aplicacion el la base de datos activa. la mayoria de los lenguajes proporcionan
+       un REPL ejecutando el interprete sin argumentos (ej. python o perl) o en algunos casos , tienen un comando separado (ej irb, para ruby, rails console para rails).
+       Ejecutar scripts de una sola vez confirmados en el repositorio de la aplicacion(ej phpscripts/fix_bad_records.php).
+
+       los procesos de administracion unicos deben ejecutarse en un entorno identico al de los procesos regulares de ejecucion prolongada de la aplicacion. se ejecutan en una version, utilicando la misma 
+       base de codigo y configuracion que cualquier proceso que se ejecute en esa version. el codigo de administrador debe enviarse con el codigo de la aplicacion para evitar problemas de sincroizacion
+
+       se deben utilizar las mismas tecnicas de aislamiento de dependencia en todof los tipos de procesos . por ej , si el proceso web de ruby usa el comando bundle exec thin start, entonces una migracion 
+       de base de datos deberia usar bkundle exec rake db:migrate. del mismo modo , un programa de python que use virtualenv debe usar el proveedor bin/python para ejecutar tanto el servidor web tornado 
+       como cualquier manage.py proceso de administracion.
+
+       doce factores favorece fuertemente los lenguajes que proporcionana un shell REPL listo para usar y que facilitan la ejecucion de scripts unicos . En una implementacion local , los desarrolladores
+       invocan procesos de administracion unicos mediante un comando de shell directo dentro del directorio de pago de la aplicacion. En una implementacion de produccion, los desarrolladores pueden 
+       usar ssh u otro mecanismo de ejecucion de comandos remotos proporcionado por el entorno de ejecucion de esa implementacion para ejecutar dicho proceso.
+     }
+        </p>
+
+      </section>
+    </main>
+    <footer class="footer_container">
+      <p style="margin: 30px 0;">© 2025 - Todos los derechos reservados</p>
+    </footer>
+    <script type="text/javascript" src="./../../assets/javascript/main.js"></script>
+  </body>
+</html>

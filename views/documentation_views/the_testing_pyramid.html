@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La piramide de pruebas</title>
+    <link rel="stylesheet" href="./../../assets/styles/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="nav-logo-container">
+        <img src="./../../assets/img/logo_cv.png" alt="logo_cv" class="nav-logo"/>
+        <p class="nav-title">Documentacion</p>
+      </div>
+      <button class="open-menu" id="open"><i class="fa-solid fa-bars"></i></button>
+      <nav class="nav-bar" id="nav">    
+        <button id="close" class="close-menu"><i class="fa-solid fa-x" style="color: white;"></i></button>
+        <ul class="nav-list">
+          <li><a href="./../../index.html">Inicio</a></li>
+          <li><a href="./../documentation.html">Documentación</a></li>
+          <li><a href="./../certification.html">Certificaciones</a></li>
+          <li><a href="./../contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="principal-container">
+      <section>
+        <p>La piramide de prueba practica</p>
+        <p>
+
+Nota:
+
+la piramide es una metafora para dividir las pruebas en grupos dependiendo de su granularidad
+
+la mayor cantidad de pruebas se encuentran en la base de la piramide, aqui se cubren todos los posibles casos que una funcion o componente puede llegar a ejecutar.
+
+a medida que se asciende de nivel, la cantidad de pruebas es menor dado que en el nivel inmediatamente anterior se cubren en detalle.
+
+la parte superior en la piramide incluye las pruebas de interfaz y solo deben cubrir el caso ideal salvo que un caso especial requiera cubrimiento adicional. las pruebas de interfaz son muchos mas lentas
+que las pruebas de niveles inferiores por que deben instanciar la aplicacion completa para poder ejecutarla, en el caso de aplicaciones web, es posible incluso que deban ejecutar un navegador web para 
+realizar la respectiva verificacion de la funcionalidad.
+
+la piramide puede tener mas niveles de division dependiendo de como este estructurado el sistema, el segundo nivel de la imagen hace referencia a "service test" y esto hace referencia a todo el 
+comportamiento de reglas de negocio, puede ser un controlador , service object, presenter, helper, etc.
+
+tener mas pruebas de interfaz que pruebas en los niveles inferiores constituye el anti-patron helado de pruebas.
+
+Estructura de pruebas 
+
+Independientemente del nivel de la piramide , todas las pruebas deben tener tres secciones:
+Preparacion, Ejecucion, verificacion
+
+--------------------------------------------------------------------------------------------------------------------------<-----------------------
+
+El software listo para produccion requiere pruebas antes de entrar en produccion. A medida que maduro la disciplina del desarrollo de software , tambien lo hicieron los enfoques de prueba de software.
+En lugar de tener miles de probadores de software manuales, los equipos de desarrollo se han movido hacia la automatizacion de la mayor parte de sus esfuerzos de prueba. la automatizacion de sus pruebas 
+permite a los equipos saber si su software esta dañado en cuestion de segundos y minutos en lugar de dias y semanas. 
+
+El ciclo de retroalimentacin drasticamente acortado alimentado por pruebas automatizadas va de la mano con practicas de desarrollo agiles, entrega continua y cultura DevOps. Tener un enfoque de prueba
+de software efectivo permite que los equipos se muevan rapido y con confianza.
+
+Este articulo explora como deberia ser una cartera de pruebas integral para que sea receptiva , confiable y mantenible, independientemente de si esta creando una arquitectura de microservicios , aplicaciones
+moviles o ecosistemas de lot.Tambien entraremos en los detalles de la creacion de pruebas automatizadas efectivas y legibles. 
+
+
+La importancia de la automatizacion(de prueba)
+
+El software se ha convertido en una parte esencial del mundo en el que vivimos . Ha superado su unico proposito inicial de hacer que las empresas sean mas eficientes. Hoy en dia, las empresas intentan 
+encontrar formas de convertirse en empresas digitales de primera clase. Como usuarios, todos interactuamos con una cantidad cada vez mayor de software todos los dias. las ruebas de la innovacion 
+estan girando mas rapido.
+
+si desea mantener el ritmo, tendra que buscar formas de entregar su software mas rapido sin sacrificar su calidad. la entrega continua , una practica en la que automaticamente se asegura de que su software
+pueda lanzarse a produccion en cualquier momento, puede ayudarlo con eso . con la entrega continua, utiliza una canalizacion de compilacion para probar automaticamente su software e implementarlo en sus 
+entornos de prueba y produccion.
+
+crear, probar e implementar manualmente una catidad cada vez mayor de software pronto se vuelve imposible, a menos que desee dedicar todo su tiempo al trabajo manual y repetitivo en lugar de entregar 
+software funcional . Automatizar todo , desde la construccion hasta las pruebas , la implementacion y la infraestructura, es su unico camino a seguir.
+
+Tradicionalmente , las pruebas de software eran un trabajo demasiado manual realizado al implementar su aplicacion en un entorno de prueba y luego realizar algunas pruebas de estilo de caja negra, 
+por ejemplo, haciendo clic en su interfaz de usuario para ver si algo esta roto. A menudo , estas pruebas se especifican medianten scripts de prueba para garantizar que los probadores realicen comprobaciones
+coherentes.
+
+es obvio que probar todos los cambios manualmente requiere mucho tiempo, es repetitivo y tedioso . Repetitivo es aburrido ,m aburrido conduce a errores y te hace buscar un trabajo diferente al final de la 
+semana. 
+por suerte , existe un remedio para las tareas repetitivas : la automatizacion. 
+
+automatizar sus prubas repetitivas puede ser un gran cambio en su vida como desarrollador de software . Automatice estas pruebas y ya no tendra que seguir los protocolos de clics sin pensar para comprobar
+si su software sigue funcionando correctamente. Automatice sus pruebafs y podra cambiar su base de codigo sin pestañear. Si alguna vez ha intentado hacer una refactorizacion a gran escala sin un conjunto
+de pruebas adecuado, apuesto a que sabe lo aterradora que puede ser esta experiencia. ¿como sabrias si accidentalmente rompiste cosas en el camino ? Bueno, haces clic en todos tus casos de prueba manuales,
+asi es como. pero ceamos honestos : ¿realmente disfrutas eso? ¿que tal hacer incluso cambios a gran escala y saber si rompiste cosas en segundos mientras tomabas un buen sorbo de cafe? Suena mas 
+agradable si me preguntas .
+-------------------------------------
+-----------------------------------
+La piramide de prueba
+------------------------------------
+------------------------------------
+
+A Mike Cohn se le ocurrio este concepto de la piramide de pruebas en su libro succeeding with agile. Es una gran metafora visual que le dice que piense en diferentes capas de pruebas. Tambien le dice
+cuantas pruebas debe hacer en cada capa
+
+la piramide de prueba original de Mike Codhn consta de tres capas de las que debe constar su conjunto de pruebas (de abajo hacia arriba):
+1. Pruebas Unitarias
+2. Pruebas de servicio
+3. Pruebas de interfaz de usuario
+
+Desafortunadamente el concepto de la piramide de prueba se queda un poco corto si lo miras mas de cerca. Algunos argumentan que el nombre o algunos aspectos conceptuales de la piramide de prueba de 
+Mike Cohn no son ideales, y tengo que estar de acuerdo.Desde un punto de vista moderno, la piramide de prueba parece demasiado simple y por lo tanto puede ser engañosa
+
+Aun asi, debido a su simplicidad , la esencia de la piramide de prueba sirve como una buena regla general cuando se trata de establecer su protio conjunto de pruebas . Su mejor apuesta es recordar 
+dos cosas de la piramide de prueba original de Cohn:
+
+1. Escribir pruebas con diferente granularidad
+2. Cuanto mas alto nivel obtenga, menos pruebas deberia tener
+
+Apeguese a la forma de piramide para crear un conjunto de pruebas saludable, rapido y facil de mantener: Escriba muchas pruebas unitarias pequeñas y rapidas . Escriba algunas pruebas mas detalladas y 
+muy pocas pruebas de alto nivel que prueben su aplicacion de principio a fin. Tenga cuidado de no terminar con un cono de helado de prueba que sera una pesadilla para mantener y tomar demasiado tiempo 
+para funciona.
+
+No se apegue a los nombres de las capas individuales en la piramide de prueba de cohn. De hecho , pueden ser bastante engañosos: prueba de servicio es un termino dificil de omprender (el mismo Cohn habla 
+sobre la observacion de que muchos desarrolladores ignoran por completo esta capa). En los dias de los marcos de aplicacion de una sola pagina como reaccionar , angular , ember.js y otros, se hace 
+evidente que las pruebas de IU no tienen que estar en el nivel mas alto de su piramide: pude realizar pruebas unitarias de su IU en todos de estos marcos. 
+
+dadas las deficiencias de los nombres originales, esta bien pensar en otros nombres para sus capas de prueba, siempre y cuando mantenga la coherencia dentro de su base de codigo y las discusiones de su 
+equipo.
+
+
+-------------------------------------------------------
+------------------------------------------------------
+Herramientas y bibliotecas que veremos 
+------------------------------------------------------
+-------------------------------------------------------
+
+JUnit : nuestro corredor de pruebas
+Mockito : para burlarse de las dependencias 
+Wiremock : para desconectar servicios externos
+Pacto: para escibir pruebas CDC 
+Selenium: para escribir pruebas de extremo a extremo basadas en la interfaz de usuario
+REST-assured: para escribir pruebas de extremo a extremo impulsadas por REST API
+
+----> La aplicacion de muestra 
+
+----> Estructura de alto nivel 
+En un nivel alto , el sistema diene la siquiente estructura 
+
+
+web <---> json via http <---> spring service <---> database
+                                    |
+                                    |
+                                    v
+                               
+                               json via http
+                                    |
+                                    v
+                               
+                               weather api
+
+
+Nuestro microservicio proporciona un interfaz Rest a la que se puede llamar a traves de http. para algunos puntos finales, el servicio obtendra informacion de una base de datos. En otros casos , el servicio
+llamara a una API meteorologica externa a traves de Http para obtener y mostrar las condiciones meteorologicas actuales 
+
+----> Arquitectura Interna < --------------
+
+Internamente , Spring service tiene una arquitectura tipica de spring:
+
+- Controller = las clases proporcionan puntos finales Rest y se ocupan de las solicitudes y respuestas http
+- repository = las clases interactuan con la base de datos y se encargan de escribir y leer datos hacia/ desde el almacenamiento persistente
+- Client las clases hablan con otras API, en nuestro caseo , obtiene json a traves de https desde la api meteorologica de darksky.net
+- Domain = las clases capturan nuestro modelo de dominio, incluida la logica del dominio(que , para ser justos , es bastante trivial en nuestro caso).
+
+los desarrolladores experimentados de spring pueden notar que aqui falta una capa de uso frecuente : Inspirados en el diseño controlado por dominio, muchos desarrolladores crean una capa de servicio
+que consta de clases de servicio. Decidi no incluir una capa de servicio en esta aplicacion. Una de las razones es que nuestra aplicacion es lo suficientemente simple , una capa de servicion
+habria sido un nivel innecesario de direccionamiento indirecto. la otra es que creo que la gente se excede con las capas de servicios. A menudo encuentro bases de codigo donde toda la logica 
+empresareal la captura dentro de las clases de servicio. el modelo de dominio se convierte simplemente en una capa de datos, no de comportamiento (un modelo de dominio anemico).). para cada aplicacion
+no trivial , esto desperdicia mucho potencial para mantener su codigo bien estructurado y comprobable y no utiliza completamente el poder de la orientacion a objetos 
+
+Nuestros repositorios son sencillos y brindan una funcionalidad CRUD simple. Para mantener el codigo simple, utilice Spring Data . Spring Data nos brinda una pimplementacion de Repositorio CRUD simple
+generica que podemos usar en lugar de implementar la nuestra. Tambien se ocupa de activar una base de datos en memoria para nuestras pruebas en lugar de urar una base de datos postgreSQL real como lo 
+haria en produccion.
+
+Eche un vistazo al codigo base y familiaricese con la estructura interna. Sera util para nuestro proximo paso : Probar la aplicacion
+
+---------------------->Pruebas Unitarias <-------------------------------------------
+
+la base de su conjunto de pruebas estara compuesta por pruebas unitarias. sus pruebas unitarias se aseguran de que una cierta unidad (su sujeto bajo prueba ) de su base de codigo funcione segun lo 
+previsto . las pruebas unitarias tienen el alcance mas limitado de todas las pruebas de su conjunto de pruebas . la cantidad de pruebas unitarias en sun conjunto de pruebas superara en gran medidad
+a cualquier otro tipo de prueba.
+
+Nota: una prueba unitaria generalmente reemplaza a los colaboradores externos con dobles de prueba 
+
+----------------> Que es una unidad <----------------------------
+
+Si le preguntamos a tres personas diferentes que significa Unidad en el contexto de las pruebas unitarias , vamos a recibir 4 respuestas diferentes y ligeramente matizadas . no se tiene respuesta canonica
+
+si esta trabajando en un lenguale funcional , lo mas probable es que una unidad sea una sola funcion. sus pruebas unitarias llamaran a una funcion con diferentes parametros y se aseguraran de que devuelva
+los valores esperados.En un lenguaje orientado a objetosm, una unidad puede variar desde un solo metodo hasta una clase completa.
+
+--------------->Sociable y Solitario < ------------------------------
+
+Algunos argumentan que todos los colaboradores (por ejemplo, otras clases que son llamadas por su clase bajo prueba ) de su sujeto bajo prueba deben sustituirse con simulacros o stubs para lograr un 
+aislamiento perfecto y evitar efectos secundarios y una configuracion de prueba complicada. Otros argumentan que solo los colaboradores que son lentos o tienen efectos secundarios mayores(por ejemplo
+clases que acceden a bases de datos o hacen llamadas de red) deben ser objeto de burlas.
+
+Ocasionalmente, las personas etiquetan estos dos tipos de pruebas como pruebas unitarias solitarias para las pruebas que excluyen a todos los colaboradores y pruebas unitarias sociables para las 
+pruebas que permiten hablar con colaboradores reales (Trabajando efectivamente con pruebas unitarias de jay fields acuño estos terminos). Si tiene algo de tiempo libre , puede profundizar en la madriguera 
+del conejo y leer mas sobre los pros y los contras de las diferentes escuelas de pensamiento. 
+
+Al final del dia , no es importante decidir si realiza pruebas de unidad solidaria o sociable . Escribir pruebas automatizadas es lo importante. personalmente, me encuentro usando ambos enfoques todo el 
+tiempo. si se vuelve incomodo usar colaboradores reales , usare simulacros y stubs generosamente. si siento que involucar al colaborador real me da mas confianza en una prueba, solo agregare las partes 
+externas de mi servicio.
+
+---------------------------> Burlandose y golpeando <[--------------------------
+
+Mocks y stubs son dos tipos diferentes de dobles de prueba(hay mas que estos dos).
+mucha gente usa los terminos mock y stub indistintamente. Creo que es bueno ser preciso y tener en cuenta sus propiedades especificas . puede usar dobles de prueba para reemplazar objetos que usaria en 
+produccion con una implementacion que lo ayude con las pruebas. 
+
+En palabras simples, significa que reemplaza algo real (por ejemplo, una clase , modulo o funcion) con una version falsa de ese algo. la version falsa se ve y actua como la version real (responde a las 
+mismas llamadas de metodo), pero responde con respuestas enlatadas que usted mismo define al comienzo de su prueba unitaria. 
+
+El uso de dobles de prueba no es especifico de las pruebas unitarias. se pueden utilizar dobles de prueba mas elaborados para simular partes completas de su sistema de forma controlada.Sin embargo , en las 
+pruebas unitarias es mas probable que encuentre muchos simulacros y stubs (dependiendo de si es el tipo de desarrollador sociable o solitario), simplemente por que muchos lenguajes y bibliotecas modernos
+hacen que sea facil y comodo de configurar. simulacros y talones.
+
+Independientemente de su eleccion de tecnologia, existe una buena posibilidad de que la biblioteca estandar de su idioma o alguna biblioteca popular de terceros se proporcione formas elegantes de 
+configurar simulacrios. E incluso escribir sus propios simulacros desde cero es solo una cuestion de escribir una clase/modulo/funcion falsos con la misma firma que el real y configurara el falso de su 
+prueba. 
+
+Sus pruebas unitarias se ejecutaran muy rapido. En una maquina decente , puede esperar ejecutrar miles de pruebas unitarias en unos pocos minutos . pruebe pequeñas partes de su base de codigo de forma
+aislada y evite acceder a las bases de datos , el sistema de archivos o activar consultas HTTP (mediante el uso de simulacros y stubs para estas partes) para mantener sus pruebas rapidas .
+
+Una vez que aprendas a escribir pruebas unitarias , seras cada vez mas fluido al escribirlas . Apague a los colaboradores externos, configure algunos datos de entrada, llame a su sujeto bajo prueba 
+y verifique que el valor devuelto sea el que esperaba. Mire el desarrollo basado en pruebas y deje que sus pruebas unitarias quien su desarrollo; si se  aplica correctamente , puede ayudarlo a 
+entrar en un gran flujo y crear un diseño bueno y mantenible mientras produce automaticamente un conjunto de pruebas completo y totalmente automatizado. Aun asi, no es una bala de plata.
+
+
+----------------> Que probar? <----------------------------
+
+lo bueno de las pruebas unitarias es que puede escribirlas para todas sus clases de codigo de produccion, independientemente de su funcionalidad o de la capa a la que pertenezcan en su estructura interna.
+puede realizar pruebas unitarias de controladores al igual que puede realizar pruebas unitarias de repositorios, clases de dominio o lectores de archivos . Simplemente apeguese a la regla general de uan 
+clase de prueba por clase de produccicon y tendra un buen comienzo.
+
+una clase de prueba unitaria debe al menos probar la interfaz publica de la clase. los metodos privados no se pueden probar de todos modos, ya que simplemente no se puedn llamar desde una clase 
+de prueba diferente. Se puede acceder a los paquetes protegidos o privados desde una clase de prueba (dado que la estructura del paquete de su clase de prueba es la misma que con la clase de produccion),
+pero probar estos metodos ya podria ir demasiado lejos.
+
+
+hay una linea muy fina cuand ose trata de escribir pruebas unitariaf : deben asegurarse de que se prueben todas las rutas de codigo no triviales (incluidas las rutas felices y los casos extremos). 
+al mismo tiempo, no deberian vincularse demasiado a su implementacion.
+
+porque eso?
+
+las pruebas que estan demasiado era del codigo te produccion rapidamente se vuelven molestas .Tan pronto como refactorice su codigo de produccion(resumen rapido: refactorizar significa cambiar la
+estructura interna de su codigo sin cambiar el comportamiento visible externamente) sus pruebas unitarias se romperan. 
+
+de esta manera, pierde un gran beneficio de las pruebas unitarias : actuar como una red de seguridad para los cambios de codigo. prefieres hartarte de esas estupidas pruebas que fallan cada vez que 
+refactorizas, causando mas trabajo que util; y de todos modos, de quien fue la idea de estas estupidas pruebas ?
+
+que haces en su lugar ? no refleje su estructura de codigo interno dentro de sus pruebas unitarias . pruebe el comportamiento observable en su lugar. Pensar en si introduzco valores xy y , sera el resultado
+Z?
+
+en lugar de 
+si ingreso xy y , el metodo llamara primero a la clase A , luego llamara a la clase B y luego devolvera el resultado de la clase A mas el resultado de la clase B?
+
+los metodos privados generalmente deben considerarse un detalle de implementacion . Es por eso que ni siquiera deberias tener ganas de probarlos. 
+
+A menudo escucho a los oponentes de las pruebas unitarias (o TDD) argumentando que escribir pruebas unitarias se convierte en un trabajo inutil en el que debke probar todos sus metodos para obtener una 
+alta cobertura de prueba. A menudo citan escenarios en los que un lider de equipo demasiado entusiasta los obligo a escribir pruebas unitarias para getters y setters y todos los demas tipods de codigo
+trivial para llegar a una cobertura de prueba del 100%
+
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+Estructura de prueba
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+
+Una buena estructura para todas sus pruebas (esto no se limita a las pruebas unitarias ) es esta:
+
+1. configurar los datos de prueba
+2. llame a su metodo bajo prueba
+3. comprueba que se devuelven los resultados esperados 
+
+hay un buen momento tecnico para recordar seta estructura: "Organiza, actuar, afirmar". Otro que puedes usar se inspira en BDD. Es la triada "dado", "cuando", "Entonces", donde dado refleja la configuracion,
+cuando la llamada al metodo y luego la parte de asercion.
+
+este patron tambien se puede aplicar a otras pruebas de mas alto nivel. En todos los casos, aseguran que sus pruebas sigan siendo faciles y consistentes de leer . Ademas de eso, las pruebas escritas con
+esta estructura en menten tienden a ser mas breves y expresivas.
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+Pruebas de integracion
+------------------------------------------------------------------
+------------------------------------------------------------------
+
+Todas las aplicaciones no triviales se integraran con otras partes (bases de datos, sistemas de archivos , llamadas de red a otras aplicaciones). Al escribir pruebas unitarias, estas son generalmente
+las partes que omite para generar un mejor aislamiento y pruebas mas rapidas . Aun asi , su aplicacion interactuara con otras partes y esto debe probarse . Las pruebas de integracion estan ahi 
+para a yudar . Prueban la integracion de su aplicacion con todas las partes que viven fuera de su aplicacion.
+
+Para sus pruebas automatizadas, esto significa que no solo necesita ejecutar su propia aplicacion, sino tambien el componente con el que se esta integrando . si esta probando la integracion 
+con una base de datos, necesita ejecutar una base de datos cuando ejecute sus pruebas . Para probar que puede leer archivos desde un disco , debe guardar un archivo en su disco y cargarlo
+en su prueba de integracion.
+
+Mencionen antes que "pruebas unitarias " es un termino vago, esto es uaun mas cierto para  "pruebas de integracion". para algunas personas , la prueba de integracion significa probar toda la pila de 
+su aplicacion conectada a otras aplicaciones dentro de su sistema. Me gusta tratar las pruebas de integracion de manera mas estrecha y probar un punto den integracion a la vez reemplazando servicios
+y bases de datos separados con dobles de prueba. junto con las pruebas de contrato y la ejecucion de pruebas de contrato contra dobles de prueba , asi como las implementaciones reales , pueden 
+generar pruebas de integracion que sean mas rapidas , mas independientes y , por lo general , mas faciles de razonar. 
+
+pruebas de integracion estrecha en vivo en el limite de su servicio. conceptualmente , siempre se trata de desencadenar una accion que conduce a la integracion con la parte externa (sistema de archivos
+base de datos , servicio separado). Una prueba de integracion de base de datos se veria asi:
+
+1) iniciar una base de datos 
+2) conecta tu aplicacion a la base de datos 
+3) activar una funcion dentro de su codigo que escribe datos en la base de datos 
+4) verifique que los datos esperados se hayan escrito en la base de datos leyendo los datos de la base de datos 
+
+Otro ejemplo, probar que su servicio se integra con un servicio separado a traves de una Api Rest podria verse asi : 
+
+1) Inicia tu aplicacion 
+2) inicie una instancia del servicio separado(o una prueba doble con la misma interfaz)
+3) active una funcion dentro de su codigo que lea desde la api del servicio separado 
+4) verifique que su aplicacion pueda analizar la respuesta correctamente
+
+sus pruebas de integracion, como las pruebas unitarias, pueden ser bastantes blancas. algunos marcos le permiten iniciar su aplicacion mientras aun puede simular algunas otras partes de su aplicacion 
+para que pueda verificar que se hayan producido las interacciones correctas.
+
+Escriba pruebas de integracion para todas las piezas de codigo en las que serialice o deserialice datos . Esto sucede con mas frecunecia de lo que pienssas . Pensar en:
+
+* Llamadas a la Api Rest de tus servicios
+* Leer y escribir en bases de datos 
+* Llamar a las api de otras aplicaciones 
+* Leer y escribir en colas
+* Escribir en el sistema de archivos
+
+Escribir pruebas de integracion alrededor de estos limites garantiza que la escritura y lectura de datos de estos colaboradores externos funcione bien.
+
+Al escribir pruebas de integracion limitadas, debe intentar ejecutar sus dependencias externas localmente: active una base de datos MySql local , pruebe contra un sistema de archivos ext4 local. 
+Si esta integrando con un servicio separado , ejecute una instancia de ese servicio localmente o cree y ejecute una version falsa que imite el comportamiento del servicio real. 
+
+Si no hay forma de ejecutar un servicio de terceros localmente , debe optar por ejecutar una instancia de prueba dedicada y apuntar a esta instancia de prueba cuando ejecute sus pruebas de integracion.
+Evite la integracion con el sistema de produccion real en sus pruebas automatizadas . Lanzar miles de solicitudes de prueba contra un sistema de producicion es una forma segura de enojar a la gente por que 
+esta saturando sus registros (en el mejor de los casos) o incluso 'Dos'ing su servicio(en el peor de los casos). la integracion con un servicio a traves de la red es una caracteristica tipica de una 
+prueba de integracion amplia y hace que sus pruebas sean mas lentas y , por lo general , mas dificiles de escribir. 
+
+Con respecto a la piramide de prueba , las pruebas de integracion estan en un nivel mas alto que las pruebas unitarias . La integracion de partes lentas como sistemas de archivos y bases de datos 
+tiende a ser mucho mas lenta que ejecutar pruebas unitarias con estas partes desconectadas . tambien pueden ser mas dificiles de escribir que las pruebas unitarias pequeñas y aisladas , despues de todo, 
+debe ocuparse de hacer girar una parte externa como parte de sus pruebas . Aun asi, tienen la ventaja de brindarle la confianza de que su aplicacion puede funcionar correctamente con todas las 
+partes externas con las que necisita comunicarse .las pruebas unitarias no pueden ayudarte con eso.
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+Pruebas de contrato
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+
+Las organizaciones de desarrollo de software mas modernas han encontrado formas de escalar sus esfuerzos de desarrollo al distribuir el desarrollo de un sistema entre diferentes equipos . 
+Los equipos individuales construyen servicios individuales, debilmente acoplados sin pisar los dedos de los demas e integran estos servicios en un sistema grande y cohesivo. El rumor mas reciente sobre los
+microservicios se centra exactamente en eso.
+
+Dividir su sitema en muchos servicios pequeños a menudo significa que estos servicios necesitan comunicarse entre si a traves de ciertas interfaces (con suerte bien definidas , a veces creadas 
+accidentalmente)
+
+las interfaces entre diferentes aplicaciones pueden tener diferentes formas y tecnologias .los comunes son
+
+REST y JSON a traves de HTTPS
+RPC usando algo como gRPC
+construyendo una arquitectura basada en eventos usando colas 
+para cada interfaz hay dos partes involucradas : el proveedor y el consumidor. El proveedor sirve datos a los consumidores . El consumidor procesa datos obtenidos de un proveedor . En un mundo REST, 
+un proveedor crea una API REST para obtener datos o activar cambios en el otro servicio. En un mundo asincronico, impulsado por eventos , un proveedor (a menudo mas bien llamado editor) publica datos 
+en una cola ; un consumidor (a menudo llamado suscriptor ) se suscribe a estas colas y lee y procesa datos 
+
+Como a menudo distribuye los servicios de consumo y prestacion entre diferentes equipos , se encuentra en la situacion en la que debe especificar claramente la interfaz abordado este problema de la siguiente manera:
+
+Escriba una especificacion de interfaz larga y detallada(el contrato)
+Implementar el servicio de prestacion de acuerdo con el contrato definido. 
+Arroje la especificacion de la interfaz sobre la cera al equipo consumidor.
+Espere hasta que implementen su parte de consumir la interfaz
+Ejecute una prueba de sistemamanual a gran escala para ver si todo funciona 
+Espero que ambos equipos se ciñan a la definicion de la interfaz para siempre y no se equivoquen
+
+Los equipos de desarrollo de software mas modernos han reemplazado los pasos 5 y 6 con algo mas automatizado: las pruebas de contrato automatizadas aseguran que las implementaciones en el lado del 
+consumidor y del proveedor aun se adhieran al contrato definido . Sirven como un buen conjunto de pruebas de regresion y aseguran que las desviaciones del contrato se noten temprano. 
+
+En una organizacion mas agil , debe tomar la ruta mas eficiente y menos derrochadora. Usted crea sus aplicaciones dentro de la misma organizacion. Realmente no deberia ser demasiado dificil hablar
+directamente con los desarrolladores de los otros servicios en lugar de arrojar documentacion demasiado detallada sobre la cerca. Despues de todo, son sus compañeros de trabajo y no un proveedor 
+externo con el que solo puede hablar a traves de atencion al cliente o contratos legalmente infalibles.
+
+Las pruebas de contrato impulsadas por el consumidor (pruebas CDC ) permiten que los consumidores impulsen la implementacion de un contrato . aAl usar CDS, los consumidores de una interfaz escriben 
+pruebas que verifican la interfaz en busca de todos los datos que necesitan de esa interfaz. El equipo consumidor luego publica estas pruebas para que el equipo de publicacion pueda obtener y ejecutar
+estas pruebas facilmente. El equipo proveedor ahora puede desarrollar su API ejecutando las pruebas de CDC. Una Vez que pasan todas las pruebas, saben que han implementado todo lo que necesita el equipo 
+consumidor. 
+
+Este enfoque permite que el equipo proveedor implemente solo lo que es realmente necesario(mantener las cosas simples, YAGNI y todo eso). el equipo que proporciona la interfaz debe obtener y ejecutar estas 
+pruebas de CDC de forma continua (en su proceso de compilacion) para detectar cualquier cambio importante de inmediato . Si rompen la interfaz , sus pruebas de CDC fallaran , lo que evitara que se 
+activen los cambios . Mientras las pruebas se mantengan en verde , el equipo puede hacer los cambios que desee sin tener que preocuparse por otros equipos . El enfoque del contrato impulsado por el 
+consumidor lo dejaria con un proceso similar al siguiente:
+
+* El equipo consumidor escribe pruebas automatizadas con todas las expectativas del consumidor 
+* publican las pruebas para el equipo proveedor 
+* El equipo proveedor ejecuta las pruebas de los CDC continuamente y las mantiene ecologicas .
+* Ambos equipos hablan entre si una vez que se rompen las pruebas de los CDC
+
+si su iorganizqacion adopta un enfoque de microservisios, tener pruebas de cdc es un gran paso hacia el establecimiento de equipos autonomos. las pruebas de los cdc son una forma automatizada de fomentar
+la comunicacion del equipo . Se aseguran de que las interfaces entre los equipos funcionen en todo momento . las pruebas de CDC fallidas son un buen indicador de que debe acercarse al equipo 
+afectado , converar sobre los proximos cambios de Api y averiguar como desea avanzar.
+
+Una implementacion ingenua de las pruebas de CDC puede ser tamn simple como enviar solicitudes contra una API y afirmar que las respuestas contienen todo lo que necesita . luego empaqueta estas pruebas como  un ejecutable (.gem, .jarei, . sh )y has arga en aldun lugar donde el otro equipo pueda obtenerlas (por ejemplo, un repositorio de artefactos como Artifactory).
+
+En lo ultimos años, el enfoque de CDC se ha vuelto cada vez mas popular y se han creado varias herramientas para facilitar la escritura y el intercambio.
+
+El pacto es probablemente el mas destacado en estos dias . Tiene un enfoque sofisticado de escribir pruebas para el consumidor y el proveedor, le brinda talones para servicios separados listos para usar
+y le permite intercambiar pruebas de CDC con otros equipos . Pact ha sido portado a muchas plataformas y puede usarse con lenguajes JVM, Ruby, .NET, JavaScript y mucho mas .
+
+si desea comenzar con los CDC y no sabe como, Pact puede ser una opcion sensata . La documentacion puede ser abrumadora al principio. Sea paciente y trabaje a traves de el. Ayuda a obtener una comprension
+firme de los CDC, lo que a su vez le facilita abogar por el uso de los CDC cuando trabaja con otros equipos.
+
+Las pruebas de contratos impulsadas por el consumidor pueden ser un verdadero cambio de juego para establecer equipos autonomos que puedan moverse rapito y con confianza. Hazte un favor, lee sobre ese 
+concepto y pruebalo. Un conjunto solido de pruebas de CDC es invaluable para poder moverse rapido sin romper otros servicios y causar mucha frustracion con otros equipos .
+
+----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+Prueba de Interfaz de usuario
+----------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+
+la mayoria de las aplicaciones tienen algunt tipo de interfaz de usuario. por lo general, estamos hablando de una interfaz web en el contexto de las aplicaciones web. la gente a menudo olvida que 
+una api rest o una interfaz de linea de comandos es tanto una interfaz de usuario como una elegante interfaz de usuario web.
+
+las pruebas de IU prueban que la interfaz de usuario de su aplicacion funciona correctamente. La entrada del usuario debe desencadenar las acciones correctas, los  datos deben presentarse al usuario,
+el estado de la interfaz de usuario debe cambiar segun lo esperado.
+
+A veces se dice que las pruebas de interfaz de usuario y las pruebas de extremo a extremo (como en el caso de Mike Cohn) son lo mismo . para mi , esto combina dos cosas que son conceptos mas 
+bien ortogonales.
+
+siprobar su aplicacion de un extremo a otro a menudo significa conducir sus pruebas a traves de la interfaz de usuario. lo contrario, sin embargo , no es cierto.
+
+la prueba de su interfaz de usuario no tiene que hacerse de manera integral. Dependiendo de la tecnologia que utilice, probar su interfaz de usuario puede ser tan simple como escribir algunas pruebas 
+unitarias apara su codigo javascript frontend con su back end desconectado.
+
+con las aplicaciones web tradicionales, la prueba de la interfaz de usuario se puede lograr con herramientas como Selenium. Si considera que una ApiRest es su interfaz de usuario,debe tener todo lo que
+necesita escribiendo pruebas de integracion adecuadas en torno a su API.
+
+Con las interfaces web , hay multiples aspectos que probablemente desee probar en torno a su interfaz de usuario: el comportamiento , el diseño , la facilidad de uso o la adherencia a su diseño corporativo son solo algunos
+
+Afortunadamente , probar el comportamiento de su interfaz de usuario es bastante simple. Hace clic aqui, ingresa datos alli y desea que el estado de la interfaz de usuario cambie en consecuencia. los 
+marcos de aplicaciones de una sola pagina modernos (reaccionar, vue.js, Angular y similares ) a menudo vienen con sus propias herramientar y ayudantes que le permiten probar a fondo estas interacciones
+de interfaz utilizando javascript de vainilla, puede usar sus herramientas de prueba regulares como jasmine o Mocha. Con una aplicacion renderizada del lado del servidor mas tradicional, las pruebas 
+basadas en selenium seran su mejor opcion.
+
+probar que el diseño de su aplicacion web permanezca intacto es un poco mas dificil. dependiendo de su aplicacion y de las necesidades de sus usuarios, es posible que desee asegurarse de que los cambios 
+en el codigo no rompan el diseño del sitio web por accidente.
+
+El problema es que las computadoras son notoriamente malas para verificar si algo "se ve bien" (tal vez algun algoritmo inteligente de aprendizaje automatico pueda cambiar eso en el futuro).
+
+hay algunas herramientas para probar si desea verificar automaticamente el diseño de su aplicacion web en su canalizacion de compilacion. La mayoria de estas herramientas utilizan selenium para abrir su
+aplicacion web en diferentes navegadores y formatos, tomar capturas de pantalla y compararlas con capturas de pantalla tomadas anteriormente. Si las capturas de pantalla antiguas y nuevas difieren de forma inesperada, la herramienta se lo hara saber.
+
+Galen es una de estas herramientas . pero incluso implementar su propia solucion no es demasiado dificil si tiene requisitos especiales. Algunos equipos con los que he tabajado construyeron lineup y su
+primo jlineup basado en java para lograr algo similar . Ambas herramientas toman el mismo enfoque basado en Selenium que describi antes.
+
+Una vez que desee probar la usabilidad y el factor "se ve bien"e, deje los reinos delas pruebas automatizadas . esta es el area en la que debe confiar en las pruebas exploratorias , las pruebas de 
+usabilidad(esto puede ser incluso tan simple como las pruebas de pasillo) y las exhibiciones con sus usuarios para ver si les gusta usar su producto y pueden usar todas las funciones sin 
+frustrarse o molestarse.
+
+=---------------------------------------------------------------------------------------------------------------
+=---------------------------------------------------------------------------------------------------------------
+Pruebas de Extremo a Extremo
+=---------------------------------------------------------------------------------------------------------------
+r---------------------------------------------------------------------------------------------------------------
+
+Probar su aplicacion implementada a traves de su interfaz de usuario es la forma mas completa de probar su aplicacion. las pruebas de interfaz de usuario impulsadas por Webdriver descritas anteriormente
+son un buen ejemplo de pruebas de un extremo a otro
+
+las pruebas de extremo a extremo(tambien llamadas pruebas de pila amplia) le brindan la mayor confianza cuando necesita decidir si su software funciona o no . Selenium y el protocolo WebDriver le permiten automatizar sus pruebas al controlar automaticamente un navegador (sin interfaz grafica) contra sus servicios implementados, realiza clics , ingresar datos y verificar el estado de su interfaz de usuario.
+puede usar selenium directamente o usar herramientas que se construyen sobre el , nightwatch es una de ellas .
+
+las pruebas de extremo a extremo vienen con su propio tipo de problemas . Son notoriamente escamosos y a menudo fallan por razones inesperadas e imprevisibles . muy a menudo se fracaso es un falso positivo.
+cuando mas sofisticada sea su interfaz de usuario, mas inestavles tendrana ser las pruebas. las peculiaridades del navegador , los problemas de tiempo, las animaciones y los cuadros de dialogo emenrgentes 
+inesperados son solo algunas de las razones por las que dedique mas tiempo a la depuracion de lo que me gustaria admitir.
+
+En un mundo de microservicios , tambien existe la gran pregunta de quien esta a carde de escribir estas pruebas .Dado que abarcan multiples servicios (todo su sistema), no hay un solo equipo responsable 
+de escribir pruebas de extremo a extremo.
+
+Si tiene un equipo de control de calidad centralizado, parece una buena opcion. por otra parte , tener un equipo de control de calidad centralizado es un gran anti-patron y no deberia tener un lugar 
+en un mundo DevOps donde sus equipos estan destinados a ser verdaderamente mutifuncionales. No hay una respuesta facil sobre quien debe ser el propietario de las pruebas de extremo a extremo . Tal vez su organizacion tenga una comunidad de practica o un gremio de calidad que pueda encargarse de esto. Encontrar la respuesta correcta depende en gran medida de su organizacion.
+
+Ademas , las pruebas de extremo a extremo requieren mucho mantenimiento y se ejecutan con bastante lentitud. Pensando en un panorama con mas de un par de microservicios en su ludar, ni siguiera podra ejecutar sus pruebas de extremo a extremo localmente, ya que esto requeriria iniciar todos su microservicios localmente tambien
+
+Debido a su alto costo de mantenimiento , debe tratar de reducir al minimo la cantidad de pruebas de extremo a extremo . 
+
+Piense en las interacciones de alto valor que los usuarios tengran con su aplicacion. Trate de crear recorridos de usuario que definan el valor central de su producto y traduzca los pasos mas 
+importantes de estos recorridos de usuario en pruebas automatizadas de extremo a extremo.
+
+Si esta creando un sitio de comercio electronico , su viaje de cliente mas valioso podria ser un usuario que busca un producto , lo coloca en la cesta de la compra y realiza una compra. 
+Eso es todo . Mientras este viaje siga funcionando , no deberias tener demasiados problemas . Tal Vez encuentre uno o dos viajes de usuario cruciales mas que pueda traducir en pruebas de un extremo
+a otro. Todo lo demas probablemente sera mas doloroso que util.
+
+Recuerde : tiene muchos niveles inferiores en su piramide de prueba donde ya probo todo tipo de casos extremos e integraciones con otras partes del sistema . No hay necesitdad de repetir estas pruebas 
+en un nivel  superior. El alto esfuerzo de mantenimiento y mucho falsos positivos lo retrasaran y haran que pierda la confianza en sus pruebas , as temprano que tarde. 
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Prueba de extremo a extremo de la interfaz de usuario.
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+para las pruebas de extremo a extremo , Selenium y el protocolo WebDriver son las herramientas elegida por muchos desarrolladores. Con Selenium, puede ejegir un navegador que le guste y dejar que llame 
+automaticamente a su sitio web , haga clic aqui y alla, ingrese datos y verifique que las cosas cambien en la interfaz de usuario.
+
+Selenium necesita un navegador que pueda iniciar y usar para ejecutar sus pruebas. hay varios llamados 'controladores' para diferentes navegadores que podria usar. Elija uno (o varios) y agreguelo a su 
+archivo build.gradle. independientemente del navegador que elija , debe asegurarse de que todos los desarrolladores de su equipo y su servidor de CI hayan instalado la version correcta del navegador
+localmente . Esto puede ser bastante doloroso para mantenerse sincronizado. Para java, hay una pequeña y agadable biblioteca llamada webdrivermanager que puede automatizar la descarga y configuracion
+de la version correcta del navegador que desea usar. Agrega estas dos dependencias a tu build.gradle Y listo: 
+
+testCompile('org.seleniumhq.selenium:selenium-chrome-driver:2.53.1')
+testCompile('io.github.bonigarcia:webdrivermanager:1.7.2')
+
+Ejecutar un navegador completo en su conjunto de pruebas puede ser una molestia. Especialmente cuando se usa la entrega continua, es posible que el servidor que ejecuta su canalizacion no pueda activar
+un navegador que incluya una interfaz de usuario(por ejemplo, por que no hay X-server virtual como xvfb).
+
+Un enfoque mas reciente es usar un navegador sin interfaz(es decir , un navegador que no tiene una interfaz de usuario) para ejecutar sus pruebas de controlador web. hasta hace poco, phatomjs era el
+principal navegador sin interfaz utilizado para la automatizacion de navegadores. Desde Chromium y Firefox anunciaron que implementaron un modo sin cabeza en sus navegadores, phantom js de repente se volvio
+obsoleto. Despues de todo , es mejor probar su sitio web con un navegador que sus usuarios realmente usuen(como firefox y chrome) en lugar de usar un navegador artificial solo porque es conveniente para 
+usted como desarrollador.
+
+Ambos, firefox y chrome , son completamente nuevos y aun no han sido ampliamente adoptados para implementar pruebas de controladores web .queremos mantener las cosas simples. en lugar de perder el tiempo 
+para usar los modos si cabeza de ultima generacion, sigamos con la forma clasica usando selenium y un navegador normal.Una prueba simple de extremo que enciende chrome.
+
+
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Prueba de extremo a extremo de API REST
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+Evitar una interfaz grafica de usuario al probar su aplicacion puede ser una buena idea para generar pruebas que sean menos inestables que las pruebas completas de un extremo a otro y que cubran una 
+gran parte de la pila de su aplicacion. Esto puede ser util cuando las pruebas a traves de la interfaz web de su aplicacion. Esto puede ser util cuando las pruebas a traves de la interfaz web de su
+aplicacion son particularmente dificiles. Tal vez ti siquiera tenga una interfaz de usuario web, pero sirva una API REST en su lugar(porque tiene una aplicacion de una sola pagina de algun lugar que habla 
+con esa API, o simplemente por que desprecia todo lo que es agradable y brillante). De cualquier manera, una prueba subcutanea que prueba justo debajo de la interfaz grafica de usuario y puede llevarlo muy
+lejos sin comprometer demasiado la confianza. 
+
+
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Pruebas de aceptacion: Sus caracteristicas funcionan correctamente?
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+Cuanto mas suba en su piramide de prueba, mas probable es que entre en el ambito de probar si las funciones que esta creando funcionan correctamente desde la perspectiva del usuario. Puede tratar su
+aplicacion como una caja negra y cambiar el enfoque en sus pruebas de 
+
+cuando ingreso los valores x & y Y, el valor devuelto debe ser Z hacia
+dado que hay un usuario conectado y hay un articulo "bicicleta"
+cuando el usuario navega a la pagina de detalles del articulio "bicicleta"
+y hace clic en el boton "añadir a la cesta"
+entonces el articulo "bicicleta" deberia estar en su cesta de la compra
+
+A veces escuchara los terminos prueba funcional o prueba de aceptacion para este tipo de pruebas. A veces a la gente le dira que las pruebas funcionales y de aceptacion son cosas diferentes. A veces
+los terminos se combinan . A veces, las personas discutiran interminablemente sobre la redaccion y las definiciones . A menudo ,m esta discusion es una gran fuente de confuncion.
+
+Aque esta la cosa: en un momento , debe asegurarse de probar que su software funciona correctamente desde la perspectiva del usuario, no solo desde una perspectiva tecnica.
+lo que usted llama estas pruebas en realidad no es tan importante. Tener estas pruebas, sin embargo , es. Elige un termino, apegate a el y escribe esas pruebas.
+
+Este es tambien el momento en el que la gente habla de BDD y de las herramientas que le permiten implementar pruebas de forma BDD. BDD o una forma de escribir pruebas de estilo BDD puede ser un buen
+truco para cambiar su mentalidad de los detalles de implementacion hacia las necesitades de los usuarios. Adelante y pruebalo.
+
+Ni siquiera necesita adoptar herramientas BDD completas como Cucumber(aunque puede hacerlo). Algunas bibliotecas de aserciones(como chai.js) le permiten escribir aserciones con should palabras clave de 
+estilo que pueden hacer que sus pruebas se lean mas como BDD. E incluso si no usa una biblioteca que proporcione esta notacion, el codigo inteligente y bien factorizado le permiten escribir pruebas 
+enfocadas en el comportamiento de usuario. Algunos metodos/ funciones auciliares pueden llevarlo muy lejos: 
+
+def test_add_to_basket():
+    # dado
+    usuario = un_usuario_con_canasta_vacia()
+    inicio de sesión de usuario()
+    bicicleta = articulo(nombre="bicicleta", precio=100)
+
+    # cuando
+    article_page.add_to_.basket(bicicleta)
+
+    # entonces
+    afirmar usuario.cesta.contiene(bicicleta)
+
+las pruebas de aceptacion pueden venir en diferentes niveles de granularidad. la mayoria de las veces seran de alto nivel y probaran su servicio a traves de la interfaz de usuario. Sin embargo, es bueno
+entender que tecnicamente no hay necesidad de escribir pruebas de aceptacion en el nivel mas alto de su piramide de pruebas. Si el diseño de su aplicacion y su escenario actual le permiten escribir 
+una prueba de aceptacion en un nivel inferior, hagalo. Tener una prueba de bajo nivel es mejor que tener una prueba de alto nivel. El concepto de las pruebas de aceptacion, que prueban que sus 
+caracteristicas funcionan correctamente para el usuario, es completamente ortogonal a su piramide de prueba.
+
+
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Prueba exploratoria
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+Incluso los esfuerzos de automatizacion de pruebas mas diligentes no son perfectos . A veces se pierden ciertos casos extremos en sus pruebas automatizadas. A veces es casi imposible detectar un error en
+particular escribiendo una pruebaunitaria. Ciertos problemas de calidad ni siquiera se vuelven evidentes dentro de sus pruebas automatizadas (piense en el diseño o la usabilidad). A pesar de sus 
+mejores intenciones con respecto a la automatizacion de pruebas , las pruebas manuales de algunos tipos sigue siendo una buena idea.
+
+Incluya pruebas exploratorias en su cartera de pruebas. Es un enfoque de prueba manual que enfatiza la libertad y la creatividad del evaluador para detectar problemas de calidad en un sistema en 
+ejecucion. Simplemente tomese un tiempo en un horario regular , arremanguese e intente romper su aplicacion. Use una mentalidad destructiva y encuentre formas de provocar problemas y errores en su 
+aplicacion . Documenta todo lo que encuentres para mas tarde. Tenga cuidado con los errores , los problemas de diseño, los tiempos de respuesta lentos , los mensajes de error perddidos o engañosos y 
+todo lo demas que lo molestaria como usuario de su software.
+
+la buena noticia es que puede automatizar felizmente la mayoria de sus hallazgos con pruebas automatizadas. Escribir pruebas automatizadas para los errores que detecta asegura que no habra regresiones de 
+ese error en el futuro. Ademas , lo ayuda a reducir la causa raiz de ese problema durante la correccion de errores.
+
+Durante las pruebas exploratorias, detectara problemas que pasaron desapercibidos a traves de su proceso de compilacion. No se sienta frustrado . Esta es una excelente informacion sobre la madurez de su
+proceso de compilacion. Al igual que con cualquier comentario, asegurese de actuar en consecuencia: piense en lo que puede hacer para evitar este tipo de problemas en el futuro. Tal vez te estas
+perdiendo un determinado conjunto de pruebas automatizadas . Tal vez haya sido descuidado con sus pruebas automatizadas en esta iteracion y necesite probar mas a fondo en el futuro. Tal vez haya una 
+herramienta o enfoque nuevo y brillante que podria usar en su canalizacion para evitar estos problemas en el futuro. Asegurese de actuar en consecuencia para que su canalizacion y toda su entrega de
+software maduren mas a medida que avanza.
+
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+La confusion sobre la terminologia de las pruebas 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+hablar de diferentes clasificaciones de prueba siempre es dificil. lo que quiero decir cuando hablo de pruebas unitarias puede ser ligeramente diferente de su compresion. con las pruebas de integracion es
+aun pero. para algunas personas , la prueba de integracion es una actividad muy amplia que prueba muchas partes diferentes de todo su sistema. para mi es algo bastante limitado, solo probar 
+la integracion con una parte externa a la vez. Algunos los llaman pruebas de integracion, otros se refieren a ellos como pruebas de componentes, algunos prefieren el termino prueba de servicio..
+Incluso otros argumentaran que estos tres terminos son cosas totalmente diferentes. No hay bien o mal . la comunidad de desarrollo de software simplemente no ha logrado establecer terminos bien
+definidos en torno a las pruebas.
+
+no se obsesione demasiado con apedarse a terminos ambiguos . No importa si lo llama prueba integral o de pila amplia o prueba funcional. No importa si sus pruebas de integracion significan algo diferente
+para usted que para la gente de otra empresa. Si seria muy bueno si nuestra profesion pudiera asentarse en algunos terminos bien definidos y todos se apegaran a ellos . Desafortunadamente 
+esto no ha sucedido todavia. y dado que hay muchos matices cuando se trata de escribir pruebas , es realmente mas un espectro que un monton de cubos discretos de todos modos , lo que la nomenclatura
+consistente sea aun mas dificil. 
+
+lo importante es que debe encontrar terminos que funcionen para usted y su equipo. Sea claro acerca de los diferentes tipos de pruebas que desea escribir. Acuerde el naming en su equipo y encuentre consenso
+sobre el alcance de cada tipo de prueba. Si logra que esto sea consistente dentro de su equipo (o tal vez incluso dentro de su organizacion), eso es realmente todo lo que deberia importarle. 
+
+
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+poner pruebas en su canal de implementacion
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+Si esta utilizando la integracion continua o la entrega continua, tendra un canal de implementacion que ejecutara pruebas automatizadas cada vez que realice un cambio en su software. por lo general, esta 
+canalizacion se divide en varias etapas que gradualmente le brindan mas confianza de que su software esta listo para implementarse en produccion. Al escuchar acerca de todos estos diferentes tipos de 
+pruebas , probablemente se este preguntando como debe ubicarlas dentro de su canal de implementacion. para responder a esto, solo debe pensar en uno de los valores fundamentales de la entrega continua (de
+hecho , uno de los valores fundamentales de la programacion extrema y el desarrollo agil de software): retroalimentaion rapida.
+
+una buena tuberia de compilacion te dice que te equivocaste lo mas rapido posible. No desea esperar una hora solo para descubrir que su ultimo cambio rompio algunas pruebas unitarias simples. lo mas 
+probable es que probablemente ya se haya ido a casa si su tuberia tarda tanto en darle esa retroalimentacion. podria obtener esta informacion en cuestion de segundos, tal vez unos minutos , al colocar las
+pruebas de ejecucion rapida en las primeras etapas de su canalizacion. por el contrario, coloca las pruebas de ejecucion mas largas, generalmente las que tienen un alcance mas amplio, en las etapas 
+posteriores para no diferir la retroalimentacion de las pruebas de ejecucion rapida. Vera que la definicion de las etapas de su canalizacion de implementacion no depende de los tipos de pruebas, sino de
+su velocidad y alcance.
+
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Evite la duplicacion de pruebas
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+ahora que sabe que debe escribir diferentes tipos de pruebas , hay una trampa mas que debe evitar: duplicar pruebas en las diferentes capas de la piramide. si bien su intuicion podria decir
+que no existen demasiadas pruebas, permitame asegurarle que si existen. Cada prueba individual en su conjunto de pruebas es equipaje adicional y no es gratis. Escribir y mantener las pruebas 
+lleva tiempo . leer y comprender las pruebas de otras personas lleva tiempo. y , por supuesto , ejecutar pruebas lleva tiempo. 
+
+Al igual que con el codigo de produccion, debe esforzarse por la simplicidad y evitar la duplicacion. En el contexto de la implementacion de su piramide de prueba, debe tener en cuenta dos reglas 
+generales:
+
+1. si una prueba de nivel superior detecta un error y no falla ninguna prueba de nivel inferior, debe escribir una prueba de nivel inferior 
+2. empuje sus pruebas lo mas abajo posible en la piramide de pruebas 
+
+la primera regla es importante por que las pruebas de nivel inferior le permiten reducir mejor los errores y replicarlos de forma aislada. Se ejecutaran mas rapido y estaran menos hinchados 
+cuando este depurando el problema en cuestiion. y serviran como una buena prueba de regresion para el futuro . la segunda regla es importante para mantener rapido su conjunto de pruebas. Si ha probado
+todas las condiciones con confianza en una prueba de nivel inferior , no es necesario mantener una prueba de nivel superior en su conjunto de pruebas . Simplemente no agrega mas confianza de que 
+todo esta funcionando. Tener pruebas redundantes se volvera molesto en su trabajo diario. Su conjunto de pruebas sera mas lento y necesitara cambiar mas pruebas cuando cambie el comportamiento de su 
+codigo. 
+
+Expresemoslo de otra manera: si una prueba de nivel superior le da mas confianza de que su aplicacion funciona correctamente , deberia tenerla. Escribir una prueba unitaria para una 
+controller clase ayuda a probar la logica dentro del propio controlador.aun asi , esto no le dira si el punto final REST que proporciona este controlador realmente responde a las solicitudes HTTP . Asi
+que sube en la piramide de prueba y agrega una prueba que verifica exactamente eso , pero nada mas .No vuelve a probar toda la logica condicional y los casos extremos que sus pruebas de nivel inferior ya 
+cubren en la prueba de nivel superior. Asegurese de que la prueba de nivel superior se centre en la parte que las pruebas de nivel inferior no pudieron cubrir.
+
+soy riguroso a la hora de eliminar pruebas que no aportan ningun valor. Elimino las pruebas de alto nivel que ya estan cubiertas en un nivel inferior (dado que no brindan un valor adicional).Reemplazo las 
+pruebas de nivel superior con pruebas de nivel inferior si es posible. A veces eso es dificil , especialmente si sabes que hace una prueba fue un trabajo duro. Tenga cuidado con la falacia del costo 
+irrecuperable y presione la tecla Eliminar. No hay razon para perder mas tiempo valioso en una prueba que dejo de brindar valor.
+
+
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Escribir codigo de prueba limpio
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+Al igual que  con la escritura de codigo en general , se debe tener mucho cuidado en crear un codigo de prueba bueno y limpio. aqui hay algunos consejos mas para crear un codigo de prueba mantenible antes
+de seguir adelante y piratear su conjunto de pruebas automatizado:
+
+1. El codigo de prueba es tan importante como el codigo de produccion. Dale el mismo nivel de cuidado y atencion. "esto es solo un codigo de prueba" no es una excusa valida para justificar un codigo descuidado
+2. pruebe una condicion por prueba. esto le ayuda a mantener sus pruebas cortas y faciles de razonar
+3."arreglar, actuar, afirmar" o "dado, cuando , entonces" son buenos mnemotecnicos para mantener sus pruebas bien estructuradas
+4. la legibilidad importa. No trate de estar demasiado SECO. la duplicacion esta bien, si mejora la legibilidad. trate de encontrar un equilibrio entre codigo DRY y DAMP
+5. En caso de duda, utilice la regla de tres para decidir cuando refactorizar. Usar antes de reutilizar.
+
+        </p>
+      </section>
+    </main>
+    <footer class="footer_container">
+      <p style="margin: 30px 0;">© 2025 - Todos los derechos reservados</p>
+    </footer>
+    <script type="text/javascript" src="./../../assets/javascript/main.js"></script>
+  </body>
+</html>
