@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruby on Rails</title>
+    <link rel="stylesheet" href="./../../../assets/styles/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="nav-logo-container">
+        <img src="./../../../assets/img/logo_cv.png" alt="logo_cv" class="nav-logo"/>
+        <p class="nav-title">Curriculum V</p>
+      </div>
+      <button class="open-menu" id="open"><i class="fa-solid fa-bars"></i></button>
+      <nav class="nav-bar" id="nav">    
+        <button id="close" class="close-menu"><i class="fa-solid fa-x" style="color: white;"></i></button>
+        <ul class="nav-list">
+          <li><a href="./../../../index.html">Inicio</a></li>
+          <li><a href="./../../documentation.html">Documentación</a></li>
+          <li><a href="./../../certification.html">Certificaciones</a></li>
+          <li><a href="./../../contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="principal-container">
+      <section>
+        <p>
+          sudo rails new [nombre de la app] -d postgresql
+            creamos un proyecto de rails y agregamos por defecto postgresql
+
+          bin/rails db:create
+            creamos nuestra base de datos para el proyecto (instrucciones guardadas en config/database.yml)
+
+          rails generate model Product title:string description:text price:integer
+            creamos un modelo product
+
+          rails db:migrate
+            corremos este comando para correr la migracion y crear la tabla
+
+          rails console
+            corremos este comando para abrir la consola de rails y ejecutar codigo ruby
+
+          localhost:3000/rails/info/routes
+            con esta linea en nuestra barra de navegacion de nuestro buscador podremos ver todas rutas que tenemos declaradas
+
+          rails generate migration addNullFalseToProductFields
+            con este comando generamos un archivo de migracion para hacer una modificacion en base de datos 
+            en este ejemplo podemos ver que vamos a agregar validaciones en los campos de la tabla product
+            para que la tabla no acepte espacios en blanco
+
+          (rails console) Product.last.destroy
+            ingresamos en la consola de rails , ejecutamos el comando Product.last.destroy, y esto elimina el ultimo registro en 
+            la tabla product
+
+          rails generate scaffold Category name:string
+            con este comando en nuestra terminal creamos el modelo , las vistas y el controlador para category , tambien se crea la migracion
+          para crear la tabla category con la columna name de tipo string , el modelo se llama category , despues nos crea una prueba para el modelo
+          category_test.rb , y un fixture/categories.yml para llenar la base de datos , podemos ver tambien la creacion de la rutas 
+          resources :categories, las vistas completas , tenemos un test para el controlador categories_controller_test, un archivo helper y un jbuilder
+
+          rails generate migration AddCategoryToProducts category:references
+            con este comando generamos una migracion para conectar los 
+            productos con su categoria correspondiente creamos una columna en
+            Products que apunte a una categoria en Categories 
+
+          rails db:reset
+            con este comando reseteamos la base de datos de nuestro proyecto lo
+            cual borra todo registro en ella
+
+          rails db:fixtures:load
+            con este comando llenamos nuestra base de datos con lo fixtures que
+            utilizamos para los test
+
+          sudo bundle add pg_search
+            con este comando agregamos una gema a nuestro proyecto para poder hacer busquedas en nuestra base de datos por nombres o palabras claves
+            su funcionalidad es aprovechar una caracteristica de postgres llamada PostgreSQL's full text search el cual nos devuelve resultados mas naturales y correctos
+
+
+          sudo bundle add pagy
+            con este comando agregamos una gema en nuestro proyecto  el cual nos va a ayudar 
+            a hacer paginacion de nuestros productos cuando tengamos que cargar muchos elementos en una pagina
+
+          rails db:migrate RAILS_ENV=test
+            con este comando creamos la base de datos que va a funcionar para correr las pruebas
+
+          **
+          bundle update
+
+            con este comando acualizamos las gemas 
+          **
+
+          **
+          rails test test/controllers/categories_controller_test.rb
+          comando para correr las pruebas de un solo controlador
+
+          test/controllers/categories_controller_test.rb:32
+            comando para correr las pruebas de un solo caso el numero es donde empieza
+          **
+
+          **
+          require_dependency 'concerns/set_white_label.rb'
+          **
+
+          **
+          rails dev:cache
+          **
+
+          **
+          load 'app/controllers/concerns/set_white_label.rb'
+          **
+
+          **
+          rake assets:clean
+          restart rails server $ rails server -e development
+          clear browser cache, or do a ctrl+shift+r on the app page
+
+          Now everything should be as it was before you ran rake assets:precompile
+          **
+
+          **
+          scp -i C:\Users\MIGUEL\.ssh\id_rsa C:\Users\MIGUEL\.ssh\id_rsa.pub ubuntu@portal.finiapp.co:/home/ubuntu/.ssh/authorized_keys
+
+
+          scp -i C:\Users\MIGUEL\.ssh\id_rsa id_rsa.pub deploy@ip-172-31-45-37:~/.ssh/authorized_keys
+
+            de esta manera podemos copiar un archivo y enviarlo al servidor
+          **
+
+          **
+          bundle exec rails routes | grep [nombre de la ruta]
+
+            con este comando creamos una busqueda de las rutas para saber como se llaman las rutas 
+          **
+
+
+
+          --------------------------------------------------------CONSEJOS-------------------------------------------------------------
+
+          ** Data Base
+
+            Recordar que al momento de crear nuestra base de datos en postgres
+            ingresamos el username: postgres, el password: 123456789,
+            el host: localhost, el port: 5432 en el archivo de configuracion,
+            config/database.yml, en development y test
+
+          **
+
+          ** Controllers
+
+            los nombres de los controladores son en plural products_controller.rb
+            y al momento de crear la clase tambien en plural ProductsController < ApplicationController
+            hereda de ApplicationController
+
+          **
+
+          ** Models
+
+            los nombres de los modelos son en singular por eso al ejecutar el comando rails generate model Product se coloca en singular
+            despues del nombre del modelo podemos colocar el nombre de la columna que queremos en nuestra tabla y el tipo de dato 
+            que va a manejar
+          **
+
+          ** Relaciones tablas
+            cuando generamos una migracion para agregar una tabla a otra como
+            lo es la relacion entre categories y products del ejercicio ,el
+            cual cada producto tiene una categoria vamos a colocar en el model
+            de producto un belongs_to :category (osea que un producto pertenece
+            a una categoria ) despues tenemos que ir al model de category y
+            indicarle que has_many :products  el cual me indica que ( una
+            categoria tiene muchos productos) 
+          **
+
+          ** Models pg_search
+            para utilizar la gema de pg_search la cual nos ayuda a hacer busqquedas de texto en bases de datos debemos agregar una instruccion en los modelos la cual es 
+            Include PgSearch::Model 
+
+            despues declaramos la sentencia pg_search_scope
+            despues decir sobre que campos se va a aplicar la herramienta
+            en el modelo product tenemos title y descripcion para que haga
+            la busqueda , las letras frente a los dos campos es prioridad ,
+            'A' primero 'B' segundo
+            pg_search_scope :search_full_text, against: {
+              title: 'A'
+              description: 'B'
+            }
+          **
+        </p>
+      </section>
+    </main>
+    <footer class="footer_container">
+      <p style="margin: 30px 0;">© 2025 - Todos los derechos reservados</p>
+    </footer>
+    <script type="text/javascript" src="./../../../assets/javascript/main.js"></script>
+  </body>
+</html>
