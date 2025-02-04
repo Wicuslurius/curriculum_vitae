@@ -1,0 +1,26 @@
+section{
+    padding: 40px;
+}
+
+.box-title{
+    text-align: center; 
+    padding: 10px; 
+    margin-bottom: 20px;
+}
+
+.box-title h3{
+    font-size: 30px; 
+    margin-bottom: 10px;
+}
+
+.list-agil{
+    list-style-type:decimal;
+}
+
+.list-agil h3 {
+    margin-bottom: 20px;
+}
+
+.list-agil li{ 
+    margin: 10px 0;
+}
