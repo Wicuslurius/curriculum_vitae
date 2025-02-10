@@ -31,8 +31,7 @@
 }
 
 .img-box img{
-    width: 400px; 
-    height: 400px; 
+    width: 100%; 
     border-radius: 10px;
 }
 
@@ -55,4 +54,30 @@
   margin: 10px;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 810px) {
+  .documentation-container{ 
+    width: 100%
+  }
+
+  .box{
+    padding: 20px;     
+  }
+
+}
+
+@media (max-width: 412px){
+  .container-information{ 
+    flex-direction: column; 
+  }
+
+  .img-box{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .link-box{
+    width: 100%; 
+  }
 }
