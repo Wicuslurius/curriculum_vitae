@@ -1,5 +1,8 @@
+@import url('components/arrow_left_style.css');
+
 section{
     padding: 40px;
+    width: 100%;
 }
 
 .box-title{
