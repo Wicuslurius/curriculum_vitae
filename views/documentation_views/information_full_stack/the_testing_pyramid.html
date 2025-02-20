@@ -30,247 +30,342 @@
     </header>
     <main class="principal-container">
       <section>
-        <p>La piramide de prueba practica</p>
-        <p>
-
-          Nota:
-
-          la piramide es una metafora para dividir las pruebas en grupos dependiendo de su granularidad
-
-          la mayor cantidad de pruebas se encuentran en la base de la piramide, aqui se cubren todos los posibles casos que una funcion o componente puede llegar a ejecutar.
-
-          a medida que se asciende de nivel, la cantidad de pruebas es menor dado que en el nivel inmediatamente anterior se cubren en detalle.
-
-          la parte superior en la piramide incluye las pruebas de interfaz y solo deben cubrir el caso ideal salvo que un caso especial requiera cubrimiento adicional. las pruebas de interfaz son muchos mas lentas
+        <a href="./../../documentation.html" class="arrow-link"><i class="fa-solid fa-arrow-left arrow-left-icon" style="display: flex; justify-content: center; align-items: center;"></i></a>
+        <h3 class="principal-title">La piramide de prueba practica</h3>
+        <br>
+        <div class="information-card">
+          <p class="title-card">Nota:</p>
+          <br>
+          <p>la piramide es una metafora para dividir las pruebas en grupos dependiendo de su granularidad</p>
+          <br>
+          <p>la mayor cantidad de pruebas se encuentran en la base de la piramide, aqui se cubren todos los posibles casos que una funcion o componente puede llegar a ejecutar.</p>
+          <br>
+          <p>a medida que se asciende de nivel, la cantidad de pruebas es menor dado que en el nivel inmediatamente anterior se cubren en detalle.</p>
+          <br>
+          <p>la parte superior en la piramide incluye las pruebas de interfaz y solo deben cubrir el caso ideal salvo que un caso especial requiera cubrimiento adicional. las pruebas de interfaz son muchos mas lentas
           que las pruebas de niveles inferiores por que deben instanciar la aplicacion completa para poder ejecutarla, en el caso de aplicaciones web, es posible incluso que deban ejecutar un navegador web para 
-          realizar la respectiva verificacion de la funcionalidad.
-
-          la piramide puede tener mas niveles de division dependiendo de como este estructurado el sistema, el segundo nivel de la imagen hace referencia a "service test" y esto hace referencia a todo el 
-          comportamiento de reglas de negocio, puede ser un controlador , service object, presenter, helper, etc.
-
-          tener mas pruebas de interfaz que pruebas en los niveles inferiores constituye el anti-patron helado de pruebas.
-
-          Estructura de pruebas 
-
+          realizar la respectiva verificacion de la funcionalidad.</p>
+          <br>
+          <p>la piramide puede tener mas niveles de division dependiendo de como este estructurado el sistema, el segundo nivel de la imagen hace referencia a "service test" y esto hace referencia a todo el 
+          comportamiento de reglas de negocio, puede ser un controlador , service object, presenter, helper, etc.</p>
+          <br>
+          <p>tener mas pruebas de interfaz que pruebas en los niveles inferiores constituye el anti-patron helado de pruebas.</p>
+        </div>
+        <br>  
+        <div class="information-card">
+          <p class="title-card">Estructura de pruebas</p>
+          <br>
+          <p>
           Independientemente del nivel de la piramide , todas las pruebas deben tener tres secciones:
           Preparacion, Ejecucion, verificacion
-
-          --------------------------------------------------------------------------------------------------------------------------<-----------------------
-
+          </p>
+          <br>
+          <p>
           El software listo para produccion requiere pruebas antes de entrar en produccion. A medida que maduro la disciplina del desarrollo de software , tambien lo hicieron los enfoques de prueba de software.
           En lugar de tener miles de probadores de software manuales, los equipos de desarrollo se han movido hacia la automatizacion de la mayor parte de sus esfuerzos de prueba. la automatizacion de sus pruebas 
           permite a los equipos saber si su software esta dañado en cuestion de segundos y minutos en lugar de dias y semanas. 
-
+          </p>
+          <br>
+          <p>
           El ciclo de retroalimentacin drasticamente acortado alimentado por pruebas automatizadas va de la mano con practicas de desarrollo agiles, entrega continua y cultura DevOps. Tener un enfoque de prueba
           de software efectivo permite que los equipos se muevan rapido y con confianza.
-
+          </p>
+          <br>
+          <p>
           Este articulo explora como deberia ser una cartera de pruebas integral para que sea receptiva , confiable y mantenible, independientemente de si esta creando una arquitectura de microservicios , aplicaciones
           moviles o ecosistemas de lot.Tambien entraremos en los detalles de la creacion de pruebas automatizadas efectivas y legibles. 
-
-
-          La importancia de la automatizacion(de prueba)
-
+          </p>
+          <br>
+          <p class="title-card">La importancia de la automatizacion(de prueba)</p>
+          <br>
+          <p>
           El software se ha convertido en una parte esencial del mundo en el que vivimos . Ha superado su unico proposito inicial de hacer que las empresas sean mas eficientes. Hoy en dia, las empresas intentan 
           encontrar formas de convertirse en empresas digitales de primera clase. Como usuarios, todos interactuamos con una cantidad cada vez mayor de software todos los dias. las ruebas de la innovacion 
           estan girando mas rapido.
-
+          </p>
+          <br>
+          <p>
           si desea mantener el ritmo, tendra que buscar formas de entregar su software mas rapido sin sacrificar su calidad. la entrega continua , una practica en la que automaticamente se asegura de que su software
           pueda lanzarse a produccion en cualquier momento, puede ayudarlo con eso . con la entrega continua, utiliza una canalizacion de compilacion para probar automaticamente su software e implementarlo en sus 
           entornos de prueba y produccion.
-
+          </p>
+          <br>
+          <p>
           crear, probar e implementar manualmente una catidad cada vez mayor de software pronto se vuelve imposible, a menos que desee dedicar todo su tiempo al trabajo manual y repetitivo en lugar de entregar 
           software funcional . Automatizar todo , desde la construccion hasta las pruebas , la implementacion y la infraestructura, es su unico camino a seguir.
-
+          </p>
+          <br>
+          <p>
           Tradicionalmente , las pruebas de software eran un trabajo demasiado manual realizado al implementar su aplicacion en un entorno de prueba y luego realizar algunas pruebas de estilo de caja negra, 
           por ejemplo, haciendo clic en su interfaz de usuario para ver si algo esta roto. A menudo , estas pruebas se especifican medianten scripts de prueba para garantizar que los probadores realicen comprobaciones
           coherentes.
-
+          </p>
+          <br>
+          <p>
           es obvio que probar todos los cambios manualmente requiere mucho tiempo, es repetitivo y tedioso . Repetitivo es aburrido ,m aburrido conduce a errores y te hace buscar un trabajo diferente al final de la 
           semana. 
           por suerte , existe un remedio para las tareas repetitivas : la automatizacion. 
-
+          </p>
+          <br>
+          <p>
           automatizar sus prubas repetitivas puede ser un gran cambio en su vida como desarrollador de software . Automatice estas pruebas y ya no tendra que seguir los protocolos de clics sin pensar para comprobar
           si su software sigue funcionando correctamente. Automatice sus pruebafs y podra cambiar su base de codigo sin pestañear. Si alguna vez ha intentado hacer una refactorizacion a gran escala sin un conjunto
           de pruebas adecuado, apuesto a que sabe lo aterradora que puede ser esta experiencia. ¿como sabrias si accidentalmente rompiste cosas en el camino ? Bueno, haces clic en todos tus casos de prueba manuales,
           asi es como. pero ceamos honestos : ¿realmente disfrutas eso? ¿que tal hacer incluso cambios a gran escala y saber si rompiste cosas en segundos mientras tomabas un buen sorbo de cafe? Suena mas 
           agradable si me preguntas .
-          -------------------------------------
-          -----------------------------------
-          La piramide de prueba
-          ------------------------------------
-          ------------------------------------
-
+          </p>
+        </div>
+        <br>
+        <div class="information-card">
+          <p class="title-card">La piramide de prueba</p>
+          <br>
+          <p>
           A Mike Cohn se le ocurrio este concepto de la piramide de pruebas en su libro succeeding with agile. Es una gran metafora visual que le dice que piense en diferentes capas de pruebas. Tambien le dice
           cuantas pruebas debe hacer en cada capa
-
+          </p>
+          <br>
+          <pre>
           la piramide de prueba original de Mike Codhn consta de tres capas de las que debe constar su conjunto de pruebas (de abajo hacia arriba):
           1. Pruebas Unitarias
           2. Pruebas de servicio
           3. Pruebas de interfaz de usuario
-
+          </pre>
+          <br>
+          <p>
           Desafortunadamente el concepto de la piramide de prueba se queda un poco corto si lo miras mas de cerca. Algunos argumentan que el nombre o algunos aspectos conceptuales de la piramide de prueba de 
           Mike Cohn no son ideales, y tengo que estar de acuerdo.Desde un punto de vista moderno, la piramide de prueba parece demasiado simple y por lo tanto puede ser engañosa
-
+          </p>
+          <br>
+          <p>
           Aun asi, debido a su simplicidad , la esencia de la piramide de prueba sirve como una buena regla general cuando se trata de establecer su protio conjunto de pruebas . Su mejor apuesta es recordar 
           dos cosas de la piramide de prueba original de Cohn:
-
+          </p>
+          <br>
+          <pre>
           1. Escribir pruebas con diferente granularidad
           2. Cuanto mas alto nivel obtenga, menos pruebas deberia tener
-
+          </pre>
+          <br>
+          <p>
           Apeguese a la forma de piramide para crear un conjunto de pruebas saludable, rapido y facil de mantener: Escriba muchas pruebas unitarias pequeñas y rapidas . Escriba algunas pruebas mas detalladas y 
           muy pocas pruebas de alto nivel que prueben su aplicacion de principio a fin. Tenga cuidado de no terminar con un cono de helado de prueba que sera una pesadilla para mantener y tomar demasiado tiempo 
           para funciona.
-
+          </p>
+          <br>
+          <p>
           No se apegue a los nombres de las capas individuales en la piramide de prueba de cohn. De hecho , pueden ser bastante engañosos: prueba de servicio es un termino dificil de omprender (el mismo Cohn habla 
           sobre la observacion de que muchos desarrolladores ignoran por completo esta capa). En los dias de los marcos de aplicacion de una sola pagina como reaccionar , angular , ember.js y otros, se hace 
           evidente que las pruebas de IU no tienen que estar en el nivel mas alto de su piramide: pude realizar pruebas unitarias de su IU en todos de estos marcos. 
-
+          </p>
+          <br>
+          <p>
           dadas las deficiencias de los nombres originales, esta bien pensar en otros nombres para sus capas de prueba, siempre y cuando mantenga la coherencia dentro de su base de codigo y las discusiones de su 
           equipo.
-
-
-          -------------------------------------------------------
-          ------------------------------------------------------
-          Herramientas y bibliotecas que veremos 
-          ------------------------------------------------------
-          -------------------------------------------------------
-
+          </p>
+        </div> 
+        <br>
+        <div class="information-card">
+          <p class="title-card">Herramientas y bibliotecas que veremos</p>
+          <pre>
           JUnit : nuestro corredor de pruebas
           Mockito : para burlarse de las dependencias 
           Wiremock : para desconectar servicios externos
           Pacto: para escibir pruebas CDC 
           Selenium: para escribir pruebas de extremo a extremo basadas en la interfaz de usuario
           REST-assured: para escribir pruebas de extremo a extremo impulsadas por REST API
+          </pre>
 
-          ----> La aplicacion de muestra 
-
-          ----> Estructura de alto nivel 
-          En un nivel alto , el sistema diene la siquiente estructura 
-
-
-          web <---> json via http <---> spring service <---> database
-                                              |
-                                              |
-                                              v
-                                        
-                                        json via http
-                                              |
-                                              v
-                                        
-                                        weather api
+          <p>La aplicacion de muestra</p>
+          <pre>
+            Estructura de alto nivel 
+            En un nivel alto , el sistema diene la siquiente estructura 
 
 
-          Nuestro microservicio proporciona un interfaz Rest a la que se puede llamar a traves de http. para algunos puntos finales, el servicio obtendra informacion de una base de datos. En otros casos , el servicio
-          llamara a una API meteorologica externa a traves de Http para obtener y mostrar las condiciones meteorologicas actuales 
-
-          ----> Arquitectura Interna < --------------
-
+            web --- json via http --- spring service --- database
+                                                |
+                                                |
+                                                v
+                                          
+                                          json via http
+                                                |
+                                                v
+                                          
+                                          weather api
+          </pre>
+          <br>
+          <p>
+            Nuestro microservicio proporciona un interfaz Rest a la que se puede llamar a traves de http. para algunos puntos finales, el servicio obtendra informacion de una base de datos. En otros casos , el servicio
+            llamara a una API meteorologica externa a traves de Http para obtener y mostrar las condiciones meteorologicas actuales 
+          </p>
+          <br>
+          <p class="title-card">
+            Arquitectura Interna
+          </p>
+          <br>
+          <p>
           Internamente , Spring service tiene una arquitectura tipica de spring:
+          </p>
+          <br>
+          <div>
+            <p>- Controller = las clases proporcionan puntos finales Rest y se ocupan de las solicitudes y respuestas http</p>
+            <p>- repository = las clases interactuan con la base de datos y se encargan de escribir y leer datos hacia/ desde el almacenamiento persistente</p>
+            <p>- Client las clases hablan con otras API, en nuestro caseo , obtiene json a traves de https desde la api meteorologica de darksky.net</p>
+            <p>- Domain = las clases capturan nuestro modelo de dominio, incluida la logica del dominio(que , para ser justos , es bastante trivial en nuestro caso).</p>
+          </div>
+          <br>
+          <p>
+            los desarrolladores experimentados de spring pueden notar que aqui falta una capa de uso frecuente : Inspirados en el diseño controlado por dominio, muchos desarrolladores crean una capa de servicio
+            que consta de clases de servicio. Decidi no incluir una capa de servicio en esta aplicacion. Una de las razones es que nuestra aplicacion es lo suficientemente simple , una capa de servicion
+            habria sido un nivel innecesario de direccionamiento indirecto. la otra es que creo que la gente se excede con las capas de servicios. A menudo encuentro bases de codigo donde toda la logica 
+            empresareal la captura dentro de las clases de servicio. el modelo de dominio se convierte simplemente en una capa de datos, no de comportamiento (un modelo de dominio anemico).). para cada aplicacion
+            no trivial , esto desperdicia mucho potencial para mantener su codigo bien estructurado y comprobable y no utiliza completamente el poder de la orientacion a objetos 
+          </p>
+          <br>
+          <p>
+            Nuestros repositorios son sencillos y brindan una funcionalidad CRUD simple. Para mantener el codigo simple, utilice Spring Data . Spring Data nos brinda una pimplementacion de Repositorio CRUD simple
+            generica que podemos usar en lugar de implementar la nuestra. Tambien se ocupa de activar una base de datos en memoria para nuestras pruebas en lugar de urar una base de datos postgreSQL real como lo 
+            haria en produccion.
+          </p>
 
-          - Controller = las clases proporcionan puntos finales Rest y se ocupan de las solicitudes y respuestas http
-          - repository = las clases interactuan con la base de datos y se encargan de escribir y leer datos hacia/ desde el almacenamiento persistente
-          - Client las clases hablan con otras API, en nuestro caseo , obtiene json a traves de https desde la api meteorologica de darksky.net
-          - Domain = las clases capturan nuestro modelo de dominio, incluida la logica del dominio(que , para ser justos , es bastante trivial en nuestro caso).
+          <p>Eche un vistazo al codigo base y familiaricese con la estructura interna. Sera util para nuestro proximo paso : Probar la aplicacion</p>
 
-          los desarrolladores experimentados de spring pueden notar que aqui falta una capa de uso frecuente : Inspirados en el diseño controlado por dominio, muchos desarrolladores crean una capa de servicio
-          que consta de clases de servicio. Decidi no incluir una capa de servicio en esta aplicacion. Una de las razones es que nuestra aplicacion es lo suficientemente simple , una capa de servicion
-          habria sido un nivel innecesario de direccionamiento indirecto. la otra es que creo que la gente se excede con las capas de servicios. A menudo encuentro bases de codigo donde toda la logica 
-          empresareal la captura dentro de las clases de servicio. el modelo de dominio se convierte simplemente en una capa de datos, no de comportamiento (un modelo de dominio anemico).). para cada aplicacion
-          no trivial , esto desperdicia mucho potencial para mantener su codigo bien estructurado y comprobable y no utiliza completamente el poder de la orientacion a objetos 
-
-          Nuestros repositorios son sencillos y brindan una funcionalidad CRUD simple. Para mantener el codigo simple, utilice Spring Data . Spring Data nos brinda una pimplementacion de Repositorio CRUD simple
-          generica que podemos usar en lugar de implementar la nuestra. Tambien se ocupa de activar una base de datos en memoria para nuestras pruebas en lugar de urar una base de datos postgreSQL real como lo 
-          haria en produccion.
-
-          Eche un vistazo al codigo base y familiaricese con la estructura interna. Sera util para nuestro proximo paso : Probar la aplicacion
-
-          ---------------------->Pruebas Unitarias <-------------------------------------------
-
+          <p class="title-card">Pruebas Unitarias</p>
+          <p>
           la base de su conjunto de pruebas estara compuesta por pruebas unitarias. sus pruebas unitarias se aseguran de que una cierta unidad (su sujeto bajo prueba ) de su base de codigo funcione segun lo 
           previsto . las pruebas unitarias tienen el alcance mas limitado de todas las pruebas de su conjunto de pruebas . la cantidad de pruebas unitarias en sun conjunto de pruebas superara en gran medidad
           a cualquier otro tipo de prueba.
-
-          Nota: una prueba unitaria generalmente reemplaza a los colaboradores externos con dobles de prueba 
-
-          ----------------> Que es una unidad <----------------------------
-
+          </p>
+          <br>
+          <p>
+          Nota: una prueba unitaria generalmente reemplaza a los colaboradores externos con dobles de prueba
+          </p>
+          <br>
+          <p class="title-card">Que es una unidad</p>
+          <br>
+          <p>
           Si le preguntamos a tres personas diferentes que significa Unidad en el contexto de las pruebas unitarias , vamos a recibir 4 respuestas diferentes y ligeramente matizadas . no se tiene respuesta canonica
-
+          </p>
+          <br>
+          <p>  
           si esta trabajando en un lenguale funcional , lo mas probable es que una unidad sea una sola funcion. sus pruebas unitarias llamaran a una funcion con diferentes parametros y se aseguraran de que devuelva
           los valores esperados.En un lenguaje orientado a objetosm, una unidad puede variar desde un solo metodo hasta una clase completa.
-
-          --------------->Sociable y Solitario < ------------------------------
-
+          </p>
+          <br>
+          <p class="title-card">
+          Sociable y Solitario
+          </p>
+          <br>
+          <p>
           Algunos argumentan que todos los colaboradores (por ejemplo, otras clases que son llamadas por su clase bajo prueba ) de su sujeto bajo prueba deben sustituirse con simulacros o stubs para lograr un 
           aislamiento perfecto y evitar efectos secundarios y una configuracion de prueba complicada. Otros argumentan que solo los colaboradores que son lentos o tienen efectos secundarios mayores(por ejemplo
           clases que acceden a bases de datos o hacen llamadas de red) deben ser objeto de burlas.
-
+          </p>
+          <br>
+          <p>
           Ocasionalmente, las personas etiquetan estos dos tipos de pruebas como pruebas unitarias solitarias para las pruebas que excluyen a todos los colaboradores y pruebas unitarias sociables para las 
           pruebas que permiten hablar con colaboradores reales (Trabajando efectivamente con pruebas unitarias de jay fields acuño estos terminos). Si tiene algo de tiempo libre , puede profundizar en la madriguera 
           del conejo y leer mas sobre los pros y los contras de las diferentes escuelas de pensamiento. 
-
+          </p>
+          <br>
+          <p>
           Al final del dia , no es importante decidir si realiza pruebas de unidad solidaria o sociable . Escribir pruebas automatizadas es lo importante. personalmente, me encuentro usando ambos enfoques todo el 
           tiempo. si se vuelve incomodo usar colaboradores reales , usare simulacros y stubs generosamente. si siento que involucar al colaborador real me da mas confianza en una prueba, solo agregare las partes 
           externas de mi servicio.
-
-          ---------------------------> Burlandose y golpeando <[--------------------------
-
+          </p>
+          <br>
+          <p class="title-card">
+          Burlandose y golpeando
+          </p>
+          <br>
+          <p>
           Mocks y stubs son dos tipos diferentes de dobles de prueba(hay mas que estos dos).
           mucha gente usa los terminos mock y stub indistintamente. Creo que es bueno ser preciso y tener en cuenta sus propiedades especificas . puede usar dobles de prueba para reemplazar objetos que usaria en 
-          produccion con una implementacion que lo ayude con las pruebas. 
-
+          produccion con una implementacion que lo ayude con las pruebas.
+          </p>
+          <br>
+          <p>
           En palabras simples, significa que reemplaza algo real (por ejemplo, una clase , modulo o funcion) con una version falsa de ese algo. la version falsa se ve y actua como la version real (responde a las 
           mismas llamadas de metodo), pero responde con respuestas enlatadas que usted mismo define al comienzo de su prueba unitaria. 
-
+          </p>
+          <br>
+          <p>
           El uso de dobles de prueba no es especifico de las pruebas unitarias. se pueden utilizar dobles de prueba mas elaborados para simular partes completas de su sistema de forma controlada.Sin embargo , en las 
           pruebas unitarias es mas probable que encuentre muchos simulacros y stubs (dependiendo de si es el tipo de desarrollador sociable o solitario), simplemente por que muchos lenguajes y bibliotecas modernos
           hacen que sea facil y comodo de configurar. simulacros y talones.
-
+          </p>
+          <br>
+          <p>
           Independientemente de su eleccion de tecnologia, existe una buena posibilidad de que la biblioteca estandar de su idioma o alguna biblioteca popular de terceros se proporcione formas elegantes de 
           configurar simulacrios. E incluso escribir sus propios simulacros desde cero es solo una cuestion de escribir una clase/modulo/funcion falsos con la misma firma que el real y configurara el falso de su 
-          prueba. 
-
+          prueba.
+          </p>
+          <br>
+          <p>
           Sus pruebas unitarias se ejecutaran muy rapido. En una maquina decente , puede esperar ejecutrar miles de pruebas unitarias en unos pocos minutos . pruebe pequeñas partes de su base de codigo de forma
           aislada y evite acceder a las bases de datos , el sistema de archivos o activar consultas HTTP (mediante el uso de simulacros y stubs para estas partes) para mantener sus pruebas rapidas .
-
+          </p>
+          <br>
+          <p>
           Una vez que aprendas a escribir pruebas unitarias , seras cada vez mas fluido al escribirlas . Apague a los colaboradores externos, configure algunos datos de entrada, llame a su sujeto bajo prueba 
           y verifique que el valor devuelto sea el que esperaba. Mire el desarrollo basado en pruebas y deje que sus pruebas unitarias quien su desarrollo; si se  aplica correctamente , puede ayudarlo a 
           entrar en un gran flujo y crear un diseño bueno y mantenible mientras produce automaticamente un conjunto de pruebas completo y totalmente automatizado. Aun asi, no es una bala de plata.
-
-
-          ----------------> Que probar? <----------------------------
-
+          </p>
+          <br>
+          <p class="title-card">
+          Que probar?
+          </p>
+          <br>
+          <p>
           lo bueno de las pruebas unitarias es que puede escribirlas para todas sus clases de codigo de produccion, independientemente de su funcionalidad o de la capa a la que pertenezcan en su estructura interna.
           puede realizar pruebas unitarias de controladores al igual que puede realizar pruebas unitarias de repositorios, clases de dominio o lectores de archivos . Simplemente apeguese a la regla general de uan 
           clase de prueba por clase de produccicon y tendra un buen comienzo.
-
+          </p>
+          <br>
+          <p>
           una clase de prueba unitaria debe al menos probar la interfaz publica de la clase. los metodos privados no se pueden probar de todos modos, ya que simplemente no se puedn llamar desde una clase 
           de prueba diferente. Se puede acceder a los paquetes protegidos o privados desde una clase de prueba (dado que la estructura del paquete de su clase de prueba es la misma que con la clase de produccion),
           pero probar estos metodos ya podria ir demasiado lejos.
-
-
+          </p>
+          <br>
+          <p>
           hay una linea muy fina cuand ose trata de escribir pruebas unitariaf : deben asegurarse de que se prueben todas las rutas de codigo no triviales (incluidas las rutas felices y los casos extremos). 
           al mismo tiempo, no deberian vincularse demasiado a su implementacion.
-
+          </p>
+          <br>
+          <p>
           porque eso?
-
+          </p>
+          <br>
+          <p>
           las pruebas que estan demasiado era del codigo te produccion rapidamente se vuelven molestas .Tan pronto como refactorice su codigo de produccion(resumen rapido: refactorizar significa cambiar la
           estructura interna de su codigo sin cambiar el comportamiento visible externamente) sus pruebas unitarias se romperan. 
-
+          </p>
+          <br>
+          <p>
           de esta manera, pierde un gran beneficio de las pruebas unitarias : actuar como una red de seguridad para los cambios de codigo. prefieres hartarte de esas estupidas pruebas que fallan cada vez que 
           refactorizas, causando mas trabajo que util; y de todos modos, de quien fue la idea de estas estupidas pruebas ?
-
+          </p>
+          <br>
+          <p>
           que haces en su lugar ? no refleje su estructura de codigo interno dentro de sus pruebas unitarias . pruebe el comportamiento observable en su lugar. Pensar en si introduzco valores xy y , sera el resultado
           Z?
-
+          </p>
+          <br>
+          <p>
           en lugar de 
           si ingreso xy y , el metodo llamara primero a la clase A , luego llamara a la clase B y luego devolvera el resultado de la clase A mas el resultado de la clase B?
-
+          </p>
+          <br>
+          <p>
           los metodos privados generalmente deben considerarse un detalle de implementacion . Es por eso que ni siquiera deberias tener ganas de probarlos. 
-
+          </p>
+          <br>
+          <p>
           A menudo escucho a los oponentes de las pruebas unitarias (o TDD) argumentando que escribir pruebas unitarias se convierte en un trabajo inutil en el que debke probar todos sus metodos para obtener una 
           alta cobertura de prueba. A menudo citan escenarios en los que un lider de equipo demasiado entusiasta los obligo a escribir pruebas unitarias para getters y setters y todos los demas tipods de codigo
           trivial para llegar a una cobertura de prueba del 100%
+          </p>
+        </div>
 
           -----------------------------------------------------------------
           -----------------------------------------------------------------
@@ -705,7 +800,6 @@
           4. la legibilidad importa. No trate de estar demasiado SECO. la duplicacion esta bien, si mejora la legibilidad. trate de encontrar un equilibrio entre codigo DRY y DAMP
           5. En caso de duda, utilice la regla de tres para decidir cuando refactorizar. Usar antes de reutilizar.
 
-        </p>
       </section>
     </main>
     <footer class="footer_container">
