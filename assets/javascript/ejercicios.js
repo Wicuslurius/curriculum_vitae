@@ -1,11 +1,23 @@
 alert('hola mundo desde el js de ejercicios');
 
+/*
+//------------------------------------------------------------------------>
+// aca vemos el uso de una funcion anonima alojada en una variable suma
+let suma = function (x,y){
+  return x + y;
+}
+
+alert(suma(12, 4));
+*/
+
+//-------------------------------------------------------------------------->
+/*
 function cuantosDias(anio, mes, dia, nombreEvento){
   const hoy = new Date();
   const milsegEnUnDia = 1000 * 60 * 60 * 24; // milisegundos de un dia
   hoy.setHours(0,0,0,0);
   const fechaEvento = new Date(anio, mes - 1 , dia);
-  const diferenciaHoras = Math.abs(fechaEvento.getTimezoneOffset() / 60) - Math.abs(hoy.getTimezoneOffset / 60);
+  const diferenciaHoras = Math.abs(fechaEvento.getTimezoneOffset() / 60) - Math.abs(hoy.getTimezoneOffset() / 60);
   hoy.setHours(hoy.getHours() - diferenciaHoras);
 
   if (fechaEvento > hoy) {
@@ -16,6 +28,7 @@ function cuantosDias(anio, mes, dia, nombreEvento){
 }
 
 document.getElementById('output').innerHTML = cuantosDias(2026, 12, 25, 'Navidad');
+*/
 //--------------------------------------------------------------->
 /*
 function queDia(nombre){
