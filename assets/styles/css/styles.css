@@ -6,6 +6,7 @@
 @import url('manifest_for_agile_software_style.css');
 @import url('the_twelve_factors.css');
 @import url('the_testing_pyramid_style.css');
+@import url('the_majestic_monolith_style.css');
 * {
   margin: 0;
   padding: 0;
