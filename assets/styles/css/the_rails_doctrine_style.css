@@ -1,0 +1,15 @@
+.principal-title-doctrine{
+    text-align: center; 
+    font-size: 35px;
+}
+
+.information-card-doctrine{
+    border: 1px solid grey; 
+    padding: 20px; 
+    border-radius: 10px;
+}
+
+.title-card-doctrine{
+    font-size: 25px; 
+    margin: 10px 0;
+}
