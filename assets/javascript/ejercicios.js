@@ -1,7 +1,27 @@
 alert('hola mundo desde el js de ejercicios');
 
+const hoy = new Date();
+
+function leerFormulario() {
+  document.getElementById('output').innerHTML = `la fecha seleccionada es: ${document.getElementById('fecha').value}`; 
+}
+
+const anio = hoy.getFullYear();
+const mes = hoy.getMonth();
+const dia = hoy.getDate();
+const fechaActual = `${anio}-${mes}-${dia}`;
+document.getElementById('fecha').value = fechaActual;
+/*
+//ejercicio 0010
+//de esta manera leemos un evento javascript en html y disparamos la siguiente funcion la cual nos ayuda 
+//para insertar en el elemento con id output la fecha ingresada en el input con id fecha
+function leerFormulario() {
+  document.getElementById('output').innerHTML = `la fecha seleccionada es: ${document.getElementById('fecha').value}`; 
+}
+  */
 /*
 //------------------------------------------------------------------------>
+//ejercico 0009
 // aca vemos el uso de una funcion anonima alojada en una variable suma
 let suma = function (x,y){
   return x + y;
@@ -12,6 +32,7 @@ alert(suma(12, 4));
 
 //-------------------------------------------------------------------------->
 /*
+//ejercicio 0008
 function cuantosDias(anio, mes, dia, nombreEvento){
   const hoy = new Date();
   const milsegEnUnDia = 1000 * 60 * 60 * 24; // milisegundos de un dia
@@ -31,6 +52,7 @@ document.getElementById('output').innerHTML = cuantosDias(2026, 12, 25, 'Navidad
 */
 //--------------------------------------------------------------->
 /*
+//ejercicio 0007
 function queDia(nombre){
   const dia = new Date().getDay();
   const nombreDia =  ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
