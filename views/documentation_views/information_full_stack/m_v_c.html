@@ -30,128 +30,190 @@
     </header>
     <main class="principal-container">
       <section>
-        <p>Modelo-Vista-Controlador</p>
-        <p>
-          Modelo-vista-controlador (MVC) es un patron de diseño de software comunmente utilizado para desarrollar interfaces de usuario que divide la logica del programa relacionado en tres elementos interconectados . Esto se hace para separar las representaciones internas de la informacion de las formas en que se presenta y acepta la informacion del usuario.
-
-          Utilizado tradicionalmente para interfaces graficas de usuario(GUI) de escritorio, este patron se hizo popular para diseñar aplicaciones web. los lenguajes de programacion populares tienen marcos MVC
-          que facilitan la implementacion del patron. 
-          
-          Historia
-          ------->
-          
-          una de las ideas fundamentales en el desarrollo temprano de las interfaces graficas de usuario, MVC se convirtio en uno de los primeros enfoques para describire implementar construcciones de software en 
-          terminos de sus responsabilidades. 
-          
-          Trygve Reenskaug creo mvc mientras trabajaba en smalltalk -79 como cientifico visitante en el centro de investigacion Xerox Palo Alto (PARC) a fines de la decada de 1970. queria un patron que pudiera
-          usarse para estructurar cualquier programa en el que los usuarios interactuen con un conjunto de datos grande y enreversado. su diseño inicialmente tenia cuatro partes: Modelo, Vista, Cosa y Editor.
-          Despues de discutirlo con los otros desarrolladores de Smalltalk, el  y el resto del grupo se decidieron por modelo , Vista y Controlador. 
-          
-          En su diseño final , un modelo representa alguna parte del programa de forma pura e intuitiva. Una vista es una representacion visual de un modelo, recuperando datos del modelo para mostrarlos 
-          al usuario y pasando solicitudes entre el usuario y el modelo. Un controlador es una parte organizativa de la interfaz de usuario que presenta y coordina varias vistas en la pantalla y que 
-          recibe  la entrada del usuario y envia los mensajes apropiados a sus vistas subyacentes. Este diseño tambien incluye un editor como un tipo especializado de controlador que se usa para modificar una 
-          vista en particular , y que se crea a traves de esa vista. 
-          
-          smalltalk-80 admite una version de mvc que evoluciono a partir de esta. Proporciona resumen view y controller clases , asi como varias subclases concretas de cada uno que representa diferentes 
-          widgets genericos . En este esquema ,a view representa alguna forma de mostrar informacion al usuario y a controller representa alguna forma en que el usuario interactua con un archivo view. A view 
-          tambien esta acoplado a un objeto modelo, pero la estructura de ese objeto se deja en manos del programador de la aplicacion. El entorno Smalltalk-80 tambien incluye un "Inspector MVC", una herraienta de
-          desarrollo para ver la estructura de un modelo , una vista y un controlador dados uno al lado del otro.
-          
-          en 1988, un articulo en the journal of Object Technology(JOT) de dos ex empleados de Parc presento Mvc como un paradigma y metodologia de programacion" general para los desarrolladores de Smalltalk-80. 
-          Sin embargo , su esquema diferia tanto del de reenskaug et al. como del presentado por los libros de referencia de smalltalk-80. Definieron una vista que cubre cualquier preocupacion grafica , siendo
-          un controlador un objeto mas abstracto , generalmente invisible, que recibe la entrada del usuario e interactua con una o varias vistas y solo un modelo.
-          
-          El patron MVC evoluciono posteriormente, dando lugar a variantes como modelo jerarquico - vista- controlador (HMVC), modelo-vista-adaptador(MVA), modelo -vista-presentador(MVP), modelo -vista-modelo de vista(MVVM) y otros que adaptaron MVC a diferentes contextos.
-          
-          El uso del patron MVC en las aplicaciones web crecio despues de la introduccion de WebObjects de Next en 1996, que originalmente se escribio en Objective-C(que se baso en gran medida en samlltalk) y 
-          ayudo a hacer cumplir los principios de MVC. mas tarde , el patro MVC se hizo popular entre los desarrolladores de java cuando WebObjects se transfirio a java. Los marcos posteriores para java , como
-          Spring(lanzado en octubre de 2002), continuaron con el fuerte vinculo entre java y MVC.
-          
-          En 2003 , Martin Fowler publico patterns of Enterprise Application Architecture , que presento MVC como un patron donde un "Controlador de entrada " recibe una solicitud , envia los mensajes apropiados
-          a un objeto modelo, toma una respuesta del objeto modelo y pasa la respuesta a la vista apropiada para la visualizacion. 
-          Esto se acerca al enfoque adoptado por el marco de la aplicacion web Ruby on Rails (agosto de 2004), en el que el cliente envia solicitudes al servidor a traves de una vista en el navedgador, estas solicitudes son manejadoas por un controlador en el servidor y el controlador se comunica con los objetos modelo apropiados. El framework Django(julio de 2005, para Python) presento una version similar de "MTV"
-          (Model template View) del patron, en la que una vista recupera datos de los modelos y los pasa a las plantillas para su visualizacion. Tanto Rails Como Django debutaron con un fuerte enfasis en la implementacion rapida, lo que aumento la popularidad de MVC fuera del entorno empresarial tradicional en el que ha sido popular durante mucho tiempo.
-          
-          Componentes
-          ------------->
-          
-          -----> Modelo
-          
-          El componente central del patron . Es la estructura de datos dinamica de la aplicacion, independiente de la interfaz de usuario . Gestiona directamente los datos, la logica y las reglas de la aplicacion.
-          En Smalltalk-80, el diseño de un tipo de modelo sedeja enteramente al programador . Con WebObjects, Rails  y Django, un tipo de modelo normalmente representa una tabla en la base de datos de la aplicacion.
-          
-          -----> Vista
-          
-          Cualquier representacion de informacion como un grafico , diagrama o tabla . Son posibles multiples vistas de la misma informacion , como un grafico de barras para la administracion y una vista tabular 
-          para los contadores . 
-          
-          En Smalltalk-80, una vista es solo una representacion visual de un modelo y no maneja la entrada del usuario. Con webObjects , una vista representa un elemento completo de la interfaz de usuario, como un
-          menu o un boton, y recibe informacion del usuario. Sin embargo, tanto en Smalltalk-80- como en WebObjects, las vistas estan destinadas a ser de proposito general y componibles.
-          
-          Con Rails y IDjango, el papel de la vista lo desempeñan las plantillas HTMl, por lo que en su esquema una vista especifica una interfaz de usuario en el navegador en lugar de representar un widget de 
-          interfz de usuario directamente . (Django opta por llamar a este tipo de objeto una "plantilla" a la luz de esto). Este enfoque pone relativamente menos enfasis en vistas pequeñas y componibles ; 
-          una vista tipica de Rails tiene una relacion de uno a uno con una accion de controlador. 
-          
-          las vistas de Smalltalk-80 se comunican tanto con un modelo como con un controlador, mientras que con WebObjets, una vista se comunica solo con un controlador, que luego se comunica con un modelo. Con Rails y Django, un controlador / vista utiliza una vista/plantilla al preparar una respuesta para el cliente.
-          
-          --------> Controlador 
-          
-          Acepta la entrada y a la convierte en comandos para el modelo o la vista .
-          
-          Un controlador Smalltalk-80 maneja los eventos de entrada del usuario, como presionar botones o mover el mouse. En un momento dado, cada controlador tiene una vista y un modelo asociados , aunque un 
-          Objeto modelo puede escuchar de muchos controladores diferentes . Solo un controlador , el controlador "activo", recibe la entrada del usuario en un momento dado; un objeto de administrador de ventanas
-          global  es responsable de configurar el controlador activo actual. Si la entrada del usuario solicita un cambio en un modelo, el controlador le indicara al modelo que cambie , pero el modelo es 
-          responsable de indicarle a sus visttas que se actualicen.
-          
-          En WebOjbect, las vistas manejan la entrada del usuario y el controlador media entre las vistas y los modelos . guede haber solo un controlador por aplicacion o un controlador por ventana . Gran parte de 
-          la logica especifica de la aplicacion se encuentra en el controlador .
-          
-          En Rails , las solicitudes que llegan a la aplicacion en el servidor desde el cliente se envia n a un "enrutador", que asigna la solicitud a un metodo especifico de un controlador especifico. Dentro de 
-          ese metodo , el contolador interactua con los datos de la solicitud y cualquier objeto de modelo relevante y prepara una respuesta utilizando una vista. Convencionalmente , cada tipo de modelo tiene 
-          un controlador asociado ; por ejemplo si la aplicacion tuviera un modelo , normalmente tambien Client tendria un controlador asociado. 
-          Clients Sin embargo, los desarrolladores son librse de crear otros tipos de controladores si asi lo desean.
-          
-          Interacciones
-          --------------->
-          
-          
-          Ademas de dividir la aplicacion en estos componentes , el diseño modelo-vista-controlador define las interacciones entre ellos .
-          
-          El modelo se encarga de gestionar los datos de la aplicacion. Recibe la entrada del usuario del controlador.
-          La vista representa la presentacion del modelo en un formato particular .
-          El controlador responde a la entrada del usuario y realiza interacciones en los objetos del modelo de datos. 
-          El controlador recibe la entrada, opcionalmente la valida y luego pasa la entrada al modelo.
-          
-          Al igual que con otros patrones de software. MVC expresa el "nucleo de la solucion" a un problema al tiempo que permite que se adapte a cada sistema. Los diseños particulares de MVC puede variar
-          significativamente de la descripcion tradicional aqui.
-          
-          
-          Motivasion
-          ------------------------>
-          
-          Como escribio Alan kay en 2003 la motivacion original detras de mvc era permitir la creacion de una interfaz grafica para cualquier objeto. Eso fue descrito en detralle en el libro Naked Objects de 
-          Richard Pawson.
-          
-          Trygve Reenskaug, creador de MVC en PARC, ha escrito que 'MVC se concibio como una solucion general al problema de los usuarios que controlan un conjunto de datos grande y complejo'.
-          
-          En su guia de 1991 Inside Smalltalk , los profesores de informatica de la Universidad de carleton, Wilf LaLonde y John Pugh, describieron las ventajas de MVC al estilo de Smalltalk-80 como:
-          
-          Independencia de presentacion y datos , por ejemplo , multiples vistas en un modelo simultaneamente, 
-          widgets de presentacion componibles, por ejemplo , una vista utilizada como una subvista de otra, 
-          modos de entrada conmutables , intercambiando un controlador por otro durante el tiempo de ejecucion, y
-          Independencia del procesamiento de entrada ya salida ,a traves de las responsabilidades separadas de los controladores y las vistas .
-          
-          Uso en aplicaciones web
-          --------------------------------->
-          
-          Aunque originalmente se desarrollo para computadores de escritorio , MVC ha sido ampliamente adoptado como un diseño para aplicaciones de la World Wide Web en los principales lenguajes de programacion. Se
-          han creado varios marcos web que hacen cumplir el patron. Estos marcos de software varian en ssus interpretaciones , principalmente en la forma en que las responsabilidades de MVC se dividen entre el
-          cliente y el servidor .
-          
-          Algunos marcos web MVC adoptan un enfoque de cliente ligero que coloca casi todo el modelo , la vista y la logica del controlador en el servidor . En este enfoque , el cliente envia solicitudes de 
-          hipervinculos o envios de formularios al controlador y luego recibe una pagina web completa y actualizada (u otro documento) de la vista ; el modelo exicte completamente en el servidor .
-          
-        </p>
+        <a href="./../../documentation.html" class="arrow-link"><i class="fa-solid fa-arrow-left arrow-left-icon" style="display: flex; justify-content: center; align-items: center;"></i></a>
+        <p class="principal-title-mvc">Modelo-Vista-Controlador</p>
+        <br>
+        <div class="information-card-mvc">  
+          <p>
+            Modelo-vista-controlador (MVC) es un patron de diseño de software comunmente utilizado para desarrollar interfaces de usuario que divide la logica del programa relacionado en tres elementos interconectados . Esto se hace para separar las representaciones internas de la informacion de las formas en que se presenta y acepta la informacion del usuario.
+          </p>
+          <br>
+          <p>
+            Utilizado tradicionalmente para interfaces graficas de usuario(GUI) de escritorio, este patron se hizo popular para diseñar aplicaciones web. los lenguajes de programacion populares tienen marcos MVC
+            que facilitan la implementacion del patron. 
+          </p>
+          <br>
+          <p class="title-card-mvc">
+            Historia
+          </p>
+          </br>
+          <p>      
+            una de las ideas fundamentales en el desarrollo temprano de las interfaces graficas de usuario, MVC se convirtio en uno de los primeros enfoques para describire implementar construcciones de software en 
+            terminos de sus responsabilidades. 
+          </p>
+          <br>
+          <p>
+            Trygve Reenskaug creo mvc mientras trabajaba en smalltalk -79 como cientifico visitante en el centro de investigacion Xerox Palo Alto (PARC) a fines de la decada de 1970. queria un patron que pudiera
+            usarse para estructurar cualquier programa en el que los usuarios interactuen con un conjunto de datos grande y enreversado. su diseño inicialmente tenia cuatro partes: Modelo, Vista, Cosa y Editor.
+            Despues de discutirlo con los otros desarrolladores de Smalltalk, el  y el resto del grupo se decidieron por modelo , Vista y Controlador. 
+          </p>
+          <br>  
+          <p>
+            En su diseño final , un modelo representa alguna parte del programa de forma pura e intuitiva. Una vista es una representacion visual de un modelo, recuperando datos del modelo para mostrarlos 
+            al usuario y pasando solicitudes entre el usuario y el modelo. Un controlador es una parte organizativa de la interfaz de usuario que presenta y coordina varias vistas en la pantalla y que 
+            recibe  la entrada del usuario y envia los mensajes apropiados a sus vistas subyacentes. Este diseño tambien incluye un editor como un tipo especializado de controlador que se usa para modificar una 
+            vista en particular , y que se crea a traves de esa vista. 
+          </p>  
+          <br>
+          <p>
+            smalltalk-80 admite una version de mvc que evoluciono a partir de esta. Proporciona resumen view y controller clases , asi como varias subclases concretas de cada uno que representa diferentes 
+            widgets genericos . En este esquema ,a view representa alguna forma de mostrar informacion al usuario y a controller representa alguna forma en que el usuario interactua con un archivo view. A view 
+            tambien esta acoplado a un objeto modelo, pero la estructura de ese objeto se deja en manos del programador de la aplicacion. El entorno Smalltalk-80 tambien incluye un "Inspector MVC", una herraienta de
+            desarrollo para ver la estructura de un modelo , una vista y un controlador dados uno al lado del otro.
+          </p>
+          <br>
+          <p>  
+            en 1988, un articulo en the journal of Object Technology(JOT) de dos ex empleados de Parc presento Mvc como un paradigma y metodologia de programacion" general para los desarrolladores de Smalltalk-80. 
+            Sin embargo , su esquema diferia tanto del de reenskaug et al. como del presentado por los libros de referencia de smalltalk-80. Definieron una vista que cubre cualquier preocupacion grafica , siendo
+            un controlador un objeto mas abstracto , generalmente invisible, que recibe la entrada del usuario e interactua con una o varias vistas y solo un modelo.
+          </p>
+          <br>
+          <p>  
+            El patron MVC evoluciono posteriormente, dando lugar a variantes como modelo jerarquico - vista- controlador (HMVC), modelo-vista-adaptador(MVA), modelo -vista-presentador(MVP), modelo -vista-modelo de vista(MVVM) y otros que adaptaron MVC a diferentes contextos.
+          </p>
+          <br>
+          <p>  
+            El uso del patron MVC en las aplicaciones web crecio despues de la introduccion de WebObjects de Next en 1996, que originalmente se escribio en Objective-C(que se baso en gran medida en samlltalk) y 
+            ayudo a hacer cumplir los principios de MVC. mas tarde , el patro MVC se hizo popular entre los desarrolladores de java cuando WebObjects se transfirio a java. Los marcos posteriores para java , como
+            Spring(lanzado en octubre de 2002), continuaron con el fuerte vinculo entre java y MVC.
+          </p>
+          <br>
+          <p>  
+            En 2003 , Martin Fowler publico patterns of Enterprise Application Architecture , que presento MVC como un patron donde un "Controlador de entrada " recibe una solicitud , envia los mensajes apropiados
+            a un objeto modelo, toma una respuesta del objeto modelo y pasa la respuesta a la vista apropiada para la visualizacion. 
+            Esto se acerca al enfoque adoptado por el marco de la aplicacion web Ruby on Rails (agosto de 2004), en el que el cliente envia solicitudes al servidor a traves de una vista en el navedgador, estas solicitudes son manejadoas por un controlador en el servidor y el controlador se comunica con los objetos modelo apropiados. El framework Django(julio de 2005, para Python) presento una version similar de "MTV"
+            (Model template View) del patron, en la que una vista recupera datos de los modelos y los pasa a las plantillas para su visualizacion. Tanto Rails Como Django debutaron con un fuerte enfasis en la implementacion rapida, lo que aumento la popularidad de MVC fuera del entorno empresarial tradicional en el que ha sido popular durante mucho tiempo.
+          </p>
+          <br>
+          <p class="title-card-mvc">  
+            Componentes
+          </p>
+          <br>
+          <p>Modelo</p>
+          <br>
+          <p>  
+            El componente central del patron . Es la estructura de datos dinamica de la aplicacion, independiente de la interfaz de usuario . Gestiona directamente los datos, la logica y las reglas de la aplicacion.
+            En Smalltalk-80, el diseño de un tipo de modelo sedeja enteramente al programador . Con WebObjects, Rails  y Django, un tipo de modelo normalmente representa una tabla en la base de datos de la aplicacion.
+          </p>
+          <br>
+          <p>Vista</p>
+          <br>
+          <p>  
+            Cualquier representacion de informacion como un grafico , diagrama o tabla . Son posibles multiples vistas de la misma informacion , como un grafico de barras para la administracion y una vista tabular 
+            para los contadores . 
+          </p>
+          <br>
+          <p>  
+            En Smalltalk-80, una vista es solo una representacion visual de un modelo y no maneja la entrada del usuario. Con webObjects , una vista representa un elemento completo de la interfaz de usuario, como un
+            menu o un boton, y recibe informacion del usuario. Sin embargo, tanto en Smalltalk-80- como en WebObjects, las vistas estan destinadas a ser de proposito general y componibles.
+          </p>
+          <br>
+          <p>  
+            Con Rails y IDjango, el papel de la vista lo desempeñan las plantillas HTMl, por lo que en su esquema una vista especifica una interfaz de usuario en el navegador en lugar de representar un widget de 
+            interfz de usuario directamente . (Django opta por llamar a este tipo de objeto una "plantilla" a la luz de esto). Este enfoque pone relativamente menos enfasis en vistas pequeñas y componibles ; 
+            una vista tipica de Rails tiene una relacion de uno a uno con una accion de controlador. 
+          </p>
+          <br>
+          <p>  
+            las vistas de Smalltalk-80 se comunican tanto con un modelo como con un controlador, mientras que con WebObjets, una vista se comunica solo con un controlador, que luego se comunica con un modelo. Con Rails y Django, un controlador / vista utiliza una vista/plantilla al preparar una respuesta para el cliente.
+          </p>
+          <br>
+          <p class="title-card-mvc">  
+            Controlador
+          </p>
+          <br>
+          <p>
+            Acepta la entrada y a la convierte en comandos para el modelo o la vista .
+          </p>
+          <br>
+          <p>  
+            Un controlador Smalltalk-80 maneja los eventos de entrada del usuario, como presionar botones o mover el mouse. En un momento dado, cada controlador tiene una vista y un modelo asociados , aunque un 
+            Objeto modelo puede escuchar de muchos controladores diferentes . Solo un controlador , el controlador "activo", recibe la entrada del usuario en un momento dado; un objeto de administrador de ventanas
+            global  es responsable de configurar el controlador activo actual. Si la entrada del usuario solicita un cambio en un modelo, el controlador le indicara al modelo que cambie , pero el modelo es 
+            responsable de indicarle a sus visttas que se actualicen.
+          </p>
+          <br>
+          <p>  
+            En WebOjbect, las vistas manejan la entrada del usuario y el controlador media entre las vistas y los modelos . guede haber solo un controlador por aplicacion o un controlador por ventana . Gran parte de 
+            la logica especifica de la aplicacion se encuentra en el controlador .
+          </p>
+          <br>
+          <p>  
+            En Rails , las solicitudes que llegan a la aplicacion en el servidor desde el cliente se envia n a un "enrutador", que asigna la solicitud a un metodo especifico de un controlador especifico. Dentro de 
+            ese metodo , el contolador interactua con los datos de la solicitud y cualquier objeto de modelo relevante y prepara una respuesta utilizando una vista. Convencionalmente , cada tipo de modelo tiene 
+            un controlador asociado ; por ejemplo si la aplicacion tuviera un modelo , normalmente tambien Client tendria un controlador asociado. 
+            Clients Sin embargo, los desarrolladores son librse de crear otros tipos de controladores si asi lo desean.
+          </p>
+          <br>
+          <p class="title-card-mvc"> 
+            Interacciones
+          </p>
+          <br>
+          <p>
+            Ademas de dividir la aplicacion en estos componentes , el diseño modelo-vista-controlador define las interacciones entre ellos .
+          </p>
+          <br>
+          <pre>  
+            El modelo se encarga de gestionar los datos de la aplicacion. Recibe la entrada del usuario del controlador.
+            La vista representa la presentacion del modelo en un formato particular .
+            El controlador responde a la entrada del usuario y realiza interacciones en los objetos del modelo de datos. 
+            El controlador recibe la entrada, opcionalmente la valida y luego pasa la entrada al modelo.
+          </pre>
+          <br>
+          <p>
+            Al igual que con otros patrones de software. MVC expresa el "nucleo de la solucion" a un problema al tiempo que permite que se adapte a cada sistema. Los diseños particulares de MVC puede variar
+            significativamente de la descripcion tradicional aqui.
+          </p>  
+          <br>
+          <p class="title-card-mvc">
+            Motivasion
+          </p>
+          <br>
+          <p>
+            Como escribio Alan kay en 2003 la motivacion original detras de mvc era permitir la creacion de una interfaz grafica para cualquier objeto. Eso fue descrito en detralle en el libro Naked Objects de 
+            Richard Pawson.
+          </p>
+          <br>
+          <p> 
+            Trygve Reenskaug, creador de MVC en PARC, ha escrito que 'MVC se concibio como una solucion general al problema de los usuarios que controlan un conjunto de datos grande y complejo'.
+          </p>
+          <br>
+          <p>  
+            En su guia de 1991 Inside Smalltalk , los profesores de informatica de la Universidad de carleton, Wilf LaLonde y John Pugh, describieron las ventajas de MVC al estilo de Smalltalk-80 como:
+          </p>
+          <br>
+          <pre>  
+            Independencia de presentacion y datos , por ejemplo , multiples vistas en un modelo simultaneamente, 
+            widgets de presentacion componibles, por ejemplo , una vista utilizada como una subvista de otra, 
+            modos de entrada conmutables , intercambiando un controlador por otro durante el tiempo de ejecucion, y
+            Independencia del procesamiento de entrada ya salida ,a traves de las responsabilidades separadas de los controladores y las vistas .
+          </pre>
+          <br>
+          <p class="title-card-mvc">  
+            Uso en aplicaciones web
+          </p>
+          <br>
+          <p>
+            Aunque originalmente se desarrollo para computadores de escritorio , MVC ha sido ampliamente adoptado como un diseño para aplicaciones de la World Wide Web en los principales lenguajes de programacion. Se
+            han creado varios marcos web que hacen cumplir el patron. Estos marcos de software varian en ssus interpretaciones , principalmente en la forma en que las responsabilidades de MVC se dividen entre el
+            cliente y el servidor .
+          </p>
+          <br>
+          <p>
+            Algunos marcos web MVC adoptan un enfoque de cliente ligero que coloca casi todo el modelo , la vista y la logica del controlador en el servidor . En este enfoque , el cliente envia solicitudes de 
+            hipervinculos o envios de formularios al controlador y luego recibe una pagina web completa y actualizada (u otro documento) de la vista ; el modelo exicte completamente en el servidor .    
+          </p>
+        </div>
       </section>
     </main>
     <footer class="footer_container">

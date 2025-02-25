@@ -30,119 +30,198 @@
     </header>
     <main class="principal-container">
       <section>
-        <p>La arquitectura limpia</p>
-        <p>
-          En los ultimos años hemos visto toda una gama de ideas con respecto a la arquitectura de los sistemas . Estas incluyen:
-
-          Arquitectura hexagonal(tambien conocida como puertos y adaptadores) de Alistair Cockburn y adoptada por Steve Freeman y Nat Pryce en su libro Growing Object Oriented software
-          Arquitectura Cebolla por Jeffrey Palermo
-          Screaming Architecture de un blog mio del año pasado 
-          DCI de jame Coplien y Trygve Reenskaug.
-          BCE por Ivar jacobson de su libro ingenieria de software orientada a objetos: un enfoque basado en casos de uso.
-
-          Aunque todas estas arquitecturas varian un poco en sus detalles , son muy similares . Todos tienen un mismo objetivo, que es la separacion de preocupaciones. Todos logran esta separacion dividiendo el 
-          software en capas .Cada uno tiene al menos una capa para reglas comerciales y otra para interfaces. 
-
-          Cada una de estas arquitecturas produce sistemas que son:
-
-          1. Independiente de Frameworks . La arquitectura no depende de la existencia de alguna biblioteca de software cargado de funciones . Esto le permite utilizar dichos marcos como herramientas, en lugar
-          de tener que abarrotar su sistema con sus limitaciones limitadas.
-
-          2. Comprobable. Las reglas comerciales se pueden probar sin la interfaz de usuario, la base de datos , el servidor web o cualquier otro elemento externo.
-          3. Independiente de la interfaz de usuario. la interfaz de usuario web podria reemplazarse con una interfaz de usuario de consola, por ejemplo sin cambiar las reglas comerciales.
-          4. Independiente de la base de datos. Puede cambiar Oracle o SQL Server por Mongo, BigTable , CouchDB o cualquier otra cosa. Sus reglas comerciales no estan vinculadas a la base de datos.
-          5. Independiente de cualquier agencia externa. De hecho , sus reglas comerciales simplemente no saben nda sobre el mundo exterior.
-
-          El diagrama en la parte superior de este articulo es un intento de integrar todas estas arquitecturas en una sola idea procesable.
-
-          La Regla de dependencia-------------------------->
-
-          los circulos concentricos representan diferentes areas de software. En general , cuanto mas avance, mayor sera el nivel del software. los circulos exterires son mecanismos . los circulos internos son
-          politicas.
-
-          la regla primordial que hace que esta arquitectura funcione es la regla de dependencia. esta regla dice que las dependencias del codigo fuente solo pueden apuntar hacia adentro. Nada en un circulo
-          interior puede saber absolutamente nada sobre algo en un circulo exterior. En particular, el nombre de algo declarado en un circulo exterior no debe ser mencinado por el codigo en un circulo interior.
-          Eso incluye , funciones, clases. Variables, o cualquier otra entidad de software nombrada. 
-
-          del mismo modo , los formatos de datos utilizados en un circulo exterior no deberian ser utilizados por un circulo interior, especialmente si esos formatos son generados por un marco en un circulo exterior
-          No queremos que nada en un circulo exterior impacte en los circulos interiores.
-
-          Entidades------------------------------------>
-
-          Las entidades encapsulan las reglas comerciales de toda la empresa. Una entidad puede ser un objeto con metodos o puede ser un conjunto de funciones y estructuras de datos. no importa, siempre y cuando 
-          las entidades pueden ser utilizadas por muchas aplicaciones diferentes en la empresa. 
-
-          si no tiene una empresa y solo esta escribiendo una sola aplicacion, estas entidados son los objetos comerciales de la aplicacion. Encapsulan las reglas mas generales y de alto nivel. son los menos
-          propensos a cambiar cuando algo externo cambia. Por ejemplo , no esperaria que estos objetos se vieran afectados por un cambio en la navegacion de la pagina o la seguridad . Ningun cambio operativo en 
-          ninguna aplicacion en particular deberia fectar la capa de entidad.
-
-          Casos de uso-------------------------------------->
-
-          El software de esta capa contiene reglas comerciales especificas de la aplicacion. Encapsula e implementa todos los casos de uso del sistema. Estos casos de uso organizan el flujo de datos hacia y desde
-          las entidades, y dirigen a esas entidades para que utilicen sus reglas de negocio en toda la empresa para lograr los objetivos del caso de uso.
-
-          No esperamos que los cambios en esta capa afecten a las entidades . Tampoco esperamos que esta capa se vea afectada por cambios en las externalidades, como la base de datos, la interfaz de usuario
-          o cualquiera de los marcos comunes. Esta capa esta aislada de tales preocupaciones. 
-
-          Sin embargo , esperamos que los cambios en el funcionamiento de la aplicacion afecten los casos de uso y , por lo tanto, el software en esta capa. Si los detalles de un caso de uso cambian , entonces 
-          parte del codigo de esta capa se vera afectado.
-
-          Adaptadores de interfaz-------------------------------------->
-
-          El software en esta capa es un conjunto de adaptadores que convierten datos del formato mas conveniente para los casos de uso y entidades, al formato mas conveniente para alguna agencia externa como
-          la Base de Datos o la Web. Es esta capa, por ejemplo , la que contendra completamente la arquitectura MVC de una GUI. los presentadores , las vistas y los controladores pertenecen aqui.
-          Es  probable que los modelos sean solo estructuras de datos que se pasan de los controladores a los casos de uso , y luego de los casos de uso a los presentadores y vistas.
-
-          De manera similar , los datos se convierten, en esta capa, de la forma mas conveniente para las entidades y los casos de uso , a la forma mas conveniente para cualquier marco de persistencia que se 
-          este utilizando . es decir, la base de datos . Ningun codigo dentro de este circulo deberia saber nada sobre la base de datos. Si la base de datos es una base de datos SQL, entonces todo el SQL debe estar
-          restringido a esta capa y , en particular ,a las partes de esta capa que tienen que ver con la base de datos.
-
-          Tambien en esta capa hay cualquier otro adaptador necesario para convertir datos de alguna forma externa, como un servicio externo, a la forma interna utilicada por los casos de uso y las entidades.
-
-          Marcos y controladores.------------------------------------------>
-
-          la capa mas externa generalmente se compone de marcos y herramientas como la base de datos , el marco web, etc. Generalmente , no escribe mucho codigo en esta capa , aparte del codigo de pegamento que se comunica con el siguiente circulo hacia adentro. 
-
-          Esta capa es donde van todos los detalles . la web es un detalle. la base de datos es un detalle . mantenemos estas cosas en el exterior donde pueden hacer poco daño.
-
-          Solo cuatro circulos?
-
-          No , los circulos son esquematicos . Es posible que descubra que necesita algo mas que estos cuatro. No hay una regla que diga que siempre debes tener solo estos cuatro . Sin embargo, siempre se aplica 
-          la regla de dependencia. las dependencias del codigo fuente siempre apunta hacia adentro . A medida que te mueves hacia adentro, el nivel de abstraccion aumenta . El circulo exterior es un detalle de
-          hormigon de bajo nivel. A medida que avanza hacia el interior , el software se vuelve mas abstracto y encapsula politicas de nivel superior. El circulo mas interior es el mas general.
-
-          Cruzando fronteras ----------------------------
-
-          En la parte inferior derecha del diagrama hay un ejemplo de como cruzamos los limites del circulo. Muestra a los controladores y presentadores comunicandose con los casos de uso en la siguiente capa.
-          Tenga en cuenta el flujo de control . Comienza en el controlador, se mueve a traves del caso de uso y luego termina ejecutandose en el presentador. Tenga en cuenta tambien las dependencias del 
-          codigo fuente . Cada uno de ellos apunta hacia adentro, hacia los casos de uso.
-
-          Solemos resolver esta aparente contradiccion usando el Principio de Inversion de Dependencia. En un lenguaje como Java, por ejemplo, arreglariamos las interfaces y las relaciones de herencia de modo 
-          que las dependencias del codigo fuente se opusieran al flujo de control en los puntos justos a lo largo del limite.
-          Por ejemplo, considere que el caso de uso necesita llamar al presentador. Sin embargo , esta llamada no debe ser directa por que violaria la regla de dependencia : ningun nombre en 
-          un circulo externo puede ser mencinado por un circulo interno. Asi que tenemos el caso de uso llamando a una interfaz (que se muesta aqui como puerto de salida de caso de uso) en el circulo interior, y el 
-          presentador en el circulo exterior lo implementa.
-
-          la misma tecnica se utiliza para cruzar todos los limites en la arquitecturas. Aprovechamos el polimorfismo dinamico para crear dependencias de codigo fuente que se oponen al flujo de control para que 
-          podamos cumplir con la regla de dependencia sin importar en que direccion vaya el flujo de control.
-
-          Que datos cruzan los limites.----------------------------->
-
-          Por lo general , los datos que cruzan los limites son estructuras de datos simples . puede usar estructuras basicas u objetos simples de transferencia de datos si lo desea. O los datos pueden
-          ser simplemente argumentos en llamadas a funciones . Opuede empaquetarlo en un hashmap o construirlo en un objeto . Lo importante es que las estructuras de datos simples y aisladas se trasmiten a traves 
-          de los limites . No queremos hacer trampa y pasar filas de entidades o base de datos . No queremos que las estructuras de datos tengan ningun tipo de dependencia que viole la regla de dependencia.
-
-          por ejemplo , muchos marcos de bases de datos devuelven un formato de datos conveniente en respuesta a una consulta . Podriamos llamar aesto una RowStructure. no queremos pasar esa estructura de 
-          filas hacia adentro a traves de un limite . Eso violaria la Regla de la Dependencia por que obligaria a un circulo interno a saber algo sobre un circulo externo.
-
-          Entonces , Cuando pasamos datos a traves de un limite , siempre es en la forma mas conveniente para el circulo interior. 
-
-          Conclucion ------------------------------------->
-
-          Cumplir con estas reglas simples no es dificil y le ahorrara muchos dolores de cabeza en el futuro. al separar el software en capas y cumplir con la regla de dependencia, creara un sistema que es
-          intrinsecamente comprobable, con todos los beneficios que ello implica. Cuando alguna de las partes externas del sistema se vuelve obsoleta , como la base de datos o el marco web, puede reemplazar esos 
-          elementos obsoletos con un minimo de esfuerzo. 
-        </p>
+        <a href="./../../documentation.html" class="arrow-link"><i class="fa-solid fa-arrow-left arrow-left-icon" style="display: flex; justify-content: center; align-items: center;"></i></a>
+        <p class="principal-title-clean">La arquitectura limpia</p>
+        <div class="information-card-clean">
+          <p>
+            En los ultimos años hemos visto toda una gama de ideas con respecto a la arquitectura de los sistemas . Estas incluyen:
+          </p>
+          <br>
+          <pre>
+            Arquitectura hexagonal(tambien conocida como puertos y adaptadores) de Alistair Cockburn y 
+              adoptada por Steve Freeman y Nat Pryce en su libro Growing Object Oriented software
+            Arquitectura Cebolla por Jeffrey Palermo
+            Screaming Architecture de un blog mio del año pasado 
+            DCI de jame Coplien y Trygve Reenskaug.
+            BCE por Ivar jacobson de su libro ingenieria de software orientada a objetos: un enfoque basado en casos de uso.
+          </pre>
+          </br>
+          <p>
+            Aunque todas estas arquitecturas varian un poco en sus detalles , son muy similares . Todos tienen un mismo objetivo, que es la separacion de preocupaciones. Todos logran esta separacion dividiendo el 
+            software en capas .Cada uno tiene al menos una capa para reglas comerciales y otra para interfaces. 
+          </p>
+          <br>
+          <p>
+            Cada una de estas arquitecturas produce sistemas que son:
+          </p>
+          <br>
+          <p>
+            1. Independiente de Frameworks . La arquitectura no depende de la existencia de alguna biblioteca de software cargado de funciones . Esto le permite utilizar dichos marcos como herramientas, en lugar
+            de tener que abarrotar su sistema con sus limitaciones limitadas.
+          </p>
+          <br>
+          <pre>
+            2. Comprobable. Las reglas comerciales se pueden probar sin la interfaz de usuario, la base de datos , 
+              el servidor web o cualquier otro elemento externo.
+            3. Independiente de la interfaz de usuario. la interfaz de usuario web podria reemplazarse con una interfaz de usuario de consola, 
+              por ejemplo sin cambiar las reglas comerciales.
+            4. Independiente de la base de datos. Puede cambiar Oracle o SQL Server por Mongo, BigTable , 
+              CouchDB o cualquier otra cosa. Sus reglas comerciales no estan vinculadas a la base de datos.
+            5. Independiente de cualquier agencia externa. De hecho , sus reglas comerciales simplemente no saben nda sobre el mundo exterior.
+          </pre>
+          <br>
+          <p>
+            El diagrama en la parte superior de este articulo es un intento de integrar todas estas arquitecturas en una sola idea procesable.
+          </p>
+          <br>
+          <p class="title-card-clean">
+            La Regla de dependencia
+          </p>
+          <br>
+          <p>
+            los circulos concentricos representan diferentes areas de software. En general , cuanto mas avance, mayor sera el nivel del software. los circulos exterires son mecanismos . los circulos internos son
+            politicas.
+          </p>
+          <br>
+          <p>
+            la regla primordial que hace que esta arquitectura funcione es la regla de dependencia. esta regla dice que las dependencias del codigo fuente solo pueden apuntar hacia adentro. Nada en un circulo
+            interior puede saber absolutamente nada sobre algo en un circulo exterior. En particular, el nombre de algo declarado en un circulo exterior no debe ser mencinado por el codigo en un circulo interior.
+            Eso incluye , funciones, clases. Variables, o cualquier otra entidad de software nombrada. 
+          </p>
+          <br>
+          <p>
+            del mismo modo , los formatos de datos utilizados en un circulo exterior no deberian ser utilizados por un circulo interior, especialmente si esos formatos son generados por un marco en un circulo exterior
+            No queremos que nada en un circulo exterior impacte en los circulos interiores.
+          </p>
+          <br>
+          <p class="title-card-clean">
+            Entidades
+          </p>
+          <br>
+          <p>
+            Las entidades encapsulan las reglas comerciales de toda la empresa. Una entidad puede ser un objeto con metodos o puede ser un conjunto de funciones y estructuras de datos. no importa, siempre y cuando 
+            las entidades pueden ser utilizadas por muchas aplicaciones diferentes en la empresa. 
+          </p>
+          <br>
+          <p>
+            si no tiene una empresa y solo esta escribiendo una sola aplicacion, estas entidados son los objetos comerciales de la aplicacion. Encapsulan las reglas mas generales y de alto nivel. son los menos
+            propensos a cambiar cuando algo externo cambia. Por ejemplo , no esperaria que estos objetos se vieran afectados por un cambio en la navegacion de la pagina o la seguridad . Ningun cambio operativo en 
+            ninguna aplicacion en particular deberia fectar la capa de entidad.
+          </p>
+          <br>
+          <p>
+            Casos de uso
+          </p>
+          <br>
+          <p>
+            El software de esta capa contiene reglas comerciales especificas de la aplicacion. Encapsula e implementa todos los casos de uso del sistema. Estos casos de uso organizan el flujo de datos hacia y desde
+            las entidades, y dirigen a esas entidades para que utilicen sus reglas de negocio en toda la empresa para lograr los objetivos del caso de uso.
+          </p>
+          <br>
+          <p>
+            No esperamos que los cambios en esta capa afecten a las entidades . Tampoco esperamos que esta capa se vea afectada por cambios en las externalidades, como la base de datos, la interfaz de usuario
+            o cualquiera de los marcos comunes. Esta capa esta aislada de tales preocupaciones. 
+          </p>
+          <br>
+          <p>
+            Sin embargo , esperamos que los cambios en el funcionamiento de la aplicacion afecten los casos de uso y , por lo tanto, el software en esta capa. Si los detalles de un caso de uso cambian , entonces 
+            parte del codigo de esta capa se vera afectado.
+          </p>
+          <br>
+          <p class="title-card-clean">
+            Adaptadores de interfaz
+          </p>
+          <br>
+          <p>
+            El software en esta capa es un conjunto de adaptadores que convierten datos del formato mas conveniente para los casos de uso y entidades, al formato mas conveniente para alguna agencia externa como
+            la Base de Datos o la Web. Es esta capa, por ejemplo , la que contendra completamente la arquitectura MVC de una GUI. los presentadores , las vistas y los controladores pertenecen aqui.
+            Es  probable que los modelos sean solo estructuras de datos que se pasan de los controladores a los casos de uso , y luego de los casos de uso a los presentadores y vistas.
+          </p>
+          <br>
+          <p>
+            De manera similar , los datos se convierten, en esta capa, de la forma mas conveniente para las entidades y los casos de uso , a la forma mas conveniente para cualquier marco de persistencia que se 
+            este utilizando . es decir, la base de datos . Ningun codigo dentro de este circulo deberia saber nada sobre la base de datos. Si la base de datos es una base de datos SQL, entonces todo el SQL debe estar
+            restringido a esta capa y , en particular ,a las partes de esta capa que tienen que ver con la base de datos.
+          </p>
+          <br>
+          <p>
+            Tambien en esta capa hay cualquier otro adaptador necesario para convertir datos de alguna forma externa, como un servicio externo, a la forma interna utilicada por los casos de uso y las entidades.
+          </p>
+          <br>
+          <p class="title-card-clean">
+            Marcos y controladores.
+          </p>
+          <br>
+          <p>
+            la capa mas externa generalmente se compone de marcos y herramientas como la base de datos , el marco web, etc. Generalmente , no escribe mucho codigo en esta capa , aparte del codigo de pegamento que se comunica con el siguiente circulo hacia adentro. 
+          </p>
+          <br>
+          <p>
+            Esta capa es donde van todos los detalles . la web es un detalle. la base de datos es un detalle . mantenemos estas cosas en el exterior donde pueden hacer poco daño.
+          </p>
+          <br>
+          <p>
+            Solo cuatro circulos?
+          </p>
+          <br>
+          <p>
+            No , los circulos son esquematicos . Es posible que descubra que necesita algo mas que estos cuatro. No hay una regla que diga que siempre debes tener solo estos cuatro . Sin embargo, siempre se aplica 
+            la regla de dependencia. las dependencias del codigo fuente siempre apunta hacia adentro . A medida que te mueves hacia adentro, el nivel de abstraccion aumenta . El circulo exterior es un detalle de
+            hormigon de bajo nivel. A medida que avanza hacia el interior , el software se vuelve mas abstracto y encapsula politicas de nivel superior. El circulo mas interior es el mas general.
+          </p>
+          <br>
+          <p class="title-card-clean">
+            Cruzando fronteras
+          </p>
+          <br>
+          <p>
+            En la parte inferior derecha del diagrama hay un ejemplo de como cruzamos los limites del circulo. Muestra a los controladores y presentadores comunicandose con los casos de uso en la siguiente capa.
+            Tenga en cuenta el flujo de control . Comienza en el controlador, se mueve a traves del caso de uso y luego termina ejecutandose en el presentador. Tenga en cuenta tambien las dependencias del 
+            codigo fuente . Cada uno de ellos apunta hacia adentro, hacia los casos de uso.
+          </p>
+          <br>
+          <p>
+            Solemos resolver esta aparente contradiccion usando el Principio de Inversion de Dependencia. En un lenguaje como Java, por ejemplo, arreglariamos las interfaces y las relaciones de herencia de modo 
+            que las dependencias del codigo fuente se opusieran al flujo de control en los puntos justos a lo largo del limite.
+            Por ejemplo, considere que el caso de uso necesita llamar al presentador. Sin embargo , esta llamada no debe ser directa por que violaria la regla de dependencia : ningun nombre en 
+            un circulo externo puede ser mencinado por un circulo interno. Asi que tenemos el caso de uso llamando a una interfaz (que se muesta aqui como puerto de salida de caso de uso) en el circulo interior, y el 
+            presentador en el circulo exterior lo implementa.
+          </p>
+          <br>
+          <p>
+            la misma tecnica se utiliza para cruzar todos los limites en la arquitecturas. Aprovechamos el polimorfismo dinamico para crear dependencias de codigo fuente que se oponen al flujo de control para que 
+            podamos cumplir con la regla de dependencia sin importar en que direccion vaya el flujo de control.
+          </p>
+          <br>
+          <p>
+            Que datos cruzan los limites.
+          </p>
+          <br>
+          <p>
+            Por lo general , los datos que cruzan los limites son estructuras de datos simples . puede usar estructuras basicas u objetos simples de transferencia de datos si lo desea. O los datos pueden
+            ser simplemente argumentos en llamadas a funciones . Opuede empaquetarlo en un hashmap o construirlo en un objeto . Lo importante es que las estructuras de datos simples y aisladas se trasmiten a traves 
+            de los limites . No queremos hacer trampa y pasar filas de entidades o base de datos . No queremos que las estructuras de datos tengan ningun tipo de dependencia que viole la regla de dependencia.
+          </p>
+          <br>
+          <p>
+            por ejemplo , muchos marcos de bases de datos devuelven un formato de datos conveniente en respuesta a una consulta . Podriamos llamar aesto una RowStructure. no queremos pasar esa estructura de 
+            filas hacia adentro a traves de un limite . Eso violaria la Regla de la Dependencia por que obligaria a un circulo interno a saber algo sobre un circulo externo.
+          </p>
+          <br>
+          <p>
+            Entonces , Cuando pasamos datos a traves de un limite , siempre es en la forma mas conveniente para el circulo interior. 
+          </p>
+          <br>
+          <p class="title-card-clean">
+            Conclucion
+          </p>
+          <br>
+          <p>
+            Cumplir con estas reglas simples no es dificil y le ahorrara muchos dolores de cabeza en el futuro. al separar el software en capas y cumplir con la regla de dependencia, creara un sistema que es
+            intrinsecamente comprobable, con todos los beneficios que ello implica. Cuando alguna de las partes externas del sistema se vuelve obsoleta , como la base de datos o el marco web, puede reemplazar esos 
+            elementos obsoletos con un minimo de esfuerzo. 
+          </p>
+        </div>
       </section>
     </main>
     <footer class="footer_container">

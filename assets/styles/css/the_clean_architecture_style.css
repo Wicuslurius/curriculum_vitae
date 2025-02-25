@@ -1,0 +1,15 @@
+.principal-title-clean{
+    text-align: center; 
+    font-size: 35px;
+}
+
+.information-card-clean{
+    border: 1px solid grey; 
+    padding: 20px; 
+    border-radius: 10px;
+}
+
+.title-card-clean{
+    font-size: 25px; 
+    margin: 10px 0;
+}
