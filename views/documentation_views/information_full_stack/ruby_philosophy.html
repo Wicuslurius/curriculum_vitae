@@ -30,145 +30,230 @@
     </header>
     <main class="principal-container">
       <section>
-        <p>La filosofía de Ruby</p>
-        <p>
-          Una conversación con Yukihiro Matsumoto, Parte 1 <<<-------------------------------------------------------------------------------------------------
-
+        <p class="principal-title-phi">La filosofía de Ruby</p>
+        <a href="./../../documentation.html" class="arrow-link"><i class="fa-solid fa-arrow-left arrow-left-icon" style="display: flex; justify-content: center; align-items: center;"></i></a>
+        <div class="information-card-phi">
+          <p class="title-card-phi">Una conversación con Yukihiro Matsumoto, Parte 1</p>
+          <br>
+          <p>
             Resumen -> Yukihiro Matsumoto , el creador del lenguaje de programación Ruby, habla con Bill Venners sobre la filosofia de diseño de Ruby, incluida la imperfección del diseño , el peligro de la 
             ortogonalidad y la importancia del ser humano en los proyectos informáticos.
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto, o Matz , como se le conoce en línea , es el creador del lenguaje de programación Ruby. Ruby es un lenguaje orientado a objetos adecuado para escribir scripts cotidianos , así como
             aplicaciones a gran escala . Matz comenzó a trabajar en Ruby en 1993 , porque quería un lenguaje que lo hiciera productivo y divertido de usar . Inicialmente popular en Japón, Ruby se ha a bierto camino en
             los corazones de los programadores de todo el mundo . 
-
+          </p>
+          <br>
+          <p>
             El 24 de septiembra de 2003 , Bill Venners se reunió con Yukihiro Matsumoto en la conferencia JAOO en Aarhus, Dinamarca. En esta entrevista , que se publicarA en varias entregas en Artima.com , Yukihiro 
             Matsumoto analiza la filosofía de diseño de Ruby, las características del lenguaje Ruby y cómo convertirse en un mejor programador. En esta entrega inicial , Matz se vuelve filosófico sobre la imperfección
             del diseño, l peligro de la ortogonalidad, otorgar libertad con orientación, el principio de la menor sorpresa y la importancia del ser humano en los esfuerzos informáticos. 
-
-            Sin lenguaje Perfecto < --------------------------------------------------------
-
+          </p>
+          <br>
+          <p class="title-card-phi">
+            Sin lenguaje Perfecto
+          </p>
+          <br>
+          <p>
             Bill Venners: Dave Thomas, coautor de programación de Ruby : una guía pragmática del programador , me dijo que no crees que un diseño de lenguaje deba ser perfecto . Por qué no?
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto: Los Diseádores de idiomas quieren diseñar el idioma perfecto.Quieren poder decir : "Mi idioma es perfecto. Puede con todo" Pero es simplemente imposible diseñar un lenguaje perfecto , 
             por que hay dos formas de ver un lenguaje . Una forma es mirar lo que se puede hacer con ese lenguaje. La otra es mirar cómo nos sentimos usando ese lenguaje, cómo nos sentimos mientrar programamos.
-
+          </p>
+          <br>
+          <p>
             Debido a la teoría de la integridad de Turing, todo lo que puede hacer un lenguaje completo de Turing puede teóricamente ser hecho por otro lenguaje completo de Turing, pero a un costo diferente . Puedes
             hacer , los idiomas difieren , pero las diferencias son limitadas. Por ejemplo , Pytho y Ruby brindan casi el mismo poder al programador .
-
+          </p>
+          <br>
+          <p>
             En lugar de enfatizar el qué, quiero enfatizar la parte del cómo: Cómo nos sentimos mientras programamos .Esa es la principal diferencia de Ruby con respecto a otros diseños de lenguaje . Hago hincapié en
             la sensación. en particular , cómo me siento usando Ruby. No Trabajé duro para que Ruby fuera perfecto para todos, por que tú sientes algo diferente a mí. Ningún idioma puede ser perfecto para todos .Traté
             de hacer que Ruby fuera perfecto para mí, pero tal vez no sea perfecto para ti. El lenguaje perfecto para Guido van Rosum es probablemente Python.
-
-            Ortogonal Versus armonioso < --------------------------------------------------------------------------
-
+          </p>
+          <br>
+          <p class="title-card-phi">
+            Ortogonal Versus armonioso
+          </p>
+          <br>
+          <p>
             Bill Venners : Dave Thomas también afirmó que si le pido que agregue una característica que sea ortogonal, no lo hará. lo que quieres es algo que sea armonioso . Qué significa eso ?
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto: Creo que la consistencia y la ortogonalidad son herramientas de diseño, no el objetivo principal del diseño. 
-
+          </p>
+          <br>
+          <p> 
             Bill Venners: Qué significa ortogonalidad cen este contexto?
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto: Un ejemplo de ortogonalidad es permitir cualquier combinación de pequeñas características o sintaxis . Por ejemplo , C++ admite valores de parámetros predeterminados para funciones y 
             la sobrecarga de nombres de funciones en función de los parámetros . Ambas son buenas características para tener en un idioma, pero debido a que son ortogonales , puede aplicar ambas al mismo tiempo.
             El compilador sabe cómo aplicar ambos al mismo tiempo . Si es ambiguo, el compilador marcará un error. pero si miro el código, también necesito aplicar la regla con mi cerebro. Necesito adivinar
             cómo funciona el compilador . Si tengo razón y soy lo suficientemente inteligente , no hay problema. Pero si no soy lo suficientemente inteligente , y realmente no lo soy , causa confusión. El resultado 
             será inesperado para una persona común. Este es un ejemplo de cómo la ortogonalidad es mala.
-
+          </p>
+          <br>
+          <p>
             Bill Venners : En otras palabrar, las características ordogonales funcionarán una vez que el escritor del compilador las entienda y las haga funcionar . Pero es difícil para los programadores entenderlo 
             cuando lo miran , por que es complicado , porque tengo que descubrir cómo estas dos cosas van juntas .
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto : Las características ortogonales, cuando se combinan, pueden explotar en complejidad.
-
+          </p>
+          <br>
+          <p>
             Bill Venners : Entonces , Cuál es la alternativa ? , que sería más armonioso?
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto : Solo elige uno de esos dos para ponerlo en el idioma. No tienes que hacer todo lo que se te ocurra . Tienes que elegir uno de ellos , aunque ambos son buenos.
-
-            Libertad y comodidad <<<<<------------------------------------------------------------------------------------------------
-
+          </p>
+          <br>
+          <p class="title-card-phi">
+            Libertad y comodidad 
+          </p>
+          <br>
+          <p>
             Bill Venners: Una de las filosofías de diseño en la comunidad de python es proporcinar una única forma de hacer las cosas. Si proporciona cincuenta formas diferentes de hacer lo mismo , entonces ha 
             brindado comodidad a los escritores de código. La gente puede escribir las cosas de su manera favorita. La compensación es para los lectores de código . Cuando leí tu código, es posible que lo hayas
             escrito de una manera. Cuando leo el código de la siguiente persona, es posible que lo haya escrito de otra manera .Entonces, como lector ,termino necesitando estar familiarizado con todas las formas
             de realizar la tarea , no solo con mi forma savorita de escribirla. Esa es la compensación del diseño. La comunidad de pytho parece preferir el enfoque de una sola vía , pero Ruby aparece proporcionar 
             múltiples formas de hacer lo mismo.
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto : Ruby heredó la filosofía de Perl de tener más de una forma de hacer lo mismo. Heredé esa filosofía de Larry Wall, quien en realidad es mi héroe. Quiero que los usuarios de Ruby sean
             gratuitos . Quiero darles la libertad de elegir . Las personas son diferentes .La gente elige diferentes criterios . Pero si hay una forma mejor entre muchas alternativas, quiero fomentar esa 
             forma haciéndola cómoda . Así que eso es lo que he tratado de hacer. Tal vez el código python sea un poco más legible. Todo el mundo puede escribir el mismo estilo de código python , por lo que quizás sea 
             más fácil de leer. Pero la diferencia de una persona a otra es tan grande que proporcionar solo una forma es de poca ayuda , incluso si está usando phyton, creo. Prefiero proporcinar muchas formas si es 
             posible, 
-
-            La alegría de Ruby <------------------------------------------------------------------------------------------
-
+          </p>
+          <br>
+          <p class="title-card-phi">
+            La alegría de Ruby
+          </p>
+          <br>
+          <p>
             Bill Venners: En un artículo introductorio sobre Ruby, usted escribió: "Para mí , el propósito de la vida es en parte tener alegría . Los programadores a  menudo sienten alegría cuando pueden concentrarse
             en el lado creativo de la programación, por lo que ruby está diseñado para hacer felices a los programadores"."Cómo puede Ruby hacer felices a los programadores?"
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto: Quieres disfrutar de la vida , no?, Si haces tu trabajo rápidamente y es divertido , eso es bueno, no?, ese es el propósito de la vida, en parte . tu vida es mejor.
-
+          </p>
+          <br>
+          <p>
             Quiero resolver problemas que encuentro en la vida diaria usando computadoras, así que necesito escribir programas . Al usar Ruby, quiero concentrarme en las cosas que hago, no en las reglas mágicas del 
             lenguaje, como comenzar con public void something something something ..... decir "imprimir holra mundo". Solo quiero decir "Imprime esto" No quiero todas las palabras clave mágicas circundantes . 
             Sólo quiero concentrarme en la tarea . Esa es la idea básica. Así que he tratado de hacer que el código de Ruby sea conciso y suncinto.
-
+          </p>
+          <br>
+          <p>
             Bill Venners: Permitir que los programadores escriban código que sea conciso y suncinto es una forma de hacerlos felices.
-
+          </p>
+          <br>
+          <p>
             Ykihiro Matsumoto: Sí, para puedan concentrarse en el problema en sí. A veces, las personas escriben un pseudocódigo en un papel . Si ese pseudocódigo se ejecuta directamente en sus computadoras, es mejor,
             no? , Ruby intenta ser así, como un pseudocódigo que se ejecuta . la gente de pytho también dice eso. 
-
+          </p>
+          <br>
+          <p>
             Bill Venners: Sí, la gente de Python dice que python es un pseudocódigo ejecutable. Qué mas hay en Ruby para hacer felices a los programadores ?
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto: En nuestra vida diaria como programadores , procesamos mucho las cadenas de texto . Así que traté de trabajar duro en el procesamiento de texto , es decir , la clase de cadena y las 
             expresiones regulares . Las expresiones regulares están integradas en el lenguaje y están muy afinadas para su uso. También  necesitamos llamar mucho al sistema operativo. Ruby puede llamar a todas las 
             llamadas del sistema de Unix y la mayoría de las Api de Windows . Esto lleva el poder y la función del sistema operativo al entorno del lenguaje interpretativo. Para que pueda hacer la 
             administración diaria de sistemas y la programación de procesamiento de texto . Ese es el diminio principal de al menos mi vida, así que trabajé duro para hacerlo bien.
-
+          </p>
+          <br>
+          <p>
             Bill Venners : Entonces , Básicamente Ruby me ayuda a disfrutar de mi ayudándome a hacer mi trabajo más rápido y con más diversión?
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto: Me ayuda a hacer eso. No estoy seguro de que Ruby funcione para ti , pero espero que sí.
-
-
-            El factor humano <-----------------------------------------------
-
+          </p>
+          <br>
+          <p>
+            El factor humano
+          </p>
+          <br>
+          <p>
             Bill Venners: En una envista , dijiste: "No subestimes el factor humano. Aunque estemos frente a computadoras , son medios. Trabajamos para humanos , con humanos". Qué quieres decir con eso?
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto: Imagina que estás escribiendo un correo electrónico. Estás frente a la computadora. Está operando la computadora , haiendo clic con el mouse y escribiendo en un teclado , pero el 
             mesaje se enviará a un ser humano a través de Internet . Así que estás trabajando antes que la computadora, pero con un humano detrás de la computadora. la mayoría de las tareas que hacemos son para 
             humanos . Por ejemplo , un cálculo de impuestos está contando números para que el gobierno pueda sacar dinero de mi billetera, pero el gobierno está formado por humanos. 
-
+          </p>
+          <br>
+          <p>
             Después de todo , la mayoría de nuestras tareas están relacionadas con los humanos. Entonces, en la programación. le pedimos a la computadora que trabaje para un humano , o describimos nuestros 
             pensamientos a una computadora de una manera muy inequívoca que incluso la computadora puede ejecutar . En  el primer caso , hacer que la computadora funcione para humanos , el objetivo es un humano a 
             través de la computadora . En el segundo caso , al expresar nuestros pensamientos con la suficiente claridad para que las computadoras los entiendan y ejecuten, expresamos la intención de nuestros 
             cerebros humanos y , como resultado , la realizan las computadoras. Entonces , en ambos casos , el objeto aquí es humano.
-
+          </p>
+          <br>
+          <p>
             Bill Venners : Qué tiene de importante pensar de esa manera ? Dices: "No subestimes el factor humano". por qué?
-
-
+          </p>
+          <br>
+          <p>
             Ykihiro Matsumoto: Porque a las computadoras no les importa si debo esforzarme para comunicarme con ellas o si es fácil comunicarse con ellas . No les importa si pondo los números de secuencia de bytes 
             de instrucciones en un archivo y se los paso para que los ejecuten , o si un lenguaje de muy alto nivel generó las instrucciones . A las computadoras no les importa . A los humanos nos importa el esfuerzo
             que pagamos . A menudo , las personas , especialmente los ingenieros informáticos se centran en las máquinas . Piensan : "Al hacer esto, la máquina funcionará más rápido . Al hacer esto , la máquina 
             funcionar más rápido . Al hacer esto , la máquina funcionará con mayor eficacia. Al hacer esto , la máquina hará algo , algo, algo". Se están centrando en las máquinas . Pero, de hecho , debemos 
             centrarnos en las máquinas . pero , de hecho , debemos centrarnos en los humanos , en cómo los humanos se preocupan por programar u operar la aplicación de las maquinas . Somos los amos . Ellos son los 
             esclavos .
-
+          </p>
+          <br>
+          <p>
             Bill Venners : por el momento de todos modos. 
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto: de momento , hasta la era de terminator.
-
-
-            Principio de la menor Sorpresa < -----------------------------------------------------------------------------------
-
+          </p>
+          <br>
+          <p class="title-card-phi">
+            Principio de la menor Sorpresa
+          </p>
+          <br>
+          <p>
             Bill Venners : En una entrevista , usted dijo: "Diseñé Ruby para minimizar mi sorpresa .Me sorprendió mucho cuando la gente de todo el mundo me dijo que Ruby redujo su sorpresa y mejoró su alegría de 
             de programar . Ahora estoy bastante seguro de que la mente de los programadores son iguales en todo el mundo". Por qué el principio de la menor sorpresa?
-
+          </p>
+          <br>
+          <p>
             Yukihiro Matsumoto: En realidad , no hice la afirmación de que Ruby sigue el principio de la menor sorpresa. Alguien Sintió que el diseño de Ruby sigue esa filosofía, así empezaron a decir eso . No 
             mencioné eso , en realidad. 
-
+          </p>
+          <br>
+          <p>
             Quería minimizar mi frustración durante la programación , así que quiero minimizar mi esfuerzo en la programacion Ese fue mi objetivo principal al diseñar Ruby . Quiero divertirme programando yo mismo. 
             Después de lanzar Ruby , muchas personas en todo el mundo conocieron a Ruby , dijeron que se sienten como yo me siento . Se les ocurrió la frase el principio de la menor sorpresa . Pero en realidad , 
             a menudo se malinterpreta.
-
+          </p>
+          <br>
+          <p>
             Bill Venners : Como se malinterpreta ?
-
+          </p>
+          <br>
+          <p>
             Yukihiro  Matsumoto : Todo el mundo tiene un transfondo individual . Alguien puede venir de python , alguien más puede venir de perl, y pueden sorprenderse con diferentes aspectos del lenguaje . Luego se me acercan y me dicen : "Esta característica del lenguaje me sorprendió, por lo que Ruby viola el principio del a menor sorpresa ". Esperar . Esperar. El principio  de la menor sorpresa no es para ti. 
-
-        </p>
+          </p>
+        </div>
       </section>
     </main>
     <footer class="footer_container">

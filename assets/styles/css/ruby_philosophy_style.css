@@ -1,0 +1,15 @@
+.principal-title-phi{
+    text-align: center; 
+    font-size: 35px;
+}
+
+.information-card-phi{
+    border: 1px solid grey; 
+    padding: 20px; 
+    border-radius: 10px;
+}
+
+.title-card-phi{
+    font-size: 25px; 
+    margin: 10px 0;
+}
