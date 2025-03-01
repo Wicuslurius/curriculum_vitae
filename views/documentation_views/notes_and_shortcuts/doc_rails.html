@@ -30,71 +30,105 @@
     </header>
     <main class="principal-container">
       <section>
-        <p>
+        <a href="./../../documentation.html" class="arrow-link"><i class="fa-solid fa-arrow-left arrow-left-icon" style="display: flex; justify-content: center; align-items: center;"></i></a>
+        <h3 class="principal-title-rai">Ruby on Rails</h3>
+        <div class="information-card-rai">
+          <pre>
           sudo rails new [nombre de la app] -d postgresql
             creamos un proyecto de rails y agregamos por defecto postgresql
-
+          </pre>
+          <br>
+          <pre>
           bin/rails db:create
             creamos nuestra base de datos para el proyecto (instrucciones guardadas en config/database.yml)
-
+          </pre>
+          <br>
+          <pre>
           rails generate model Product title:string description:text price:integer
             creamos un modelo product
-
+          </pre>
+          <br>
+          <pre>
           rails db:migrate
             corremos este comando para correr la migracion y crear la tabla
-
+          </pre>
+          <br>
+          <pre>
           rails console
             corremos este comando para abrir la consola de rails y ejecutar codigo ruby
-
+          </pre>
+          <br>
+          <pre>
           localhost:3000/rails/info/routes
             con esta linea en nuestra barra de navegacion de nuestro buscador podremos ver todas rutas que tenemos declaradas
-
+          </pre>
+          <br>
+          <pre>
           rails generate migration addNullFalseToProductFields
             con este comando generamos un archivo de migracion para hacer una modificacion en base de datos 
             en este ejemplo podemos ver que vamos a agregar validaciones en los campos de la tabla product
             para que la tabla no acepte espacios en blanco
-
+          </pre>
+          <br>
+          <pre>
           (rails console) Product.last.destroy
             ingresamos en la consola de rails , ejecutamos el comando Product.last.destroy, y esto elimina el ultimo registro en 
             la tabla product
-
+          </pre>
+          <br>
+          <pre>
           rails generate scaffold Category name:string
             con este comando en nuestra terminal creamos el modelo , las vistas y el controlador para category , tambien se crea la migracion
           para crear la tabla category con la columna name de tipo string , el modelo se llama category , despues nos crea una prueba para el modelo
           category_test.rb , y un fixture/categories.yml para llenar la base de datos , podemos ver tambien la creacion de la rutas 
           resources :categories, las vistas completas , tenemos un test para el controlador categories_controller_test, un archivo helper y un jbuilder
-
+          </pre>
+          <br>
+          <pre>
           rails generate migration AddCategoryToProducts category:references
             con este comando generamos una migracion para conectar los 
             productos con su categoria correspondiente creamos una columna en
             Products que apunte a una categoria en Categories 
-
+          </pre>
+          <br>
+          <pre>
           rails db:reset
             con este comando reseteamos la base de datos de nuestro proyecto lo
             cual borra todo registro en ella
-
+          </pre>
+          <br>
+          <pre>
           rails db:fixtures:load
             con este comando llenamos nuestra base de datos con lo fixtures que
             utilizamos para los test
-
+          </pre>
+          <br>
+          <pre>
           sudo bundle add pg_search
             con este comando agregamos una gema a nuestro proyecto para poder hacer busquedas en nuestra base de datos por nombres o palabras claves
             su funcionalidad es aprovechar una caracteristica de postgres llamada PostgreSQL's full text search el cual nos devuelve resultados mas naturales y correctos
-
-
+          </pre>
+          <br>
+          <pre>
           sudo bundle add pagy
             con este comando agregamos una gema en nuestro proyecto  el cual nos va a ayudar 
             a hacer paginacion de nuestros productos cuando tengamos que cargar muchos elementos en una pagina
-
+          </pre>
+          <br>
+          <pre>
           rails db:migrate RAILS_ENV=test
             con este comando creamos la base de datos que va a funcionar para correr las pruebas
-
+          </pre>
+          <br>
+          <pre>
           **
           bundle update
 
             con este comando acualizamos las gemas 
           **
-
+          </pre>
+          <br>
+          <pre>
           **
           rails test test/controllers/categories_controller_test.rb
           comando para correr las pruebas de un solo controlador
@@ -102,19 +136,21 @@
           test/controllers/categories_controller_test.rb:32
             comando para correr las pruebas de un solo caso el numero es donde empieza
           **
-
+          </pre>
+          <br>
+          <pre>
           **
           require_dependency 'concerns/set_white_label.rb'
           **
-
+          </pre>
+          <br>
+          <pre>
           **
           rails dev:cache
           **
-
-          **
-          load 'app/controllers/concerns/set_white_label.rb'
-          **
-
+          </pre>
+          <br>
+          <pre>
           **
           rake assets:clean
           restart rails server $ rails server -e development
@@ -122,7 +158,9 @@
 
           Now everything should be as it was before you ran rake assets:precompile
           **
-
+          </pre>
+          <br>
+          <pre>
           **
           scp -i C:\Users\MIGUEL\.ssh\id_rsa C:\Users\MIGUEL\.ssh\id_rsa.pub ubuntu@portal.finiapp.co:/home/ubuntu/.ssh/authorized_keys
 
@@ -131,17 +169,19 @@
 
             de esta manera podemos copiar un archivo y enviarlo al servidor
           **
-
+          </pre>
+          <br>
+          <pre>
           **
           bundle exec rails routes | grep [nombre de la ruta]
 
             con este comando creamos una busqueda de las rutas para saber como se llaman las rutas 
           **
-
-
-
-          --------------------------------------------------------CONSEJOS-------------------------------------------------------------
-
+          </pre>
+          <br>
+          <h3 class="title-card-rai">CONSEJOS</h3>
+          <br>
+          <pre>
           ** Data Base
 
             Recordar que al momento de crear nuestra base de datos en postgres
@@ -150,7 +190,9 @@
             config/database.yml, en development y test
 
           **
-
+          </pre>
+          <br>
+          <pre>
           ** Controllers
 
             los nombres de los controladores son en plural products_controller.rb
@@ -158,14 +200,18 @@
             hereda de ApplicationController
 
           **
-
+          </pre>
+          <br>
+          <pre>
           ** Models
 
             los nombres de los modelos son en singular por eso al ejecutar el comando rails generate model Product se coloca en singular
             despues del nombre del modelo podemos colocar el nombre de la columna que queremos en nuestra tabla y el tipo de dato 
             que va a manejar
           **
-
+          </pre>
+          <br>
+          <pre>
           ** Relaciones tablas
             cuando generamos una migracion para agregar una tabla a otra como
             lo es la relacion entre categories y products del ejercicio ,el
@@ -175,7 +221,9 @@
             indicarle que has_many :products  el cual me indica que ( una
             categoria tiene muchos productos) 
           **
-
+          </pre>
+          <br>
+          <pre>
           ** Models pg_search
             para utilizar la gema de pg_search la cual nos ayuda a hacer busqquedas de texto en bases de datos debemos agregar una instruccion en los modelos la cual es 
             Include PgSearch::Model 
@@ -190,7 +238,8 @@
               description: 'B'
             }
           **
-        </p>
+          </pre>
+        </div>
       </section>
     </main>
     <footer class="footer_container">
