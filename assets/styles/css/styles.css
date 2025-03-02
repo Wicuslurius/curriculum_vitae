@@ -15,6 +15,7 @@
 @import url('doc_rails_style.css');
 @import url('doc_postgres_style.css');
 @import url('production_style.css');
+@import url('sql_style.css');
 * {
   margin: 0;
   padding: 0;
