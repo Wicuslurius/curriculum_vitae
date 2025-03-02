@@ -30,806 +30,1024 @@
     </header>
     <main class="principal-container">
       <section>
-        <p>
-          <h3>Comandos en ubuntu</h3>
-          **
-          psql -U bkpostgres -d bankaas_production
+        <a href="./../../documentation.html" class="arrow-link"><i class="fa-solid fa-arrow-left arrow-left-icon" style="display: flex; justify-content: center; align-items: center;"></i></a>
+        <h3 class="principal-title-post">PostgreSQL</h3>
+          <div class="information-card-post">
+            <h3 class="title-card-post">Comandos en ubuntu</h3>
+            <pre>
+            **
+            psql -U bkpostgres -d bankaas_production
 
-            de esta manera ingresamos a la base de datos que tenemos creada con el usuario que tambien tenemos creado
-          **
+              de esta manera ingresamos a la base de datos que tenemos creada con el usuario que tambien tenemos creado
+            **
+            </pre>
+            <br>
+            <pre>
+            * sudo service postgres stop
+                para el servidor de base de datos postgres
+            </pre>
+            <br>
+            <pre>
+            * sudo service postgres start
+                inicia el servidor
+            </pre>
+            <br>
+            <pre>
+            * sudo -i -u postgres
+                ingresamos en posgres 
+            </pre>
+            <br>
+            <pre>
+            * psql
+                abre la consola de postgres para crear tablas, etc...
+            </pre>
+            <br>
+            <pre>
+            * \l
+                listamos la base de datos y servidores 
+            </pre>
+            <br>
+            <pre>
+            * ctrl + d
+                cerramos sesion en postgres
+            </pre>
+            <br>
+            <pre>
+            * pg_isready
+                comando para verificar si postgres esta en ejecucion
+            </pre>
+            <br>
+            <pre>
+            * \du
+                me lista los usuarios en postgres
+            </pre>
+            <br>
+            <pre>
+            * \conninfo
+                Este comando te proporcionará información detallada sobre la conexión actual, incluyendo el nombre de la base de datos, el usuario con el que estás conectado, y el host.
+            </pre>
+            <br>
+            <pre>
+            * sudo service postgresql status
+              * sudo systemctl status postgresql
+                  con alguno de estos comandos vemos el estado de postgres 
+            </pre>
+            <br>
+            <pre>
+            * sudo -u postgres psql
+                con este comando activamos el indicador postresql(entra directamente a el posgres con el usuario postgres)
+            </pre>
+            <br>
+            <pre>
+            * ALTER USER postgres PASSWORD 'NewPassword';
+                con este comando en la consola de postgres cambiamos la contraseña de nuestro usuario postgres para dar seguridad
+            </pre>
+            <br>
+            <pre>
+            * \p
+                con este comando vemos lo ultimo ejecutado en nuestra consola de postgres
+            </pre>
+            <br>
+            <pre>
+            * sudo su - postgres 
+                ingresamos al shell de postgres con el usuario postgres
+            </pre>
+            <br>
+            <pre>
+            * createuser --interactive
+                con este comando en el shell de postgres creamos un nuevo usuario en nuestro porstgres despues nos preguntara el nombre del usuario y que permisos le damos , consejo dar si desde el principio
+            </pre>
+            <br>
+            <pre>
+            * sudo -u postgres createdb TheNewUser
+                con este comando en la terminal de ubuntu podemos crear una base de datos con el nombre TheNewUser , esta base de datos pertenece al usuario postgres
+            </pre>
+            <br>
+            <pre>
+            * \q
+              comando para salir de la consola de postgres
+            </pre>
+            <br>
+            <pre>
+            * sudo adduser TheNewUser --force-badname
+                con este comando agregamos el nuevo usuario en postgres, nos va a pedir la informacion personal , como el nombre tiene mayusculas utilizamos el comando --force-badname para que lo acepte , ademas , nos va a solicitar ingresar una contraseña
+            </pre>
+            <br>
+            <pre>
+            * sudo -u TheNewUser psql
+                con este comando ingresamos nuevamente en la consola de postgres , pero con nuestro nuevo usuario 
+            </pre>
+            <br>
+            <pre>
+            * CREATE TABLE buyers(usr_id INT PRIMARY KEY, usr_name VARCHAR(240) NOT NULL, usr_location VARCHAR(240) NOT NULL);
+                con este comando podemos crear una tabla en nuestra nueva base de datos tengamos en cuenta las 6 restricciones de postgres.
+           
+                PRIMARY KEY: indica que una columna puede ser el identificador único de una fila.
+                FOREIGN KEY: especifica que los valores de una columna deben ser iguales a los de las filas de otra tabla.
+                NOT NULL: garantiza que el valor de una columna no está vacío.
+                CHECK: establece el valor de una columna para que deba satisfacer una expresión booleana, que puede ser «verdadero» o «falso».
+                UNIQUE: garantiza que los valores de una columna son únicos entre todas las filas.
+                EXCLUSION: impide que los valores de dos filas se superpongan al compararlos.
+            </pre>
+            <br>
+            <pre>   
+            * INSERT INTO tablename (columna1, columna2, columna3) VALUES (fila1, fila2, fila3);
+                con este comando podemos insertar dentro de una tabla valores .
+            </pre>
+            <br>
+            <pre>
+            * SELECT * FROM tablename;
+                con este comando podemos ver todos los valores ingresados en la tabla seleccionada  
+            </pre>
+            <br>
+            <pre>
+            -paginas necesarias postgres-
+            * https://www.hostinger.co/tutoriales/instalar-postgresql-ubuntu#2_Comprueba_el_estado_de_PostgreSQL
+                en este direccion de internet podemos encontrar mas informacion sobre postgres ,Mirar si es necesario
+            </pre>
+          </div>
+          <br>
+          <div class="information-card-post">
+            <h3 class="title-card-post">Comandos Windows</h3>
+            <br>
+            <pre>
+            **
+            sqlshell (psql)
 
-          * sudo service postgres stop
-              para el servidor de base de datos postgres
+              en el buscador de google buscamos sqlshell (psql) el cual nos va a abrir
+              una consola de comandos lista para utilizar con postgres
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            Server [localhost]:
+            Database [postgres]:
+            Port [5432]:
+            Username [postgres]:
+            Contrasenia para usuario postgres:
+            psql (16.4)
 
-          * sudo service postgres start
-              inicia el servidor
+                una vez adentro del la consola damos enter a todo y ponemos la contrasenia
+                las palabras dentro de los [] son la seleccion de postgres por defecto
+                despues de ingresar la contrasenia correctamente cuando se conecte mostrara psql (16.4)
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=#
+              esta es la consola de comandos de postgres
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT version();
+              con esta linea de comandos vemos la vesion de nuestro postgres es el pc
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# CREATE TABLE cars( brand VARCHAR(255), model VARCHAR(255), year INT);
+              con este comando creamos una tabla car con 3 columnas 2 columnas de texto y 1 columna de numeros enteros
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars;
 
-          * sudo -i -u postgres
-              ingresamos en posgres 
+              esta instruccion nos muestra todos los registros de nuestra tabla cars en nuestra base de datos
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# INSERT INTO cars (brand, model, year)
+            postgres=# VALUES ('Ford','Mustang',1964);
 
-          * psql
-              abre la consola de postgres para crear tablas, etc...
+              esta instruccion introduce un registro en la tabla cars.
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# INSERT INTO cars (brand, model, year)
+            postgres=#  VALUES
+            postgres=#  ('Volvo', 'p1800', 1968),
+            postgres=#  ('BMW', 'M1', 1978),
+            postgres=#  ('Toyota', 'Celica', 1975);
 
-          * \l
-              listamos la base de datos y servidores 
-
-          * ctrl + d
-              cerramos sesion en postgres
-
-          * pg_isready
-              comando para verificar si postgres esta en ejecucion
-
-          * \du
-              me lista los usuarios en postgres
-
-          * \conninfo
-              Este comando te proporcionará información detallada sobre la conexión actual, incluyendo el nombre de la base de datos, el usuario con el que estás conectado, y el host.
-
-          * sudo service postgresql status
-            * sudo systemctl status postgresql
-                con alguno de estos comandos vemos el estado de postgres 
-
-          * sudo -u postgres psql
-              con este comando activamos el indicador postresql(entra directamente a el posgres con el usuario postgres)
-
-          * ALTER USER postgres PASSWORD 'NewPassword';
-              con este comando en la consola de postgres cambiamos la contraseña de nuestro usuario postgres para dar seguridad
-
-          * \p
-              con este comando vemos lo ultimo ejecutado en nuestra consola de postgres
-
-          * sudo su - postgres 
-              ingresamos al shell de postgres con el usuario postgres
-
-          * createuser --interactive
-              con este comando en el shell de postgres creamos un nuevo usuario en nuestro porstgres despues nos preguntara el nombre del usuario y que permisos le damos , consejo dar si desde el principio
-
-          * sudo -u postgres createdb TheNewUser
-              con este comando en la terminal de ubuntu podemos crear una base de datos con el nombre TheNewUser , esta base de datos pertenece al usuario postgres
-
-          * \q
-            comando para salir de la consola de postgres
-
-          * sudo adduser TheNewUser --force-badname
-              con este comando agregamos el nuevo usuario en postgres, nos va a pedir la informacion personal , como el nombre tiene mayusculas utilizamos el comando --force-badname para que lo acepte , ademas , nos va a solicitar ingresar una contraseña
-
-          * sudo -u TheNewUser psql
-              con este comando ingresamos nuevamente en la consola de postgres , pero con nuestro nuevo usuario 
-
-          * CREATE TABLE buyers(usr_id INT PRIMARY KEY, usr_name VARCHAR(240) NOT NULL, usr_location VARCHAR(240) NOT NULL);
-              con este comando podemos crear una tabla en nuestra nueva base de datos tengamos en cuenta las 6 restricciones de postgres.
-
+              de esta manera ingresamos multiples registros en nuestra tabla cars 
             
-              PRIMARY KEY: indica que una columna puede ser el identificador único de una fila.
-              FOREIGN KEY: especifica que los valores de una columna deben ser iguales a los de las filas de otra tabla.
-              NOT NULL: garantiza que el valor de una columna no está vacío.
-              CHECK: establece el valor de una columna para que deba satisfacer una expresión booleana, que puede ser «verdadero» o «falso».
-              UNIQUE: garantiza que los valores de una columna son únicos entre todas las filas.
-              EXCLUSION: impide que los valores de dos filas se superpongan al compararlos.
-
-          * INSERT INTO tablename (columna1, columna2, columna3) VALUES (fila1, fila2, fila3);
-              con este comando podemos insertar dentro de una tabla valores .
-
-          * SELECT * FROM tablename;
-              con este comando podemos ver todos los valores ingresados en la tabla seleccionada  
-
-
-          -------------------------------------------------------------paginas necesarias postgres--------------------------------------------------
-          * https://www.hostinger.co/tutoriales/instalar-postgresql-ubuntu#2_Comprueba_el_estado_de_PostgreSQL
-              en este direccion de internet podemos encontrar mas informacion sobre postgres ,Mirar si es necesario
-        </p>
-        <p>
-          <h3>Comandos Windows</h3>
-          **
-          sqlshell (psql)
-
-            en el buscador de google buscamos sqlshell (psql) el cual nos va a abrir
-            una consola de comandos lista para utilizar con postgres
-          **
-
-          **
-          Server [localhost]:
-          Database [postgres]:
-          Port [5432]:
-          Username [postgres]:
-          Contrasenia para usuario postgres:
-          psql (16.4)
-
-              una vez adentro del la consola damos enter a todo y ponemos la contrasenia
-              las palabras dentro de los [] son la seleccion de postgres por defecto
-              despues de ingresar la contrasenia correctamente cuando se conecte mostrara psql (16.4)
-          **
-
-          **
-          postgres=#
-            esta es la consola de comandos de postgres
-          **
-
-          **
-          postgres=# SELECT version();
-            con esta linea de comandos vemos la vesion de nuestro postgres es el pc
-
-
-          **
-          postgres=# CREATE TABLE cars( brand VARCHAR(255), model VARCHAR(255), year INT);
-            con este comando creamos una tabla car con 3 columnas 2 columnas de texto y 1 columna de numeros enteros
-          **
-
-          **
-          postgres=# SELECT * FROM cars;
-
-            esta instruccion nos muestra todos los registros de nuestra tabla cars en nuestra base de datos
-          **
-
-          **
-          postgres=# INSERT INTO cars (brand, model, year)
-          postgres=# VALUES ('Ford','Mustang',1964);
-
-            esta instruccion introduce un registro en la tabla cars.
-          **
-
-          **
-          postgres=# INSERT INTO cars (brand, model, year)
-          postgres=#  VALUES
-          postgres=#  ('Volvo', 'p1800', 1968),
-          postgres=#  ('BMW', 'M1', 1978),
-          postgres=#  ('Toyota', 'Celica', 1975);
-
-            de esta manera ingresamos multiples registros en nuestra tabla cars 
-          
-          **
-
-          **
-          postgres=# SELECT brand, year FROM cars;
-
-            con este comando especificamos que columnas de cual tabla queremos ver
-          **
-
-          **
-          postgres=# ALTER TABLE cars
-          postgres=# ADD color VARCHAR(255); 
-
-            El ALTER TABLE declaración se utiliza para añadir, eliminar o modificar columnas en una tabla existente.
-            El ALTER TABLE declaración también se utiliza para añadir y eliminar diversas limitaciones en un cuadro existente.
-          **
-
-          **
-          postgres=# UPDATE cars
-          postgres=# SET color = 'red'
-          postgres=# WHERE brand = 'Volvo'; 
-
-            con esta instruccion le estamos diciendo que actualice la tabla cars
-            en la columna color , con el valo de red , donde la columna brand 
-            tenga como valor Volvo
-          **
-
-          **
-          postgres=# UPDATE cars
-          postgres=# SET color = 'red';
-
-            la clausula WHERE nos ayuda a pone una condicion , si no se coloca 
-          s  actualiza todos los registros en la tabla cars
-          **
-
-          **
-          postgres=# UPDATE cars
-          postgres=# SET color = 'white', year = 1970
-          postgres=# WHERE brand = 'Toyota'; 
-
-            de esta manera actualizamos mas de una columna a un registro en
-            nuestra tabla
-          **
-
-          **
-          postgres=# \l
-            con este comando listamos las bases de datos en nuestro postgres
-          **
-
-          **
-          postgres=# \dt
-            con este comando listamos las tablas es la base de datos 
-          **
-
-          **
-          postgres=# \d [table_name];
-            con este comando listamos las columnas de una tabla en postgresql
-          **
-
-          **
-          postgres=# \c [nombre de la tabla]
-            con este comando y el nombre de la tabla sin los [] corchetes cuadrados, ingresamos en una base de datos 
-          **
-
-          **
-          postgres=# \conninfo
-            con este comando nos muestra un mensaje detallado de , en que tabla estamos, con cual usuario, en que servidor, con
-            cual direccion , y con cual puerto 
-          **
-
-          **
-          postgres=# \?
-            con este comando nos muestra la lista de todos los comandos de postgres
-          **
-
-          **
-          postgres=# ALTER TABLE cars 
-          postgrel=# ALTER COLUMN year TYPE VARCHAR(4);
-
-            con esta instruccion cambiamos el valor de una columna , en el ejemplo se cambia de entero a string
-            cuando la columna ya tiene valore es dificil cambiar el tipo de la columna
-          **
-
-          **
-          postgres=# ALTER TABLE cars
-          postgres=# ALTER COLUMN color TYPE VARCHAR(30);
-
-            con esta instruccion cambiamos la cantidad de caracteres que recibe la columna de 255 a 30
-          **
-
-          **
-          postgres=# ALTER TABLE cars
-          postgres=# DROP COLUMN color;
-
-            con esta instruccion eliminamos una columna de una tabla 
-          **
-
-          **
-          postgres=# DELETE FROM cars
-          postgres=# WHERE brand = 'volvo';
-
-            con esta instruccion eliminamos un registro de la tabla cars
-          **
-
-          **
-          postgres=# DELETE FROM cars;
-
-            con esta instruccion eliminamos todos los registros de la tabla
-          **
-
-          ** 
-          postgres=# TRUNCATE TABLE cars; 
-
-            con esta instruccion eliminamos todos los registros de la tabla cars
-          **
-
-          **
-          postgres=# DROP TABLE cars;
-
-            con esta instruccion eliminamos la tabla completa , eliminando tambien todos los registros
-          **
-
-          **
-          postgres=# ALTER TABLE users ADD id SERIAL NOT NULL PRIMARY KEY;
-
-            con esta instruccion agregamos la columna id en una tabla , la cual se va a llenar de manera automatica
-          **
-
-          **
-          postgres=# CREATE TABLE categories ( 
-          postgres=# category_id SERIAL NOT NULL PRIMARY KEY, 
-          postgres=# category_name VARCHAR(255), 
-          postgres=# description VARCHAR(255)); 
-
-            con esta instruccion creamos la tabla con su id y demas columnas
-          **
-
-          ***** Operadore en la clausula WHERE ******
-
-          **
-          postgres=# SELECT * FROM cars WHERE brand = 'Volvo';
-
-            Con este operador buscamos todos los registros que tengan en la columna
-            brand un valo igual a Volvo , este valor lo buscamos en todos los
-            registros de la tabla cars
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE year < 1975;
-
-            Con esta instruccion buscamos todos los registros que en la columna 
-            year su valor sea inferion a 1975
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE year > 1975;
-
-            Con esta instruccion buscamos todos los registros que en la columna 
-            year su valor sea mayor a 1975
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE year <= 1975;
-
-            Con esta instruccion buscamos todos los registros que en la columna 
-            year su valor sean menor o igual a 1975
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE year >= 1975;
-
-            Con esta instruccion buscamos todos los registros que en la columna 
-            year su valor sea mayor o igual a 1975
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE brand <> 'Volvo';
-          postgres=# SELECT * FROM cars WHERE brand != 'Volvo';
-
-            Devuelve todos los registros donde brand no es igual a 'Volvo'
-            En los dos casos sucede lo mismo
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE model LIKE 'M%';
-
-            Devuelve todos los registros donde model comience con la M en mayusculas
-
-          postgres=# SELECT * FROM cars WHERE model ILIKE 'm%';
-
-            Devuelve todos los registros donde comiencen con m
-
-          la diferencia de LIKE & ILIKE es que LIKE es sencible a las sentencias ILIKE no
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE brand = 'Volvo' AND year = 1968;
-
-            Devuelve todos los registros que cumplan con las 2 condiciones de la
-            columna brand y la columna year
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE brand = 'Volvo' OR year = 1975;
-
-            Devuelve todos los registros que cumplan con alguna de las 2 condiciones
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE brand IN ('Volvo','Mercedes','Ford');
-
-            Devuelve todos los registros que en la columna brand tengan lo valore de
-            Volvo , Mercedes , Ford
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE year BETWEEN 1970 AND 1980;
-
-            Devuelve todos los registros en los que es anio es entre 1970 y 1980
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE model IS NULL;
-
-            Devuelve todos los registros donde el model columna tenga como valor NULL
-          **
-
-          **
-          postgres=# SELECT * FROM cars WHERE brand NOT LIKE 'B%';
-
-            Devuelve todos los registros donde la brand No comienza con B mayuscula
-
-          postgres=# SELECT * FROM cars WHERE brand NOT ILIKE 'b%';
-
-            Devuelve todos los registros donde la marca no comienza con una b
-
-          postgres=# SELECT * FROM cars WHERE brand NOT IN ( 'Volvo', 'Mercedes', 'Ford');
-
-            Devuelve todos los registros donde brand No tiene como valor : Volvo , Mercedes, Ford
-
-          postgres=# SELECT * FROM cars WHERE year NOT BETWEEN 1970 ANd 1980;
-
-            Devuelve todos los registros donde el anio NO esta entre 1970 y 1980
-
-          postgres=# SELECT * FROM cars WHERE model IS NOT NULL;
-
-            Devuelve todos los registros donde la columna model no tiene como valo NULL
-          **
-
-          **********
-
-          **
-          postgres=# SELECT city, country FROM customers;
-
-            Devuelve todos los registros de la tabla customers seleccionando las columnas
-            city y country
-
-          postgres=# SELECT * FROM customers;
-
-            Devuelve todos lo registros con todas sus columnas
-          **
-
-          **
-          postgres=# SELECT DISTINCT country FROM customers; 
-
-            Devuelve todos los valores distintos de la columna country de la tabla customers
-            aunque se repitan estos valores en la columna solo se mostrara uno
-          **
-
-          **
-          postgres=# SELECT COUNT(DISTINCT country) FROM customers;
-
-            Devuelve solo el numero de paises diferentes en la tabla
-          **
-
-          **
-          postgres=# SELECT * FROM products ORDER BY price;
-
-            Regresa todos los valore de la tabla products de menor a mayor osea de manera asendente valor numerico
-            si utilizamos una columna con letras las organiza igual pero con el alfabeto
-          **
-
-          **
-          postgres=# SELECT * FROM products ORDER BY price DESC;
-
-            Retorna todos lo valore de la tabla products de mayor a menor osea de manera descendente valor numerico
-            si utilizamos una columna con letras las organiza igual pero con el alfabeto
-          **
-
-          **
-          postgres=# SELECT * FROM customers LIMIT 20;
-
-            Retorna los primeros 20 registros de la tabla
-          **
-
-          **
-          postgres=# SELECT * FROM customers LIMIT 20 OFFSET 40;
-
-            Retorna los 20 registros despues del numero 40 de la tabla customers
-          **
-
-          **
-          postgres=# SELECT MIN(price) FROM products;
-          postgres=# SELECT MAX(price) FROM products;
-
-            con estas instruccione traemos el valor minimo y maximo de la tabla products de la columna price
-          **
-
-          **
-          postgres=# SELECT MIN(price) AS precio_minimo FROM products;
-
-            con esta instruccion traemos el valor minimo de la columna price de la tabla products y aparte le colocamos 
-            el titulo precio_minimo
-
-          postgres=# SELECT MAX(price) AS precio_maximo FROM products;
-
-            con esta instruccion traemos el maximo y le colocamos como titulo precio_maximo
-          **
-
-          **
-          postgres=# SELECT COUNT(customer_id) FROM customers;
-
-            con esta instruccion contamos cuantos id tiene la tabla customers , lo valore null no los cuenta
-          **
-
-          **
-          postgres=# SELECT COUNT(customer_id) FROM customers WHERE city = 'London';
-
-            con esta instruccion contamos los id q cumplan con la condicion
-          **
-
-          **
-          postgres=# SELECT SUM(quantity) FROM order_details;
-
-            con esta instruccion sumamos todos los valores de una tabla
-          **
-
-          **
-          postgres=# SELECT AVG(price)::NUMERIC(10,2) FROM products;
-
-            con esta instruccion AVG saca el valor medio en la columna price y ::NUMERIC(10,2) nos da el resultado con solo dos
-            decimas
-          **
-
-          **
-          postgres=# SELECT * FROM customers WHERE customer_name LIKE 'A%';
-
-            con esta instruccion buscamos todos los registros en customers donde customer_name comience con A mayuscula
-          **
-
-          **
-          postgres=# SELECT * FROM customers WHERE customer_name LIKE '%A%';
-
-            con esta instruccion buscamos todos los registros en customers donde customer_name contenga en su cadena de
-            caracteres la letra A
-          **
-
-          **
-          postgres=# SELECT * FROM customers WHERE customer_name ILIKE '%A%';
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT brand, year FROM cars;
+
+              con este comando especificamos que columnas de cual tabla queremos ver
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# ALTER TABLE cars
+            postgres=# ADD color VARCHAR(255); 
+
+              El ALTER TABLE declaración se utiliza para añadir, eliminar o modificar columnas en una tabla existente.
+              El ALTER TABLE declaración también se utiliza para añadir y eliminar diversas limitaciones en un cuadro existente.
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# UPDATE cars
+            postgres=# SET color = 'red'
+            postgres=# WHERE brand = 'Volvo'; 
+
+              con esta instruccion le estamos diciendo que actualice la tabla cars
+              en la columna color , con el valo de red , donde la columna brand 
+              tenga como valor Volvo
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# UPDATE cars
+            postgres=# SET color = 'red';
+
+              la clausula WHERE nos ayuda a pone una condicion , si no se coloca 
+            s  actualiza todos los registros en la tabla cars
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# UPDATE cars
+            postgres=# SET color = 'white', year = 1970
+            postgres=# WHERE brand = 'Toyota'; 
+
+              de esta manera actualizamos mas de una columna a un registro en
+              nuestra tabla
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# \l
+              con este comando listamos las bases de datos en nuestro postgres
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# \dt
+              con este comando listamos las tablas es la base de datos 
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# \d [table_name];
+              con este comando listamos las columnas de una tabla en postgresql
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# \c [nombre de la tabla]
+              con este comando y el nombre de la tabla sin los [] corchetes cuadrados, ingresamos en una base de datos 
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# \conninfo
+              con este comando nos muestra un mensaje detallado de , en que tabla estamos, con cual usuario, en que servidor, con
+              cual direccion , y con cual puerto 
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# \?
+              con este comando nos muestra la lista de todos los comandos de postgres
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# ALTER TABLE cars 
+            postgrel=# ALTER COLUMN year TYPE VARCHAR(4);
+
+              con esta instruccion cambiamos el valor de una columna , en el ejemplo se cambia de entero a string
+              cuando la columna ya tiene valore es dificil cambiar el tipo de la columna
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# ALTER TABLE cars
+            postgres=# ALTER COLUMN color TYPE VARCHAR(30);
+
+              con esta instruccion cambiamos la cantidad de caracteres que recibe la columna de 255 a 30
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# ALTER TABLE cars
+            postgres=# DROP COLUMN color;
+
+              con esta instruccion eliminamos una columna de una tabla 
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# DELETE FROM cars
+            postgres=# WHERE brand = 'volvo';
+
+              con esta instruccion eliminamos un registro de la tabla cars
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# DELETE FROM cars;
+
+              con esta instruccion eliminamos todos los registros de la tabla
+            **
+            </pre>
+            <br>
+            <pre>
+            ** 
+            postgres=# TRUNCATE TABLE cars; 
+
+              con esta instruccion eliminamos todos los registros de la tabla cars
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# DROP TABLE cars;
+
+              con esta instruccion eliminamos la tabla completa , eliminando tambien todos los registros
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# ALTER TABLE users ADD id SERIAL NOT NULL PRIMARY KEY;
+
+              con esta instruccion agregamos la columna id en una tabla , la cual se va a llenar de manera automatica
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# CREATE TABLE categories ( 
+            postgres=# category_id SERIAL NOT NULL PRIMARY KEY, 
+            postgres=# category_name VARCHAR(255), 
+            postgres=# description VARCHAR(255)); 
+
+              con esta instruccion creamos la tabla con su id y demas columnas
+            **
+            </pre>
+            <br>
+            <pre>
+            ***** Operadore en la clausula WHERE ******
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE brand = 'Volvo';
+
+              Con este operador buscamos todos los registros que tengan en la columna
+              brand un valo igual a Volvo , este valor lo buscamos en todos los
+              registros de la tabla cars
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE year < 1975;
+
+              Con esta instruccion buscamos todos los registros que en la columna 
+              year su valor sea inferion a 1975
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE year > 1975;
+
+              Con esta instruccion buscamos todos los registros que en la columna 
+              year su valor sea mayor a 1975
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE year <= 1975;
+
+              Con esta instruccion buscamos todos los registros que en la columna 
+              year su valor sean menor o igual a 1975
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE year >= 1975;
+
+              Con esta instruccion buscamos todos los registros que en la columna 
+              year su valor sea mayor o igual a 1975
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE brand <> 'Volvo';
+            postgres=# SELECT * FROM cars WHERE brand != 'Volvo';
+
+              Devuelve todos los registros donde brand no es igual a 'Volvo'
+              En los dos casos sucede lo mismo
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE model LIKE 'M%';
+
+              Devuelve todos los registros donde model comience con la M en mayusculas
+
+            postgres=# SELECT * FROM cars WHERE model ILIKE 'm%';
+
+              Devuelve todos los registros donde comiencen con m
+
+            la diferencia de LIKE & ILIKE es que LIKE es sencible a las sentencias ILIKE no
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE brand = 'Volvo' AND year = 1968;
+
+              Devuelve todos los registros que cumplan con las 2 condiciones de la
+              columna brand y la columna year
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE brand = 'Volvo' OR year = 1975;
+
+              Devuelve todos los registros que cumplan con alguna de las 2 condiciones
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE brand IN ('Volvo','Mercedes','Ford');
+
+              Devuelve todos los registros que en la columna brand tengan lo valore de
+              Volvo , Mercedes , Ford
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE year BETWEEN 1970 AND 1980;
+
+              Devuelve todos los registros en los que es anio es entre 1970 y 1980
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE model IS NULL;
+
+              Devuelve todos los registros donde el model columna tenga como valor NULL
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM cars WHERE brand NOT LIKE 'B%';
+
+              Devuelve todos los registros donde la brand No comienza con B mayuscula
+
+            postgres=# SELECT * FROM cars WHERE brand NOT ILIKE 'b%';
+
+              Devuelve todos los registros donde la marca no comienza con una b
+
+            postgres=# SELECT * FROM cars WHERE brand NOT IN ( 'Volvo', 'Mercedes', 'Ford');
+
+              Devuelve todos los registros donde brand No tiene como valor : Volvo , Mercedes, Ford
+
+            postgres=# SELECT * FROM cars WHERE year NOT BETWEEN 1970 ANd 1980;
+
+              Devuelve todos los registros donde el anio NO esta entre 1970 y 1980
+
+            postgres=# SELECT * FROM cars WHERE model IS NOT NULL;
+
+              Devuelve todos los registros donde la columna model no tiene como valo NULL
+            **
+            </pre>
+            <br>
+
+            <p>**********</p>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT city, country FROM customers;
+
+              Devuelve todos los registros de la tabla customers seleccionando las columnas
+              city y country
+
+            postgres=# SELECT * FROM customers;
+
+              Devuelve todos lo registros con todas sus columnas
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT DISTINCT country FROM customers; 
+
+              Devuelve todos los valores distintos de la columna country de la tabla customers
+              aunque se repitan estos valores en la columna solo se mostrara uno
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT COUNT(DISTINCT country) FROM customers;
+
+              Devuelve solo el numero de paises diferentes en la tabla
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM products ORDER BY price;
+
+              Regresa todos los valore de la tabla products de menor a mayor osea de manera asendente valor numerico
+              si utilizamos una columna con letras las organiza igual pero con el alfabeto
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM products ORDER BY price DESC;
+
+              Retorna todos lo valore de la tabla products de mayor a menor osea de manera descendente valor numerico
+              si utilizamos una columna con letras las organiza igual pero con el alfabeto
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM customers LIMIT 20;
+
+              Retorna los primeros 20 registros de la tabla
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM customers LIMIT 20 OFFSET 40;
+
+              Retorna los 20 registros despues del numero 40 de la tabla customers
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT MIN(price) FROM products;
+            postgres=# SELECT MAX(price) FROM products;
+
+              con estas instruccione traemos el valor minimo y maximo de la tabla products de la columna price
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT MIN(price) AS precio_minimo FROM products;
+
+              con esta instruccion traemos el valor minimo de la columna price de la tabla products y aparte le colocamos 
+              el titulo precio_minimo
+
+            postgres=# SELECT MAX(price) AS precio_maximo FROM products;
+
+              con esta instruccion traemos el maximo y le colocamos como titulo precio_maximo
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT COUNT(customer_id) FROM customers;
+
+              con esta instruccion contamos cuantos id tiene la tabla customers , lo valore null no los cuenta
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT COUNT(customer_id) FROM customers WHERE city = 'London';
+
+              con esta instruccion contamos los id q cumplan con la condicion
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT SUM(quantity) FROM order_details;
+
+              con esta instruccion sumamos todos los valores de una tabla
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT AVG(price)::NUMERIC(10,2) FROM products;
+
+              con esta instruccion AVG saca el valor medio en la columna price y ::NUMERIC(10,2) nos da el resultado con solo dos
+              decimas
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM customers WHERE customer_name LIKE 'A%';
+
+              con esta instruccion buscamos todos los registros en customers donde customer_name comience con A mayuscula
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM customers WHERE customer_name LIKE '%A%';
 
               con esta instruccion buscamos todos los registros en customers donde customer_name contenga en su cadena de
-              caracteres la letra A mayuscula o a minuscula
-          **
-
-          **
-          postgres=# SELECT * FROM customers WHERE customer_name LIKE '%en';
-
-            con esta instruccion buscamos la cadena de caracteres que finalice con las letras en
-          **
-
-          **
-          postgres=# SELECT * FROM customers WHERE city LIKE 'L_nd__';
-
-            con esta instruccion nos trae los registros que cumplan con la ciudad London por eso colocamos underscoore
-          **
-
-          **
-          postgres=# SELECT * FROM customers WHERE country IN ('Germany','France','UK');
-
-            con esta instruccion traemos todos los registros de customers donde country tengan los 3 valores mostrados
-
-          postgres=# SELECT * FROM customers WHERE country NOT IN ('Germany','France','UK');
-
-            con esta instruccion traemos todos los registros de customers donde country No tengan ninguno de los valores mostrados
-          **
-
-          **
-          postgres=# SELECT * FROM customers WHERE customer_id IN(SELECT customer_id FROM orders);
-
-            con esta instruccion traemos todos los customer_id de la tabla customers q esten en la tabla orders
-
-          postgres=# SELECT * FROM customers WHERE customer_id NOT IN(SELECT customer_id FROM orders);
-
-            con esta instruccion traemos todos los customer_id de la tabla customers q  no esten en la tabla orders
-          **
-
-          **
-          postgres=# SELECT * FROM products WHERE price BETWEEN 10 AND 15;
-
-            con esta instruccion traemos lo registros de products donde el price columna tenga valores entre 10 y 15
-          **
-
-          **
-          postgres=# SELECT * FROM products WHERE product_name BETWEEN 'Pavlova' AND 'Tofu';
-
-            con esta instruccion traemos lo registros de la tabla products donde porduct_name columna tenga lo valores entre
-            Pavlova y Tofu
-
-          postgres=# SELECT * FROM products WHERE product_name BETWEEN 'Pavlova' AND 'Tofu' ORDER BY;
-
-            con esta instruccion traemos lo registros de la tabla products donde porduct_name columna tenga lo valores entre
-            Pavlova y Tofu y los organizamos alfabeticamente
-          **
-
-          **
-          postgres=# SELECT customer_id AS id FROM customers;
-
-            Con esta instruccion colocamos un alias a la columna custome_id  de la tabla customers ese alias puede llamarse de
-            cualquier forma
-
-          postgres=# SELECT customer_id id FROM customers;
-
-            No necesariamente necesitamos tener la AS declaracion , si la quitamos funciona igual
-          **
-
-          **
-          postgres=# SELECT product_name || unit AS produt FROM products LIMIT 10;
-
-            Con esta instruccion seleccionamos de la tabla products la columna product_name y la concatenamos con la columna
-            unit despues con AS le colocamos el alias product y por ultimo Limitamos el resultado a los primeros 10 registros de
-            la tabla
-
-          postgres=# SELECT product_name || ' ' || unit AS produt FROM products LIMIT 10;
-
-            de esta manera colocamos un espacio en blanco entre los 2 datos de las 2 columnas 
-
-          **
-
-          **
-          postgres=# SELECT product_name AS "Mis productos" FROM porducts LIMIT 10;
-
-            para colocar un alias que contenga caracteres especiale por ejemplo el espacio en blanco lo colocamos dentro de comillas
-          **
-
-          **
-          postgres=# SELECT product_id, product_name, category_name FROM products INNER JOIN categories 
-                    ON products.category_id = categories.category_id LIMIT 10;
-
-            con esta instruccion hacemos la consulta de 3 columnas haciendo la union de 2 tablas products y categories las 
-            cuales tienen en comun la category_id 
-
-            como se lee la instruccion : seleccione estas columnas 1, 2, 3 desde la tabla products conectado con la tabla 
-            categories en products conetado por cateyory_id igual categories por id
-          **
-
-          **
-          postgres=# SELECT testproduct_id , product_name, category_name FROM testproducts JOIN categories
-                    ON testproducts.category_id = categories.category_id;
-
-            con esta instruccion hacemos la union de dos tablas y hacemos la respectiva consulta de lo 3 campos seleccionados
-            nos damos cuenta que en esta instruccion no utilizamos INNER JOIN sino JOIN la razon es porque JOIN es la union 
-            y por defecto si no especificamos el tipo de union va a utilizar INNER 
-            
-          **
-
-          **
-          postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts LEFT JOIN categories
-                    ON testproducts.category_id = categories.category_id;
-
-            con esta instruccion traemos todos los registros de la tabla testproducts aun cuando no hace match
-            la union de los category_id en las 2 tablas
-
-          postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts LEFT OUTER JOIN categories
-                    ON testproducts.category_id = categories.category_id;
-
-            con LEFT OUTER JOIN pasa exactamente lo mismo pero podemos colocar LEFT JOIN y el analizador al ejecutar la
-            instruccion corta va a completarla con el OUTER y la ejecuta para tener el resultado
-          **
-
-          **
-          postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts RIGHT JOIN categories 
-                    ON testproducts.category_id = categories.category_id;
-
-            con esta instruccion traemos todos los registros de la tabla categories en su columna category_name y si 
-            no tenemos una union con la tabla categories los demas campos los van a mostrar vacios
-
-          postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts RIGHT OUTER JOIN categories
-                    ON testproducts.category_id = categories.category_id;
-
-            pasa lo mismo con la instruccion RIGHT OUTER JOIN
-          **
-
-          **
-          postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts FULL JOIN categories
-                    ON testproducts.category_id = categories.category_id;
-
-            con esta instruccion traemos todos los registros de las dos tablas asi estos no hagan un tipos de mach
-
-          postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts FULL OUTER JOIN categories
-                    ON testproducts.category_id = categories.category_id;
-
-            funciona igual con la instruccion FULL OUTER JOIN  
-          **
-
-          **
-          postgres=# SELECT testproduct_id, product_name, catepory_name FROM testproducts CROSS JOIN categories;
-
-            con esta instruccion unimos las 2 tablas se multiplica el numeros de los registros de la primera tabla con 
-            los numeros de los registros de la segunda tabla , testproducts tiene 10 registros y categories tiene 8
-            lo cual da 80 registros, la union de estas tablas lo que va a hacer es que por cada registro de testproducts va a
-            colocarle los 8 categories y asi con el siguiente registro de la tabla del testproducts 
-          **
-
-          **
-          postgres=# SELECT product_id, product_name FROM products UNION 
-                    SELECT testproduct_id, product_name FROM testproducts ORDER BY product_id;
-
-            con esta instruccion nos traemos las columnas seleccionadas de las dos tablas y las unimos por un orden especifico
-            en este caso utilizamos la clausula ORDER BY para esta instruccion 
-          **
-
-          **
-          postgres=# SELECT product_id FROM products UNION ALL 
-                    SELECT testproduct_id FROM testproducts ORDER BY product_id;
-
-            con esta instruccion traemos todos los resultados aunque esten duplicado si hacemos esta misma consulta solo con UNION
-            nos va a regresar solo un id en los primeros 10 , despues si utilizamos UNION ALL vamos a ver q los resultados aunque
-            se repitan se muestran
-          **
-
-          **
-          postgres=# SELECT COUNT(customer_id), country FROM customers
-                    GROUP BY country;
-
-            con esta instruccion traemos todos datos de las dos columnas nombradas de la tabla customers con el GROUP BY 
-            hacemos la union de los valores q sean iguales en la columna country y nos mostrara un solo resultado
-            y con COUNT contamos los diferente id que tenemos con cada pais
-
-            El GROUP BYcláusula se utiliza a menudo con funciones agregadas como 
-            COUNT(), MAX(), MIN(), SUM(), AVG()para agrupar el resultado por una o más columnas.
-          **
-
-          **
-          postgres=# SELECT customers.customer_name, COUNT(orders.order_id) FROM orders 
-                    LEFT JOIN customers ON orders.customer_id = customers.customer_id GROUP BY customer_name;
-
-            esta instruccion se interpreta como: seleccione el customer_name de la tabla customers y seleccione order_id de la 
-            tabla orders y despues cuentelos desde la tabla orders tomando todos los valores de la tabla order y uniendolos con
-            la tabla customers donde orders.customer_id es igual a customers.customer_id y con esto haga un grupo de los valores
-            que son iguales tomando la columna customer_name
-          **
-
-          **
-          postgres=# SELECT COUNT(customer_id), country FROM customers GROUP BY country HAVING COUNT(customer_id) > 5;
-
-            esta instruccion nos selecciona el conteo de los customer_id y el country de customers uniendo con GROUP BY los
-            country que sean iguales y colocando una funcion con una condicion al final , digamos que se lee como teniendo el
-            conteo de customer_id seleccione solo los mayores a 5
-          **
-
-          **
-          postgres=# SELECT order_details.order_id, SUM(products.price) FROM order_details LEFT JOIN products 
-                    ON order_details.product_id = products.product_id GROUP BY order_id HAVING SUM(products.price) > 400.00;
-
-            con esta instruccion seleccionamos los order_id de los order_details y la suma de los precioso de los productos
-            desde order_details y uniendo la tabla con producse por el product_id q es lo que tiene en comun y hacemos un grupo
-            con order_id ya q existe mas de uno y utilizamos esta union para ingresar una suma de los precios q tienen el mismo
-            order_id en el group despues de eso colocamos una condicion de q aparezca solo los que son mayore a 400
-          **
-
-          **
-          postgres=# SELECT customers.customer_name, SUM(products.price) FROM order_details 
-                    LEFT JOIN products ON order_details.product_id = products.product_id
-                    LEFT JOIN orders ON order_details.order_id = orders.order_id
-                    LEFT JOIN customers ON orders.customer_id = customers.customer_id
-                    GROUP BY customer_name
-                    HAVING SUM(products.price) > 1000.00;
-
-            con esta instruccion estamos uniendo 3 tablas para poder listar lo customer_name y el precio de todos los productos
-            sumados en la order_details este precio tiene que ser mayor que 1000.00 y va a hacer la union de todos estos valores
-            por el customer_name con la GROUP BY instruccion
-          **
-
-          **
-          postgres=# SELECT customers.customer_name FROM customers 
-                    WHERE EXISTS( SELECT order_id FROM orders WHERE customer_id = customer.customer_id);
-
-            nos regresa la seleccion de los customer_name q cumplan con la existencia en la tabla orders y esto lo vamos a saber
-            por la union de estas 2 tablas gracias a el customer_id
-
-          postgres=# SELECT customers.customer_name FROM customers 
-                    WHERE EXISTS( SELECT order_id FROM orders WHERE customer_id = customer.customer_id);
-
-            esta misma operacion la podemos hacer para ver los customer que no existen en la tabla orders
-          **
-
-          **
-          postgres=# SELECT product_name FROM products WHERE product_id = ANY
-                    ( SELECT product_id FROM order_details WHERE quantity > 120);
-
-            en esta operacion buscamos el product_name donde tengamos un product_id en la tabla order_details que en su
-            quantity sea mayor a 120 any nos ayuda con un valo boleano , esta operacion la verifique con mi propia instruccion sql
-
-          postgres=# SELECT product_name , SUM(quantity) FROM order_details 
-                    LEFT JOIN products ON order_details.product_id = products.product_id 
-                    WHERE product_name = 'Chartreuse verte' GROUP BY product_name;
-
-            Chartreuse verte es un resultado de la instruccion anterior y quise comprobar que valor tenia en su quantity y tiene 
-            793 lo que cumple con su resultado
-          **
-
-          **
-          postgres=# SELECT product_name FROM products WHERE product_id = ALL 
-                    ( SELECT product_id FROM order_details WHERE quantity > 10);
-
-          con esta instruccion nos traemos los valores solicitados si todos los valores cumplen con la condicion de que 
-          quantity sea mayor a 10 pero tenemos valore menores asi que nos va a devolver un valor false por ende no va a mostrar
-          nada pero tenemos una condicion para verlos todos
-
-          postgres=# SELECT product_name FROM products WHERE product_id = ALL 
-                    ( SELECT product_id FROM order_details WHERE quantity > 10 AND quantity < 10);
-
-            con esta instruccion vemos que cumple las dos condicione y nos muestra los resultados
-          **
-
-          **
-          postgres=# SELECT product_name, 
-                    CASE 
-                    WHEN price < 10 THEN 'Low price product' 
-                    WHEN price > 50 THEN 'High price product'
-                    ELSE
-                      'Normal product'
-                    END
-                    FROM products;
-
-            con esta instruccion estamos creando una nueva columna q tiene condicione y va a colocar el texto en si se cumple la
-            condicion o no , si no se cumple y no tenemos un else , el valor arojado sera null
-
-          postgres=# SELECT product_name, 
-                    CASE 
-                    WHEN price < 10 THEN 'Low price product' 
-                    WHEN price > 50 THEN 'High price product'
-                    ELSE
-                      'Normal product'
-                    END AS "price category"
-                    FROM products;
-
-            con esta condicion le colocamos un alias a la columna de los case
-          **
-
-          **
-          postgres=# 
-          **
-        </p>
+              caracteres la letra A
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM customers WHERE customer_name ILIKE '%A%';
+
+                con esta instruccion buscamos todos los registros en customers donde customer_name contenga en su cadena de
+                caracteres la letra A mayuscula o a minuscula
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM customers WHERE customer_name LIKE '%en';
+
+              con esta instruccion buscamos la cadena de caracteres que finalice con las letras en
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM customers WHERE city LIKE 'L_nd__';
+
+              con esta instruccion nos trae los registros que cumplan con la ciudad London por eso colocamos underscoore
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM customers WHERE country IN ('Germany','France','UK');
+
+              con esta instruccion traemos todos los registros de customers donde country tengan los 3 valores mostrados
+
+            postgres=# SELECT * FROM customers WHERE country NOT IN ('Germany','France','UK');
+
+              con esta instruccion traemos todos los registros de customers donde country No tengan ninguno de los valores mostrados
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM customers WHERE customer_id IN(SELECT customer_id FROM orders);
+
+              con esta instruccion traemos todos los customer_id de la tabla customers q esten en la tabla orders
+
+            postgres=# SELECT * FROM customers WHERE customer_id NOT IN(SELECT customer_id FROM orders);
+
+              con esta instruccion traemos todos los customer_id de la tabla customers q  no esten en la tabla orders
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM products WHERE price BETWEEN 10 AND 15;
+
+              con esta instruccion traemos lo registros de products donde el price columna tenga valores entre 10 y 15
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT * FROM products WHERE product_name BETWEEN 'Pavlova' AND 'Tofu';
+
+              con esta instruccion traemos lo registros de la tabla products donde porduct_name columna tenga lo valores entre
+              Pavlova y Tofu
+
+            postgres=# SELECT * FROM products WHERE product_name BETWEEN 'Pavlova' AND 'Tofu' ORDER BY;
+
+              con esta instruccion traemos lo registros de la tabla products donde porduct_name columna tenga lo valores entre
+              Pavlova y Tofu y los organizamos alfabeticamente
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT customer_id AS id FROM customers;
+
+              Con esta instruccion colocamos un alias a la columna custome_id  de la tabla customers ese alias puede llamarse de
+              cualquier forma
+
+            postgres=# SELECT customer_id id FROM customers;
+
+              No necesariamente necesitamos tener la AS declaracion , si la quitamos funciona igual
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT product_name || unit AS produt FROM products LIMIT 10;
+
+              Con esta instruccion seleccionamos de la tabla products la columna product_name y la concatenamos con la columna
+              unit despues con AS le colocamos el alias product y por ultimo Limitamos el resultado a los primeros 10 registros de
+              la tabla
+
+            postgres=# SELECT product_name || ' ' || unit AS produt FROM products LIMIT 10;
+
+              de esta manera colocamos un espacio en blanco entre los 2 datos de las 2 columnas 
+
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT product_name AS "Mis productos" FROM porducts LIMIT 10;
+
+              para colocar un alias que contenga caracteres especiale por ejemplo el espacio en blanco lo colocamos dentro de comillas
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT product_id, product_name, category_name FROM products INNER JOIN categories 
+                      ON products.category_id = categories.category_id LIMIT 10;
+
+              con esta instruccion hacemos la consulta de 3 columnas haciendo la union de 2 tablas products y categories las 
+              cuales tienen en comun la category_id 
+
+              como se lee la instruccion : seleccione estas columnas 1, 2, 3 desde la tabla products conectado con la tabla 
+              categories en products conetado por cateyory_id igual categories por id
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT testproduct_id , product_name, category_name FROM testproducts JOIN categories
+                      ON testproducts.category_id = categories.category_id;
+
+              con esta instruccion hacemos la union de dos tablas y hacemos la respectiva consulta de lo 3 campos seleccionados
+              nos damos cuenta que en esta instruccion no utilizamos INNER JOIN sino JOIN la razon es porque JOIN es la union 
+              y por defecto si no especificamos el tipo de union va a utilizar INNER 
+              
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts LEFT JOIN categories
+                      ON testproducts.category_id = categories.category_id;
+
+              con esta instruccion traemos todos los registros de la tabla testproducts aun cuando no hace match
+              la union de los category_id en las 2 tablas
+
+            postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts LEFT OUTER JOIN categories
+                      ON testproducts.category_id = categories.category_id;
+
+              con LEFT OUTER JOIN pasa exactamente lo mismo pero podemos colocar LEFT JOIN y el analizador al ejecutar la
+              instruccion corta va a completarla con el OUTER y la ejecuta para tener el resultado
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts RIGHT JOIN categories 
+                      ON testproducts.category_id = categories.category_id;
+
+              con esta instruccion traemos todos los registros de la tabla categories en su columna category_name y si 
+              no tenemos una union con la tabla categories los demas campos los van a mostrar vacios
+
+            postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts RIGHT OUTER JOIN categories
+                      ON testproducts.category_id = categories.category_id;
+
+              pasa lo mismo con la instruccion RIGHT OUTER JOIN
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts FULL JOIN categories
+                      ON testproducts.category_id = categories.category_id;
+
+              con esta instruccion traemos todos los registros de las dos tablas asi estos no hagan un tipos de mach
+
+            postgres=# SELECT testproduct_id, product_name, category_name FROM testproducts FULL OUTER JOIN categories
+                      ON testproducts.category_id = categories.category_id;
+
+              funciona igual con la instruccion FULL OUTER JOIN  
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT testproduct_id, product_name, catepory_name FROM testproducts CROSS JOIN categories;
+
+              con esta instruccion unimos las 2 tablas se multiplica el numeros de los registros de la primera tabla con 
+              los numeros de los registros de la segunda tabla , testproducts tiene 10 registros y categories tiene 8
+              lo cual da 80 registros, la union de estas tablas lo que va a hacer es que por cada registro de testproducts va a
+              colocarle los 8 categories y asi con el siguiente registro de la tabla del testproducts 
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT product_id, product_name FROM products UNION 
+                      SELECT testproduct_id, product_name FROM testproducts ORDER BY product_id;
+
+              con esta instruccion nos traemos las columnas seleccionadas de las dos tablas y las unimos por un orden especifico
+              en este caso utilizamos la clausula ORDER BY para esta instruccion 
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT product_id FROM products UNION ALL 
+                      SELECT testproduct_id FROM testproducts ORDER BY product_id;
+
+              con esta instruccion traemos todos los resultados aunque esten duplicado si hacemos esta misma consulta solo con UNION
+              nos va a regresar solo un id en los primeros 10 , despues si utilizamos UNION ALL vamos a ver q los resultados aunque
+              se repitan se muestran
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT COUNT(customer_id), country FROM customers
+                      GROUP BY country;
+
+              con esta instruccion traemos todos datos de las dos columnas nombradas de la tabla customers con el GROUP BY 
+              hacemos la union de los valores q sean iguales en la columna country y nos mostrara un solo resultado
+              y con COUNT contamos los diferente id que tenemos con cada pais
+
+              El GROUP BYcláusula se utiliza a menudo con funciones agregadas como 
+              COUNT(), MAX(), MIN(), SUM(), AVG()para agrupar el resultado por una o más columnas.
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT customers.customer_name, COUNT(orders.order_id) FROM orders 
+                      LEFT JOIN customers ON orders.customer_id = customers.customer_id GROUP BY customer_name;
+
+              esta instruccion se interpreta como: seleccione el customer_name de la tabla customers y seleccione order_id de la 
+              tabla orders y despues cuentelos desde la tabla orders tomando todos los valores de la tabla order y uniendolos con
+              la tabla customers donde orders.customer_id es igual a customers.customer_id y con esto haga un grupo de los valores
+              que son iguales tomando la columna customer_name
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT COUNT(customer_id), country FROM customers GROUP BY country HAVING COUNT(customer_id) > 5;
+
+              esta instruccion nos selecciona el conteo de los customer_id y el country de customers uniendo con GROUP BY los
+              country que sean iguales y colocando una funcion con una condicion al final , digamos que se lee como teniendo el
+              conteo de customer_id seleccione solo los mayores a 5
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT order_details.order_id, SUM(products.price) FROM order_details LEFT JOIN products 
+                      ON order_details.product_id = products.product_id GROUP BY order_id HAVING SUM(products.price) > 400.00;
+
+              con esta instruccion seleccionamos los order_id de los order_details y la suma de los precioso de los productos
+              desde order_details y uniendo la tabla con producse por el product_id q es lo que tiene en comun y hacemos un grupo
+              con order_id ya q existe mas de uno y utilizamos esta union para ingresar una suma de los precios q tienen el mismo
+              order_id en el group despues de eso colocamos una condicion de q aparezca solo los que son mayore a 400
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT customers.customer_name, SUM(products.price) FROM order_details 
+                      LEFT JOIN products ON order_details.product_id = products.product_id
+                      LEFT JOIN orders ON order_details.order_id = orders.order_id
+                      LEFT JOIN customers ON orders.customer_id = customers.customer_id
+                      GROUP BY customer_name
+                      HAVING SUM(products.price) > 1000.00;
+
+              con esta instruccion estamos uniendo 3 tablas para poder listar lo customer_name y el precio de todos los productos
+              sumados en la order_details este precio tiene que ser mayor que 1000.00 y va a hacer la union de todos estos valores
+              por el customer_name con la GROUP BY instruccion
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT customers.customer_name FROM customers 
+                      WHERE EXISTS( SELECT order_id FROM orders WHERE customer_id = customer.customer_id);
+
+              nos regresa la seleccion de los customer_name q cumplan con la existencia en la tabla orders y esto lo vamos a saber
+              por la union de estas 2 tablas gracias a el customer_id
+
+            postgres=# SELECT customers.customer_name FROM customers 
+                      WHERE EXISTS( SELECT order_id FROM orders WHERE customer_id = customer.customer_id);
+
+              esta misma operacion la podemos hacer para ver los customer que no existen en la tabla orders
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT product_name FROM products WHERE product_id = ANY
+                      ( SELECT product_id FROM order_details WHERE quantity > 120);
+
+              en esta operacion buscamos el product_name donde tengamos un product_id en la tabla order_details que en su
+              quantity sea mayor a 120 any nos ayuda con un valo boleano , esta operacion la verifique con mi propia instruccion sql
+
+            postgres=# SELECT product_name , SUM(quantity) FROM order_details 
+                      LEFT JOIN products ON order_details.product_id = products.product_id 
+                      WHERE product_name = 'Chartreuse verte' GROUP BY product_name;
+
+              Chartreuse verte es un resultado de la instruccion anterior y quise comprobar que valor tenia en su quantity y tiene 
+              793 lo que cumple con su resultado
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT product_name FROM products WHERE product_id = ALL 
+                      ( SELECT product_id FROM order_details WHERE quantity > 10);
+
+            con esta instruccion nos traemos los valores solicitados si todos los valores cumplen con la condicion de que 
+            quantity sea mayor a 10 pero tenemos valore menores asi que nos va a devolver un valor false por ende no va a mostrar
+            nada pero tenemos una condicion para verlos todos
+
+            postgres=# SELECT product_name FROM products WHERE product_id = ALL 
+                      ( SELECT product_id FROM order_details WHERE quantity > 10 AND quantity < 10);
+
+              con esta instruccion vemos que cumple las dos condicione y nos muestra los resultados
+            **
+            </pre>
+            <br>
+            <pre>
+            **
+            postgres=# SELECT product_name, 
+                      CASE 
+                      WHEN price < 10 THEN 'Low price product' 
+                      WHEN price > 50 THEN 'High price product'
+                      ELSE
+                        'Normal product'
+                      END
+                      FROM products;
+
+              con esta instruccion estamos creando una nueva columna q tiene condicione y va a colocar el texto en si se cumple la
+              condicion o no , si no se cumple y no tenemos un else , el valor arojado sera null
+
+            postgres=# SELECT product_name, 
+                      CASE 
+                      WHEN price < 10 THEN 'Low price product' 
+                      WHEN price > 50 THEN 'High price product'
+                      ELSE
+                        'Normal product'
+                      END AS "price category"
+                      FROM products;
+
+              con esta condicion le colocamos un alias a la columna de los case
+            **
+            </pre>
+            **
+            postgres=# 
+            **
+          </div>
       </section>
     </main>
     <footer class="footer_container">
