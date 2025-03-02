@@ -30,7 +30,11 @@
     </header>
     <main class="principal-container">
       <section>
-        <p>
+        <a href="./../../documentation.html" class="arrow-link"><i class="fa-solid fa-arrow-left arrow-left-icon" style="display: flex; justify-content: center; align-items: center;"></i></a>
+        <h3 class="principal-title-prod">Produccion</h3>
+        <div class="information-card-prod">
+          <br>
+          <pre>
           **
             bundle exec puma -C /home/ubuntu/bk-ror/shared/puma.rb                             #ambiente de production
 
@@ -46,7 +50,9 @@
             podemos sustituir la palabra development con production dependiendo la necesidad
 
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             Ver logs de systemd:
               sudo journalctl -u puma.service -n 100
@@ -55,69 +61,93 @@
               cat /home/ubuntu/bk-ror/shared/log/puma.stderr.log
               cat /home/ubuntu/bk-ror/shared/log/puma.stdout.log
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             bundle show puma
 
               con esta instruccion vemos donde esta instalada la gema puma con bundle
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             sudo systemctl stop puma.service
               paramos el servicio de puma.service
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             sudo systemctl daemon-reload
 
               Recargar el daemon de systemd después de realizar cambios
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             sudo systemctl enable puma.service
 
               Habilitar Puma para que se inicie automáticamente al arrancar el sistema
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             sudo systemctl start puma.service
 
               iniciar el servidor de puma
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             sudo systemctl restart puma.service
 
               Reiniciar Puma (esto reiniciará el proceso y cerrará los sockets, lo que podría interrumpir las conexiones en curso)
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             sudo systemctl status puma
               Verificar el estado del servicio de Puma
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             sudo systemctl restart nginx
 
               cuando hacemos cambios en el archivo /etc/nginx/sites-available/default  corremos este comando para actualizar los cambios 
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             systemctl status nginx.service
 
               cuando queremos ver el estado de mi nginx  
             **
+            </pre>
+            <br>
+            <pre>
             **
             tail -f /home/ubuntu/bk-ror/current/log/production.log -n 100
-
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             ps aux | grep rails
 
             Esto mostrará todos los procesos de Rails activos
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             bk-ror/release
 
@@ -125,19 +155,24 @@
 
               comando para borrar los release antiguos
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             EDITOR="vim" bin/rails credentials:edit
 
               para abrir el archivo de credentials
             **
-
+            </pre>
+            <br>
+            <pre>
             **
             RAILS_ENV=production rails assets:precompile --trace
 
               compilar assets en production
             **
-        </p>
+            </pre>
+        </div>
       </section>
     </main>
     <footer class="footer_container">

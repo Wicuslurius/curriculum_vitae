@@ -1,0 +1,15 @@
+.principal-title-prod{
+    text-align: center; 
+    font-size: 35px;
+}
+
+.information-card-prod{
+    border: 1px solid grey; 
+    padding: 20px; 
+    border-radius: 10px;
+}
+
+.title-card-prod{
+    font-size: 25px; 
+    margin: 10px 0;
+}
