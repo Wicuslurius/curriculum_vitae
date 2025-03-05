@@ -16,6 +16,7 @@
 @import url('doc_postgres_style.css');
 @import url('production_style.css');
 @import url('sql_style.css');
+@import url('certification_style.css');
 * {
   margin: 0;
   padding: 0;
