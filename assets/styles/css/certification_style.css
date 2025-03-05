@@ -26,22 +26,55 @@
     padding: 10px 20px; 
     font-size: 20px; 
     font-weight: bold;
+    width: 78%;
 }
 
 .card-img{
     display: flex; 
     flex-direction: row; 
     align-items: center;
+    width: 18%;
 }
 
 .card-icon{
     color: white; 
     font-size: 30px; 
-    margin-right: 30px;
+    margin-left: 30px;
 }
 
 .card-img img{
     border-radius: 10px; 
     width: 130px; 
     height: 100px;
+}
+
+@media (max-width: 768px) {
+
+    .container-cert{
+        width: 95%; 
+    }
+    
+    .box-card-cert{ 
+        flex-direction: column;   
+    }
+
+    .card-text{
+        border-radius: 5px; 
+        font-size: 16px; 
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+    }
+
+    .card-img{
+        display: flex; 
+        flex-direction: column; 
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .card-icon{
+        margin-left: 0;
+        margin-top: 10px;
+    }
 }
