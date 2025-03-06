@@ -22,7 +22,7 @@ toggles.forEach((toggle) => {
 
 /*----------------------------------------------*/
 
-document.getElementById("show_certificate").addEventListener("click", function() {
+/*document.getElementById("show_certificate").addEventListener("click", function() {
 //--------------------------------------------------------------------
     let certificate = document.getElementById("certificate");
     // Guardar valores originales
@@ -80,4 +80,4 @@ document.getElementById("show_certificate").addEventListener("click", function()
         icon_eye.style.display = iconEye_originalDisplay;
         restoreIcon.remove();
     });
-});
+});*/
