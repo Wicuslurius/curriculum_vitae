@@ -20,64 +20,60 @@ toggles.forEach((toggle) => {
     })
 })
 
-/*----------------------------------------------*/
+/*--------------------------------------------------------------------*/
+            /*-------certification View----------*/
 
-/*document.getElementById("show_certificate").addEventListener("click", function() {
-//--------------------------------------------------------------------
-    let certificate = document.getElementById("certificate");
-    // Guardar valores originales
-    let certificate_originalWidth = certificate.style.width;
-    let certificate_originalHeight = certificate.style.height;
-    // Modificar los atributos CSS
-    certificate.style.width = "700px";
-    certificate.style.height = "400px";
-//---------------------------------------------------------------------
-    let box_card_cert = document.getElementById("box-card-cert");
-    // Guardar valores originales
-    let boxCardCert_originalFlexDirection = box_card_cert.style.flexDirection;
-    // Modificar los atributos CSS
-    box_card_cert.style.flexDirection= "column";
-//---------------------------------------------------------------------
-    let card_text = document.getElementById('card-text');
-    let cardText_originalMarginBottom = card_text.style.marginBottom;
+/*variables*/
+const btnCierra = document.querySelector('#btn-cierra');
+const btnAdelanta = document.querySelector('#btn-adelanta');
+const btnRetrocede = document.querySelector('#btn-retrocede');
+const imagenes = document.querySelectorAll('#galeria img');
+const lightbox = document.querySelector('#principal-container');
+const imagenActiva = document.querySelector('#img-activa');
+let indiceImagen = 0;
 
-    card_text.style.marginBottom= '20px';
+/*abrir el lightbox*/
 
-//---------------------------------------------------------------------
-    let card_img  = document.getElementById("card-img");
+const abrelightbox = (event)=>{
+    imagenActiva.src = event.target.src;
+    lightbox.style.display = 'flex';
+    indiceImagen = Array.from(imagenes).indexOf(event.target);
+};
 
-    let cardImg_originalWidth = card_img.style.width;
-    let cardImg_originalMargin = card_img.style.margin;
+imagenes.forEach((imagen) => {
+    imagen.addEventListener('click', abrelightbox);
+});
 
-    card_img.style.width = '40%';
-    card_img.style.margin = '0 auto';
-//---------------------------------------------------------------------
-    let icon_eye = document.getElementById('show_certificate');
+/*cerrar el lightbox*/
 
-    let iconEye_originalDisplay = icon_eye.style.display;
+btnCierra.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
 
-    icon_eye.style.display = 'none';
-//---------------------------------------------------------------------
-    // Crear el nuevo icono
-    let restoreIcon = document.createElement("i");
-    restoreIcon.className = "fa-solid fa-x";
-    restoreIcon.style.cursor = "pointer";
-    restoreIcon.style.marginLeft = "20px";
-    restoreIcon.style.fontSize = '30px';
-    restoreIcon.style.color = 'white'
-    // Agregar el nuevo icono al DOM
-    this.insertAdjacentElement("afterend", restoreIcon);
+/* Adelantar imagen */
 
-    // Evento para restaurar los valores originales y eliminar el icono de restauración
-    restoreIcon.addEventListener("click", function() {
-        certificate.style.width = certificate_originalWidth;
-        certificate.style.height = certificate_originalHeight;
+const adelantarImagen =()=>{
+    if (indiceImagen === imagenes.length -1){
+        indiceImagen = -1;
+    }
+    imagenActiva.src = imagenes[indiceImagen + 1].src;
+    indiceImagen++;
+};
 
-        box_card_cert.style.flexDirection = boxCardCert_originalFlexDirection;
-        card_text.style.marginBottom = cardText_originalMarginBottom;
-        card_img.style.width = cardImg_originalWidth;
-        card_img.style.margin = cardImg_originalMargin;
-        icon_eye.style.display = iconEye_originalDisplay;
-        restoreIcon.remove();
-    });
-});*/
+btnAdelanta.addEventListener('click', adelantarImagen);
+
+/* Retroceder imagen*/
+
+const retrocedeImagen=()=>{
+
+    if(indiceImagen === 0){
+       indiceImagen = imagenes.length;
+    }
+    
+    imagenActiva.src = imagenes[indiceImagen -1].src;
+    indiceImagen--;
+};
+
+btnRetrocede.addEventListener('click', retrocedeImagen);
+/* Final de la vista certificacines */
+/*---------------------------------------------------*/
