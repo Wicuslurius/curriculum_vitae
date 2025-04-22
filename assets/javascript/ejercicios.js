@@ -1,6 +1,62 @@
 alert('hola mundo desde el js de ejercicios');
 
-const hoy = new Date();
+/*
+Ejercicio 0013
+
+en este ejercicio estamos agregando el addEventListener a un elemento html
+capturamos el evento onclick y le pasamos la funcion que queremos accionar 
+despues se dispara la funcion que agrega a un elemento html una leyenda con la fecha capturada en el input
+
+function leeFormulario(){
+  document.getElementById("output").innerHTML = `la fecha seleccionada es: ${document.getElementById("fecha").value}`;
+}
+document.getElementById("boton").addEventListener("click", leeFormulario);
+*/
+
+/*
+Ejercicio 0012
+
+en este ejer0cicio estamos calculando la fecha actual con la fecha a futuro que 
+deseamos colocar , gracias a esto nuestra funcion calcula cuantos dias faltan para poder llegar a la fecha colocada
+si ponemos una fecha anterior a la fecha actual mostrara un mensaje en pantalla para indicar que la fecha ya paso
+*/
+/*
+let hoy = new Date();
+function cuantosDias(){
+  let fechaEvento = new Date(document.getElementById('fecha').value);
+  console.log(fechaEvento);
+  fechaEvento.setHours(0,0,0,0);
+  document.getElementById('output').innerHTML = fechaEvento;
+
+  const milSegEnUnDia = 1000 * 60 * 60 * 24; // los milisegundos en un dia
+  hoy.setHours(0,0,0,0);
+  const diferenciaHoras = Math.abs(fechaEvento.getTimezoneOffset() / 60) - Math.abs(hoy.getTimezoneOffset() / 60);
+  hoy.setHours(hoy.getHours() - diferenciaHoras);
+
+  if (fechaEvento > hoy) {
+    document.getElementById('output').innerHTML = `Faltan ${(fechaEvento.getTime() - hoy.getTime()) / milSegEnUnDia} dias`;
+  }else{
+    document.getElementById('output').innerHTML = 'la fecha ya ha pasado'
+  }
+}
+
+let anio = hoy.getFullYear();
+let mes = hoy.getMonth()+1;
+let dia = hoy.getDate();
+let fechaActual = `${anio}-${mes}-${dia}`;
+
+document.getElementById('fecha').value = fechaActual;
+*/
+/*----------------------------------------------------------------------------------------------------------*/
+/*
+Ejercicio 0011
+  en esta funcion tenemos una constante que instancia una fecha
+  y tenemos una funcion que pone el valor de el elemento con id fecha y guardamos 
+  y ponemos en otro elemento output con un mensaje 
+  para que se pinte el elemento input estamos guardando la fecha actual como fecha por defecto
+*/
+
+/*const hoy = new Date();
 
 function leerFormulario() {
   document.getElementById('output').innerHTML = `la fecha seleccionada es: ${document.getElementById('fecha').value}`; 
@@ -10,7 +66,9 @@ const anio = hoy.getFullYear();
 const mes = hoy.getMonth();
 const dia = hoy.getDate();
 const fechaActual = `${anio}-${mes}-${dia}`;
-document.getElementById('fecha').value = fechaActual;
+document.getElementById('fecha').value = fechaActual;*/
+
+
 /*
 //ejercicio 0010
 //de esta manera leemos un evento javascript en html y disparamos la siguiente funcion la cual nos ayuda 
