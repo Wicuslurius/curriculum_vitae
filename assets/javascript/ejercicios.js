@@ -1,5 +1,69 @@
 alert('hola mundo desde el js de ejercicios');
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 0015 */
+/*
+  en este ejercicio repetimos el cambiar el color de fondo y de la letra de un elemento tomado por su id
+  pero lo hicimos creando una funcion que se reutiliza en 2 casos , al darle a un cuadro negro y uno blanco
+  desde estos elementos agregamos un escuchador click y llamamos una funcion anonima que dispara nuestra funcion
+  configuraFondo, esta funcion recibe 2 parametros y hace que nuestro codigo sea reutilizable despues hacemos lo mismo
+  para  agregar la propiedad cursor en nuestros elementos , pero esta vez utilizando nuestro escuchador , el mouse encima
+  de la caja y fuera de la caja agrega el valor a nuestro elemento
+*/
 
+/* 
+function configuraFondo(colorFondo, colorTexto){
+  document.getElementById("texto").style.backgroundColor = colorFondo;
+  document.getElementById("texto").style.color = colorTexto;
+}
+
+document.getElementById("negro").addEventListener("click", function() {
+  configuraFondo("black", "white");
+});
+
+document.getElementById("blanco").addEventListener("click", function() {
+  configuraFondo("white", "black");
+})
+
+function configuraRaton(puntero){
+  document.body.style.cursor = puntero;
+}
+
+document.getElementById("negro").addEventListener("mouseover", function() {
+  configuraRaton("pointer");
+});
+
+document.getElementById("blanco").addEventListener("mouseover", function() {
+  configuraRaton("pointer");
+});
+
+document.getElementById("negro").addEventListener("mouseout", function() {
+  configuraRaton("auto");
+});
+
+document.getElementById("blanco").addEventListener("mouseout", function() {
+  configuraRaton("auto");
+});
+*/
+
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 0014 */
+/* 
+  En este ejercicio estamos agregando un escuchador de evento click con una funcion anonima que 
+  al momento de se ejecutado el click en el elemento esperado se modificaran sus propiedades css
+  como el color de fondo y el color de la letra
+*/
+/*
+document.getElementById("negro").addEventListener("click", function() {
+  document.getElementById("texto").style.backgroundColor = "black";
+  document.getElementById("texto").style.color = "white";
+});
+
+document.getElementById("blanco").addEventListener("click", function() {
+  document.getElementById("texto").style.backgroundColor = "white";/*
+  document.getElementById("texto").style.color = "black";
+})
+*/
+/* --------------------------------------------------------------------------- */
 /*
 Ejercicio 0013
 
@@ -12,7 +76,7 @@ function leeFormulario(){
 }
 document.getElementById("boton").addEventListener("click", leeFormulario);
 */
-
+/* --------------------------------------------------------------------------- */
 /*
 Ejercicio 0012
 
