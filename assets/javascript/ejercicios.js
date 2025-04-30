@@ -1,7 +1,81 @@
 alert('hola mundo desde el js de ejercicios');
 
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 19 */
+/*
+En este ejercicio queremos extraer el numero dentro de la cadena de texto
+El metodo match nos regresa un array , este ejercicio se parece al anterior solo 
+que ahora agregamos un mensaje al extraer la cadena o si no extrae nada nos regresa un nuevo mensaje
+y modificamos el patron para extraer mas de un numero agregando la letra ( g ) y el array toma los dos valores devueltos
+*/
+/*
+function extraerCP(){
+  let direccion = document.getElementById("texto").value ;
+  let cpPatron = /\d{5}/g;
+  let cp = direccion.match(cpPatron);
 
+  if(!cp){
+    document.getElementById("output").innerHTML = "El texto insertado no contiene un CP";
+  }else{
+    document.getElementById("output").innerHTML = `El CP es: ${cp}`;
+  }
+}*/
 
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 18 */
+/*
+En este ejercicio queremos extraer el numero dentro de la cadena de texto
+El metodo match nos regresa un array
+*/
+/*
+let direccion = "Plaza del ayuntamiento , 08029 Barcelona";
+let cpPatron = /\d{5}/;
+let cp = direccion.match(cpPatron);
+console.log(cp);
+document.getElementById("output").innerHTML = `El CP es:  ${cp}`
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 0017 */
+/*
+  en este ejercicio hacemos una funcion que se dispara cada vez que damos click en un boton en el front end
+  esta funcion nos ayuda a averiguar si la cadena de texto ingresada en el elemento input contiene numeros
+  el regex dice:
+  /..../ dentro de la exprecion
+  \d     analice si tiene numeros
+  +      mas de un numero
+
+  y con una condicion ternaria avicemos en un elemento p 
+*/
+/*
+function contieneNumeros(){
+  let texto = document.getElementById("texto").value;
+  let numeroPatron = /\d+/;
+  let contieneNumeros = numeroPatron.test(texto);
+  contieneNumeros ? document.getElementById("output").innerHTML = "El texto insertado contiene numeros" : 
+    document.getElementById("output").innerHTML = "El texto insertado NO contiene numeros";
+}
+
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 0016 */
+/*
+  En este ejercicio guardamos en la variable texto un dato string
+  despues creamos un patron regex con el cual buscaremos una coincidencia en el texto en este caso nuestro regex
+  indica la busqueda de una letra seguida de un numero o1 a4 , el resultado guardado en la ultima variable es un valor boleano
+
+  /...../g = los slashes (/) delimitan la expresión regular, y la g al final significa "global", es decir, buscar 
+    todas las coincidencias en el texto, no solo la primera.
+  [aeiou]: esto es una clase de caracteres, que coincide con una sola vocal minúscula: a, e, i, o, o u.
+  \d: representa un solo dígito numérico (0 al 9).
+
+*/
+/*
+let texto = "ape5"
+let patron = /[aeiou]\d/g;
+let correspondeAPatron = patron.test(texto);
+
+console.log(correspondeAPatron);
+/*
 /* --------------------------------------------------------------------------- */
 /*Ejercicio 0015 */
 /*
