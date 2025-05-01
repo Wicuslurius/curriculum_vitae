@@ -1,5 +1,52 @@
 alert('hola mundo desde el js de ejercicios');
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 22 */
+/*
+En este ejercicio queremos invertir lo seleccionado por el patron
+el patron nos dice de la cadena de caracteres si caracteres especialos 
+despues de seleccionarlos inviertalos y muestreme el resultado para hacer el remplazo utilizamos 
+el metodo replace al cual le pasamos parametros
 
+el resultado mostrado es = Nombre: aranguren , Miguel 1994
+*/
+/*
+let patron = /(\w+)\s(\w+)/;
+let texto = "Nombre: Miguel aranguren 1994";
+let nuevoTexto = texto.replace(patron, "$2 , $1")
+document.getElementById("output").innerHTML = nuevoTexto;
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 21 */
+/*
+En este ejercicio tenemos un patron el cual = 
+debe identificar un numero mayor o igual a 1 de caracteres no especiales(\w+)
+seguidos de un espacio(\s) y despues de otros caracteres no especiales(\w+)
+
+el resultado del patron es array [ "Miguel aranguren" , "Miguel" , "aranguren" ]
+*/
+
+/*let patron = /(\w+)\s(\w+)/;
+let texto = "Nombre: Miguel aranguren 1994";
+let resultado = texto.match(patron);
+document.getElementById("output").innerHTML = resultado;
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 20 */
+/*
+En este ejercicio estamos disparando una funcion desde un boton 
+esta funcion va a tomar el valor del elemento con id="texto"
+depues indicamos el patron a buscar que nos dice = toma todos los numeros de la cadena de texto 
+despues buscamos las coincidencias y como match nos regresa un array con las coincidencias lo guardamos en la variable numeros
+luego usamos el metodo join para unir todos los valores del array el cual no tiene espacios ni caracteres especiales
+por ultimo enviamos el valor al elemento con id = output
+*/
+/*function envia(){
+  let codigoMatricula = document.getElementById("texto").value ;
+  let numerosPatron = /\d+/g;
+  let numeros = codigoMatricula.match(numerosPatron);
+  let matriculaCorrecta = numeros.join("");
+  document.getElementById("output").innerHTML = matriculaCorrecta;
+}*/
 /* --------------------------------------------------------------------------- */
 /*Ejercicio 19 */
 /*
