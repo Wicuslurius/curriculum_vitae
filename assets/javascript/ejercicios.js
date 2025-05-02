@@ -1,5 +1,54 @@
 alert('hola mundo desde el js de ejercicios');
 /* --------------------------------------------------------------------------- */
+/*Ejercicio 23 */
+/*
+  Este codigo js nos indica la inicializaion de una variable texto 
+  despues asignamos el valor de esa variable a un elemento html en su atributo value
+
+  Tenemos 2 funciones que se disparan al momento de dar click en su respectivo boton
+  la funcion eliminaEspacios
+    guarda en una variable texto el valor de nuestro elemento html con id texto1
+    luego declaramos un patron /\s+/g; 
+            /.../ → Delimita la expresión regular.
+            \s → Significa "cualquier espacio en blanco", incluyendo:
+            Espacio
+            Tabulación (\t)
+            Nueva línea (\n)
+            + → Significa "uno o más" del carácter anterior. O sea, uno o más espacios en blanco seguidos.
+            g → Es una bandera que significa "global", lo que hace que busque todas las coincidencias en el texto, no solo la primera.
+            
+            /\s{2,}/g explicada de forma simple:
+            \s → representa un espacio en blanco (espacio, tabulación, salto de línea, etc.).
+            {2,} → significa dos o más repeticiones del carácter anterior (en este caso, espacios en blanco).
+            g → bandera global, busca todas las coincidencias en el texto, no solo la primera.
+
+            /^\s+|\s+$/ explicada de forma simple:
+            ^ → indica el inicio de la cadena.
+            \s+ → significa uno o más espacios en blanco.
+            | → es el operador "o", separa dos condiciones.
+            \s+$ → significa uno o más espacios en blanco al final de la cadena ($ indica el final). 
+    
+    por ultimo tenemos una funcion la cual le agrega a los 2 elementos con id texto1 y texto2 en su atributo
+    value el valor de una cadena vacia
+*/
+/*
+let texto = "Lorem ec h soh saoh sa hs has hoa hno hneuhen hao honn hsoauh sho asnoh nohno hsn os hoas h";
+document.getElementById("texto1").value = texto ;
+
+function eliminaEspacios() {
+  texto = document.getElementById("texto1").value;
+  //1//let patron = /\s{2,}/g;
+  //2//let patron = /^\s+|\s+$/;
+  let patron = /\s+/g;
+  let textoSinEspacios = texto.replace(patron, "");
+  document.getElementById("texto2").value = textoSinEspacios;
+}
+function borraTodo(){
+  document.getElementById("texto2").value = "";
+  document.getElementById("texto1").value = "";
+}
+  */
+/* --------------------------------------------------------------------------- */
 /*Ejercicio 22 */
 /*
 En este ejercicio queremos invertir lo seleccionado por el patron
