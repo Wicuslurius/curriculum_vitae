@@ -1,4 +1,139 @@
-alert('hola mundo desde el js de ejercicios');
+//alert('hola mundo desde el js de ejercicios');
+
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 28 */
+/*
+  en este ejercicio nuevamente tenemos un flag sticky en el patron o regex escrito con la y 
+  la cual va a manejar un indice cuando encuentre una coincidencia y va a guardar la pocicion con last index
+  luego va a ejecutarse mi bucle for para seguir buscando en la cadena
+  cada vez que encuentre una coincidencia va a guardarse la ultima posicion con last index y seguira buscando
+  
+  una cifra(\d)
+  un punto(\.)
+  un espacio(\s)
+  uno o mas caracteres alfabeticos([a-zA-Z]+)
+  un espacio o el final de la cadeda(\s|$)
+*/
+/*
+let texto = "1. manzana 2. pera 3. banana 4. naranja";
+let patron = /\d\.\s[a-zA-Z]+(\s|$)/y;
+let prueba = texto.match(patron);
+
+for(let i = 0; i < 4 ; i++) {
+  console.log(`prueba: ${prueba}`);
+  console.log(`lastIndex: ${patron.lastIndex}`);
+  prueba = texto.match(patron);
+}
+*/
+
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 27 */
+/*
+  en este ejercicio vemos una cadena de texto con letras y numeros 
+  despues tenemos un regex el cual nos va a buscar la coincidencia de un numero 
+  con la flag sticky el cual se coloca como y al final del regex , luego le indicamos 
+  al patron con el metodo lastIndex donde se encuentra esa coincidencia en nuestra cadena de caracteres
+  luego activamos el regex con el metodo match y cuando encuentra la primera coincidencia 
+  nos muestra en pantalla el resultado buscado en consola y tambien mostramos el siguiente indice de donde
+  se encuentra la coincidencia
+*/
+/*
+
+let cadena = "escribo 3 numeros 123";
+let patron = /\d+/y;
+patron.lastIndex = 8;
+let prueba = cadena.match(patron);
+console.log(`prueba: ${prueba}`);
+console.log(`lastIndex: ${patron.lastIndex}`);
+
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 26 */
+/*
+  Tenemos una funcion para tomar las palabras de una cadena de texto 
+  toma el texto de nuestro elemento html
+  despues genera un array con las palabras cumpliendo un patron el cual le dice que si 
+    encuentra caracteres especiales separe ahi las palabras
+  creamos una variable textoAEscribir
+
+  despues un condicional que comprueba si el array existe si no arroje un mensaje
+  en el if vemos un bucle forEach que es el mismo for con el cual vamos a 
+  pintar cada palabra en la pantalla , la varable textoAEscribir es un espacio en blanco,
+    el indice nos dice que puesto ocupa el elemento en la lista mas uno y el elemento como tal es el valor de esa pocicion
+  por ultimo insertamos una leyenda en el output indicando cuantas palabras existen en el array
+*/
+/*
+function encuentraPalabras(){
+  let texto = document.getElementById("texto").value ;
+  let palabras = texto.split(/[\s\.,;:!?]+/);
+  console.log(palabras);
+
+  let textoAEscribir = "";
+  if (palabras) {
+    palabras.forEach(function(elemento, indice) {
+      textoAEscribir = `${textoAEscribir} ${indice+1}: ${elemento.trim()}<br>`;
+      console.log(textoAEscribir);
+    })
+    document.getElementById("output").innerHTML = `El texto insertado contiene ${palabras.length} palabras: <br> ${textoAEscribir}`;
+  }else{
+    document.getElementById("output").innerHTML = "El texto insertado no contiene ninguna palabra";
+  }
+}
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 25 */
+/*
+  en este ejercicio tenemos un patron regex el cual nos va a comprobar que si se encuentran 
+  \s* = espacios en blanco
+  [a-zA-Z]+ = luego mas de una letra seguida se a minuscula y mayuscula
+  \s* = otro espacio en blanco
+
+  con el metodo mach saca el patron que coincide en ur array
+  lo contamos y lo imprimimos 
+*/
+
+//function encuentraPalabras() {
+//  let texto = document.getElementById("texto").value ;
+//  let patron = /\s*[a-zA-Z]+\s*/g ;
+//  let palabras = texto.match(patron);
+//  console.log(palabras);
+
+//  let textoAEscribir = "";
+
+//  if (palabras){
+//    palabras.forEach(function(elemento, indice) {
+//      textoAEscribir = `${textoAEscribir} ${indice+1}: ${elemento.trim()}<br> `;
+//      console.log(textoAEscribir);
+//    })
+//    document.getElementById("output").innerHTML = `El texto insertado contiene ${palabras.length} palabras: <br> ${textoAEscribir}`
+//  }else{
+//    document.getElementById("output").innerHTML = "El texto insertado no contiene ninguna palabra";
+//  }
+//}
+
+
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 24 */
+/*
+  en este ejercicio asignamos un mensaje a un elemento en html , este mensaje tiene
+  caracteres especiales ,con la primera funcion queremos remplazar los caracteres especiales con comillas osea nada
+  gracias a un patron regex y nuestro metodo replace, y tenemos un segundo metodo ,que borra los textos
+  de las dos cajas
+*/
+/*
+let texto = "pero, porque? $ veo todas estas letras%% raras+?";
+document.getElementById("texto1").value = texto;
+function eliminaCaracteresEspeciales(){
+  texto = document.getElementById("texto1").value;
+  let patron = /[!@#$%^?+]/g;
+  let textoSinEspacios = texto.replace(patron, "");
+  document.getElementById("texto2").value = textoSinEspacios;
+}
+function borrarTodo() {
+  document.getElementById("texto2").value = "";
+  document.getElementById("texto1").value = "";
+}
+*/
 /* --------------------------------------------------------------------------- */
 /*Ejercicio 23 */
 /*
@@ -381,14 +516,14 @@ document.getElementById("day").innerHTML = queDia();*/
 //--------------------------------------------------------------->
 //ejercicio cinco
 
-/*const listaI = document.querySelectorAll('#numeros li')
+  /*const listaI = document.querySelectorAll('#numeros li')
 
-const mensaje = `hay ${listaI.length} elementos en la lista ul "numeros"`;
-document.getElementById('output').innerHTML = mensaje;
+  const mensaje = `hay ${listaI.length} elementos en la lista ul "numeros"`;
+  document.getElementById('output').innerHTML = mensaje;
 
-for (let i=0; i < listaI.length; i+=1) {
-  listaI.item(i).value = i+1;
-}*/
+  for (let i=0; i < listaI.length; i+=1) {
+    listaI.item(i).value = i+1;
+  }*/
 //--------------------------------------------------------------->
 //ejercicio cuatro
 
