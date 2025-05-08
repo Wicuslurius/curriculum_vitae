@@ -1,6 +1,118 @@
 //alert('hola mundo desde el js de ejercicios');
 
 /* --------------------------------------------------------------------------- */
+/*Ejercicio 30 */
+/*
+  En este ejercicio estamos en un objeto el cual contiene una propiedad anioRef
+  y tiene 3 metodos dentro los cuales calcularan si el anio es bisiesto y nos regresa un valor true o false
+  tambien calcula cuando cae el dia de semana santa y pro ultimo nos dice en que dia de la semana cae navidad
+  el valor de la fecha que sacamos al principio y poderla utilizar en nuestras funciones usamos la palabra this
+  La palabra reservada this en JavaScript hace referencia al objeto desde el cual 
+    se está ejecutando el código en ese momento. Su valor cambia dependiendo de dónde y cómo se usa.
+*/
+/*
+let anio = {
+  anioRef: (new Date).getFullYear(),
+  bisiesto(){
+    let anio = this.anioRef;
+    if((anio % 400 == 0) || (anio % 4 == 0) && anio % 100 !=0){
+      return true;
+    }else{
+      return false;
+    }
+  },
+  semanaSanta(){
+    let a;
+    let b;
+    let c;
+    let anio = this.anioRef;
+    let d;
+    let e;
+    let M;
+    let N;
+    let dia;
+    let mes;
+
+    if(anio < 2099){
+      M = 24;
+      N = 5;
+    }else if(anio < 2199){
+      M = 24;
+      N = 6;
+    }else if(anio < 2299){
+      M = 25;
+      N = 0;
+    }else if(anio < 2399){
+      M = 26;
+      N = 1;
+    }else if(anio < 2499){
+      M = 25;
+      N = 1;
+    }
+    a = anio % 19;
+    b = anio % 4;
+    c = anio % 7;
+    d = ((19 * a) + M) % 30;
+    e = ((2 * b) + (4 * c) + (6 * d) + N) % 7;
+
+    if (d + e < 10){
+      dia = d + e + 22;
+      mes = 3;
+    }else{
+      dia = d + e - 9;
+      mes = 4;
+    }
+
+    if(dia == 26 && mes == 4){
+      dia = 19;
+      mes = 4 ;
+    }
+
+    if(dia == 25 && mes == 4 && d == 28 && e == 6 && a > 10){
+      dia = 18;
+      mes = 4;
+    }
+
+    return new Date(anio, mes - 1, dia);
+  },
+  diaNavidad(){
+    const nombreDia = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+    let navidad = new Date(this.anioRef, 11, 25);
+    return nombreDia[navidad.getDay()];
+  }
+}
+
+document.getElementById('output').innerHTML = anio.semanaSanta();
+document.getElementById('output2').innerHTML = anio.bisiesto();
+document.getElementById('output3').innerHTML = anio.diaNavidad();
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 29 */
+/*
+  en este ejercicio podemos notar que tenemos una variable llamada objeto 
+  la cual es un objeto literal dentro de este objeto vemos que tiene 2 propiedades (numero y color)
+  y tenemos una funcion anonima dentro de la propiedad descripcion la cual nos regresa un texto 
+
+  luego buscamos un elemento por su id , le insertamos en el html el contenido del objeto, 
+    la instruccion JSON.stringify(objeto) convierte el objeto a texto pero no incluye funciones
+    asi que la propiedad descripcion no se muestra
+
+  en la otra line a buscamos un elemento por su id 2 , y le insertamos el resultado de nuestra
+  funcion el cual es un texto 
+*/
+/*
+let objeto = {
+  numero: 123,
+  color: "rojo",
+  descripcion: function () {
+    return 'soy un objeto rojo con el numero 123';
+  }
+};
+
+document.getElementById('output').innerHTML = JSON.stringify(objeto);
+document.getElementById('output2').innerHTML = objeto.descripcion();
+*/
+/* --------------------------------------------------------------------------- */
 /*Ejercicio 28 */
 /*
   en este ejercicio nuevamente tenemos un flag sticky en el patron o regex escrito con la y 
