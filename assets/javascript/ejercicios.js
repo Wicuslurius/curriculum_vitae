@@ -1,5 +1,39 @@
 //alert('hola mundo desde el js de ejercicios');
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 32 */
+/*
+  en este ejercicio vemos el uso de el BOM el browser object model o como podemos verla 
+  el window con el cual estamos estrayendo el idioma del navegador para presentar nuestra pagina
+  y poder pintar en los output el mensaje correspondiente
+*/
+/*
+let idiomas = {
+  "es-Es": 'espaniol',
+  "en-US": 'ingles americano',
+  "en-UK": 'ingles britanico'
+};
+let idiomaNavegador = window.navigator.language;
+let idioma = idiomas[idiomaNavegador] || 'desconocida';
+document.getElementById('output').innerHTML = idiomaNavegador;
+document.getElementById('output2').innerHTML = idioma;
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 31 */
+/*
+  Array asociativos
+  en este ejemplo podemos ver una serie de llave valor el cual vamos a poder acceder 
+  con un par de corchetes cuadrados colocando como valor la llave correspondiente
+*/
+/*
+let idiomas = {
+  "es-Es": 'espaniol',
+  "en-US": 'ingles americano',
+  "en-UK": 'ingles britanico'
+};
 
+let idioma = idiomas["en-US"];
+document.getElementById("output2").innerHTML = `El idioma elegido es: ${idioma}`;
+*/
 /* --------------------------------------------------------------------------- */
 /*Ejercicio 30 */
 /*
