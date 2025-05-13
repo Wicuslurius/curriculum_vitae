@@ -1,4 +1,146 @@
 //alert('hola mundo desde el js de ejercicios');
+
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 36 */
+/*
+  por ultimo tenemos lacreacion de un objeto con un nuevo campo cubierta 
+  y una funcion muestraCubierta, guardamos en la variable cubierta1 una etiqueta img inicializada
+  luego le agregamos a su atributo src el valor correspondiente a la ruta de la imagen
+  inicializamos nuestro objeto autor
+  inicializamos nuestro objeto libro y le agregamos el objeto autor , la variable cubierta1
+  por ultimo a nuestro objeto libro1 le llamamos el metodo muestraCubierta() despues de inincializado
+  y este metodo nos pinta en el body el valor que venga en cubierta del objeto 
+*/
+/*No tiene html
+
+*/
+/*
+function Libro(titulo, autor, anio, editor, cubierta){
+  this.titulo = titulo;
+  this.autor = autor;
+  this.anio = anio;
+  this.editor = editor;
+  this.cubierta = cubierta;
+  this.muestraCubierta = function(){
+    document.body.appendChild(this.cubierta);
+  }
+};
+
+function Autor(nombre, apellido){
+  this.nombre = nombre;
+  this.apellido = apellido;
+};
+
+let cubierta1 = new Image();
+cubierta1.src = "./../assets/img/img_exercise/Cover_AnalisisDatosExcel.jpg";
+let autor1 = new Autor("alessandra", "salvaggio");
+let libro1 = new Libro("analisis de datos con excel", autor1, "2025", "LSWR", cubierta1);
+libro1.muestraCubierta();
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 35 */
+/*
+No tiene html
+  en este ejercicio creamos el objeto libro y el objeto Autor 
+  con el cual nos podemos ayudar para tener un objeto dentro de un objeto y 
+  poder tener toda la informacion
+  al final podemos ver la ruta para hacer la consulta del nombre del objeto autor
+*/
+/*
+function Libro(titulo, autor, anio, editor){
+  this.titulo = titulo;
+  this.autor = autor;
+  this.anio = anio;
+  this.editor = editor;
+};
+
+function Autor(nombre, apellido){
+  this.nombre = nombre;
+  this.apellido = apellido;
+};
+let autor1 = new Autor("alessandra", "salvaggio");
+let libro1 = new Libro("analisis de datos con excel", autor1, "2025", "LSWR");
+let libro2 = new Libro("Ruby on Rails", "Miguel", "2025", "LSWR");
+
+console.log(libro1);
+console.log(libro1.autor.nombre)
+console.log(libro2);
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 34 */
+/*
+  No tiene html
+  en este ejercicio tenemos la creacion de un objeto despues instanciamos este objeto
+  le pasamos parametros y podemos verlo en pantalla 
+  como podemos ver se instancia el objeto en una variable libro1 y cuando lo vemos
+  en la consola cada valor tiene su llave con el nombre que colocamos despues de la 
+  palabra reservada this
+*/
+/*
+function Libro(titulo, autor, anio, editor){
+  this.title = titulo;
+  this.author = autor;
+  this.year = anio;
+  this.editor_man = editor;
+};
+
+
+let libro1 = new Libro("analisis de datos con excel", "alessandra", "2025", "LSWR");
+let libro2 = new Libro("Ruby on Rails", "Miguel", "2025", "LSWR");
+
+console.log(libro1);
+console.log(libro2);
+*/
+/* --------------------------------------------------------------------------- */
+/*Ejercicio 33 */
+/*
+  en este ejercicio podemos ver la aplicacion de una funcion para contar palabras en un texto
+  en la constante palabras guardamos un texto que viene de nuestro text area 
+    este texto lo tratamos con nuestro metodo split el cual divide el texto en un array de palabras
+    usa una expresion regular para separar por espacios \s y signos de puntuacion como .,;:!?
+    el + indica que se dividira por una o mas ocurrencias censecutivas de eses caracteres
+    despues vemos el metodo filter el cual utiliza una nueva funcion con el array y elimina los elementos vacios del array
+    el return !!palabra nos regresara un valor boleano 
+        Por ejemplo:
+
+        !!"hola" → true
+
+        !!"" → false
+
+        Entonces, filter solo mantiene los elementos que no son cadenas vacías ("").
+
+    tenemos una constante recuento que es un hash;
+    luego tenemos un bucle for en el cual vamos a iterar la cantidad de veces que nos de el conteo del array 
+    luego en la constante palabra guarda la palabra en la pocicion de palabras[i] , y utiliza el condicional 
+    para contar cuantas veces aparece la palabra y agregar un valor a la llave puesta 
+    luego de recorrer el array con su comprovacion va a pintar la informacion en el output con un nuevo bucle 
+    
+*/
+/*
+
+function cuentaFrecuenciaPalabras(){
+  const palabras = document.getElementById("texto").value.split(/[\s.,;:!?]+/).filter(function(palabra){return !!palabra;});
+
+  const recuento = {};
+  recuento["TOTAL"] = palabras.length;
+  for(let i = 0; i < palabras.length; i += 1){
+    const palabra = palabras[i];
+    if (recuento[palabra]){
+      recuento[palabra] += 1;
+    }else{
+      recuento[palabra] = 1;
+    }
+  }
+
+  let clave = "";
+  let textoAMostrar = "";
+  for (clave in recuento) {
+    textoAMostrar += (`${clave}: ${recuento[clave]}<br/>`);
+  }
+
+  document.getElementById('output').innerHTML = textoAMostrar;
+}
+*/
 /* --------------------------------------------------------------------------- */
 /*Ejercicio 32 */
 /*
